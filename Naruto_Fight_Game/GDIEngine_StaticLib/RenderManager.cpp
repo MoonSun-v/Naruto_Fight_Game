@@ -36,6 +36,14 @@ void RenderManager::DrawImageCenter(Gdiplus::Bitmap* bitmap, float centerX, floa
 	g_pBackBufferGraphics->DrawImage(bitmap, x, y);
 }
 
+void RenderManager::DrawImageClip(Gdiplus::Bitmap* bitmap, float x, float y, const Gdiplus::Rect& srcRect)
+{
+	if (!g_pBackBufferGraphics || !bitmap) return;
+
+	Gdiplus::Rect destRect((int)x, (int)y, srcRect.Width, srcRect.Height);
+	g_pBackBufferGraphics->DrawImage(bitmap, destRect, srcRect.X, srcRect.Y, srcRect.Width, srcRect.Height, Gdiplus::UnitPixel);
+}
+
 void RenderManager::DrawAABB(const AABB& box, Gdiplus::Color color)
 {
 	if (!g_pBackBufferGraphics) return;
