@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Character.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Object.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="WindowGame.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Character.cpp" />
     <ClCompile Include="GDIEngine_StaticLib.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Object.cpp" />

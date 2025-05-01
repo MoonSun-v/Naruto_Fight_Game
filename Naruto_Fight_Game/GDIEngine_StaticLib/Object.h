@@ -16,5 +16,4 @@ public:
 	void SetPosition(float x, float y) { position.x = x; position.y = y; }
 	void SetPosition(const Vector2& pos) { position = pos; }
 	Vector2 GetPosition() const { return position; }
-
 };
