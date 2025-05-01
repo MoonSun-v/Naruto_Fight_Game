@@ -1,10 +1,12 @@
 #include "framework.h"
 #include "MainApp.h"
-// #include "MenuScene.h"
-// #include "PlayScene.h"
-// #include "EndScene.h"
+#include "StartScene.h"
+#include "Map1Scene.h"
+#include "Map2Scene.h"
+#include "Map3Scene.h"
+#include "EndScene.h"
 
-// #include "../GDIEngine_StaticLib/SceneManager.h"
+#include "../GDIEngine_StaticLib/SceneManager.h"
 
 
 void MainApp::Initialize()
@@ -12,16 +14,18 @@ void MainApp::Initialize()
 	__super::Initialize(); // WindowGame::Initialize()
 
 	// 씬 생성 
-	// SceneManager::Get().CreateScene<MenuScene>();
-	// SceneManager::Get().CreateScene<PlayScene>();
-	// SceneManager::Get().CreateScene<EndScene>();
+	SceneManager::Get().CreateScene<StartScene>();
+	SceneManager::Get().CreateScene<Map1Scene>();
+	SceneManager::Get().CreateScene<Map2Scene>();
+	SceneManager::Get().CreateScene<Map3Scene>();
+	SceneManager::Get().CreateScene<EndScene>();
 
-	// SceneManager::Get().ChangeScene(Scene_Menu); // 처음엔 메뉴 씬부터 시작
+	SceneManager::Get().ChangeScene(Scene_Start); // 처음 씬 
 }
 
 void MainApp::ShutDown()
 {
-	__super::ShutDown(); //  WindowGame::Shutdown();
+	__super::ShutDown(); // WindowGame::Shutdown();
 }
 
 void MainApp::MessageProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)

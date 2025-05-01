@@ -14,8 +14,10 @@ public:
 
 	enum SceneType
 	{
-		Scene_Menu,
-		Scene_Play,
+		Scene_Start,
+		Scene_Map1,
+		Scene_Map2,
+		Scene_Map3,
 		Scene_End
 	};
 };
