@@ -79,7 +79,24 @@ void Character::Render()
 
     const AnimationFrame& frame = frames[currentFrameIndex];
 
-    RenderManager::Get().DrawImageClip(pBitmap, position.x, position.y, frame.srcRect);
+    if (transparentColor.GetAlpha() == 0 &&
+        transparentColor.GetRed() == 0 &&
+        transparentColor.GetGreen() == 0 &&
+        transparentColor.GetBlue() == 0)
+    {
+        RenderManager::Get().DrawImageClip(pBitmap, position.x, position.y, frame.srcRect);
+    }
+    else
+    {
+        RenderManager::Get().DrawImageClipWithColorKey(
+            pBitmap,
+            position.x, position.y,
+            frame.srcRect,
+            transparentColor // <- Player가 설정한 값
+        );
+    }
+   
+
     RenderManager::Get().DrawAABB(GetAABB());
 }
 

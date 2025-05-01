@@ -29,6 +29,12 @@ public:
 	// Atlas Bitmap Image 활용 
 	void DrawImageClip(Gdiplus::Bitmap* bitmap, float x, float y, const Gdiplus::Rect& srcRect);
 
+	void DrawImageClipWithColorKey(
+		Gdiplus::Bitmap* bitmap,
+		float x, float y,
+		const Gdiplus::Rect& srcRect,
+		Gdiplus::Color transparentColor);
+
 	// [ 더블 버퍼링을 활용한 Draw 함수들 ] 백 버퍼에 그린 후 -> 프론트 버퍼에 복사 
 	// BeginDraw() -> Draw() -> EndDraw() 
 	void BeginDraw()

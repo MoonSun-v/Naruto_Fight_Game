@@ -44,6 +44,29 @@ void RenderManager::DrawImageClip(Gdiplus::Bitmap* bitmap, float x, float y, con
 	g_pBackBufferGraphics->DrawImage(bitmap, destRect, srcRect.X, srcRect.Y, srcRect.Width, srcRect.Height, Gdiplus::UnitPixel);
 }
 
+void RenderManager::DrawImageClipWithColorKey(
+	Gdiplus::Bitmap* bitmap,
+	float x, float y,
+	const Gdiplus::Rect& srcRect,
+	Gdiplus::Color transparentColor)
+{
+	if (!g_pBackBufferGraphics || !bitmap) return;
+
+	Gdiplus::ImageAttributes attr;
+	attr.SetColorKey(transparentColor, transparentColor);
+
+	Gdiplus::Rect destRect((int)x, (int)y, srcRect.Width, srcRect.Height);
+
+	g_pBackBufferGraphics->DrawImage(
+		bitmap,
+		destRect,
+		srcRect.X, srcRect.Y,
+		srcRect.Width, srcRect.Height,
+		Gdiplus::UnitPixel,
+		&attr
+	);
+}
+
 void RenderManager::DrawAABB(const AABB& box, Gdiplus::Color color)
 {
 	if (!g_pBackBufferGraphics) return;

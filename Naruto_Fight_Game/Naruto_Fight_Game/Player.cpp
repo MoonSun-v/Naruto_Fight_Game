@@ -11,6 +11,9 @@
 Player::Player()
     : Character(L"../Resources/Naruto.png", L"../Resources/Naruto/Naruto_Idle.txt")
 {
+    // 연두색 투명 처리
+    transparentColor = Gdiplus::Color(0, 128, 0);
+
     // Character 쪽에서 이미지와 애니메이션 로딩 및 collider 초기화 다 처리됨
 }
 
