@@ -15,6 +15,10 @@ Character::Character(const std::wstring& atlasPath, const std::wstring& motPath)
         OutputDebugString(L"[ERROR] 아틀라스 이미지 로딩 실패!\n");
         return;
     }
+    else
+    {
+        OutputDebugString(L"[ERROR] 아틀라스 이미지 로딩 성공!\n");
+    }
 
     LoadAnimation(motPath);
 }
@@ -32,6 +36,10 @@ void Character::LoadAnimation(const std::wstring& motPath)
         OutputDebugString(L"[ERROR] .mot 파일 로딩 실패!\n");
         return;
     }
+    else
+    {
+        OutputDebugString(L"[ERROR] .mot 파일 로딩 성공!\n");
+    }
 
     int frameCount = 0;
     file >> frameCount;
@@ -39,17 +47,8 @@ void Character::LoadAnimation(const std::wstring& motPath)
     for (int i = 0; i < frameCount; ++i)
     {
         int l, t, r, b, offsetX, offsetY;
-        file >> l;
-        file.ignore(1); // ','
-        file >> t;
-        file.ignore(1);
-        file >> r;
-        file.ignore(1);
-        file >> b;
-        file.ignore(1);
-        file >> offsetX;
-        file.ignore(1);
-        file >> offsetY;
+        wchar_t comma;
+        file >> l >> comma >> t >> comma >> r >> comma >> b >> comma >> offsetX >> comma >> offsetY;
 
         frames.emplace_back(l, t, r, b, 0.1f); // 기본 0.1초 per frame
     }
@@ -71,7 +70,7 @@ void Character::Update()
         }
     }
 
-    Object::Update();
+    UpdateCollider();
 }
 
 void Character::Render()
@@ -81,4 +80,15 @@ void Character::Render()
     const AnimationFrame& frame = frames[currentFrameIndex];
 
     RenderManager::Get().DrawImageClip(pBitmap, position.x, position.y, frame.srcRect);
+    RenderManager::Get().DrawAABB(GetAABB());
+}
+
+void Character::UpdateCollider()
+{
+    if (!frames.empty())
+    {
+        auto& rect = frames[currentFrameIndex].srcRect;
+        collider.m_Center = position + Vector2(rect.Width / 2.0f, rect.Height / 2.0f);
+        collider.m_Extent = Vector2(rect.Width / 2.0f, rect.Height / 2.0f);
+    }
 }

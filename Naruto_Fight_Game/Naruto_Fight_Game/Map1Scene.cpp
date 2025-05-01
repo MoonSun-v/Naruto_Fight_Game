@@ -2,12 +2,21 @@
 #include "Map1Scene.h"
 #include "MainApp.h"
 
+#include "Player.h"
+
 #include "../GDIEngine_StaticLib/SceneManager.h"
 #include "../GDIEngine_StaticLib/InputManager.h"
+#include "../GDIEngine_StaticLib/TimeManager.h"
 
 void Map1Scene::Enter()
 {
 	__super::Enter();
+
+	TimeManager::Get().StartUp();
+
+	// 플레이어 생성 및 초기 위치 설정
+	Player* pPlayer = (Player*)CreateObject<Player>();
+	pPlayer->SetPosition( 30.0f, 30.0f );  // 적절한 위치로 설정
 }
 
 void Map1Scene::Exit()

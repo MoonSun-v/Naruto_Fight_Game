@@ -134,6 +134,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\GDIEngine_StaticLib\Character.cpp" />
     <ClCompile Include="EndScene.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainApp.cpp" />
@@ -144,6 +145,7 @@
     <ClCompile Include="StartScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\GDIEngine_StaticLib\Character.h" />
     <ClInclude Include="EndScene.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Main.h" />

@@ -5,7 +5,9 @@
 class Player : public Character
 {
 public:
-	Player();
-	~Player() override;
-	void Update() override;
+    Player();
+    ~Player();
+
+    void Update() override;
+    void Render() override;
 };
