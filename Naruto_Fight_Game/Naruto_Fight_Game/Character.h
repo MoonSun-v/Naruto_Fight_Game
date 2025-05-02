@@ -6,7 +6,7 @@
 class Character : public Object
 {
 public:
-    Character(const std::wstring& atlasPath, const std::wstring& motPath);
+    Character(const std::wstring& atlasPath, const std::wstring& txtPath);
     virtual ~Character();
 
     virtual void Update() override;
@@ -15,7 +15,7 @@ public:
     AABB GetAABB() const { return collider; }
 
 protected:
-    void LoadAnimation(const std::wstring& motPath);
+    void LoadAnimation(const std::wstring& txtPath);
     virtual void UpdateCollider();
 
 protected:

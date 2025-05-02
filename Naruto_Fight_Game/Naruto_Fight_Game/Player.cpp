@@ -9,7 +9,7 @@
 #include <sstream>
 
 Player::Player()
-    : Character(L"../Resources/Naruto.png", L"../Resources/Naruto/Naruto_Idle.txt")
+    : Character(L"../Resources/Naruto.png", L"../Resources/Animation/Naruto.txt")
 {
     // 연두색 투명 처리
     transparentColor = Gdiplus::Color(0, 128, 0);
@@ -24,11 +24,19 @@ void Player::Update()
     __super::Update();
     float speed = 200.0f;
     float deltaTime = TimeManager::Get().GetDeltaTime();
+    bool isMoving = false;
 
-    if (InputManager::Get().IsKeyDown(VK_LEFT))     position.x -= speed * deltaTime;
-    if (InputManager::Get().IsKeyDown(VK_RIGHT))    position.x += speed * deltaTime;
-    if (InputManager::Get().IsKeyDown(VK_UP))       position.y -= speed * deltaTime;
-    if (InputManager::Get().IsKeyDown(VK_DOWN))     position.y += speed * deltaTime;
+    if (InputManager::Get().IsKeyDown(VK_LEFT)) { position.x -= speed * deltaTime; isMoving = true; }
+    if (InputManager::Get().IsKeyDown(VK_RIGHT)) { position.x += speed * deltaTime; isMoving = true; }
+    if (InputManager::Get().IsKeyDown(VK_UP)) { position.y -= speed * deltaTime; isMoving = true; }
+    if (InputManager::Get().IsKeyDown(VK_DOWN)) { position.y += speed * deltaTime; isMoving = true; }
+
+    if (isMoving)
+        animator.Play(L"Walk");
+    else
+        animator.Play(L"Idle");
+    
+    // 화면 경계 제한 주기 
 
 }
 

@@ -28,6 +28,8 @@ void Map1Scene::Update()
 {
 	__super::Update();
 
+
+
 	if (InputManager::Get().IsKeyPressed(VK_SPACE))
 	{
 		SceneManager::Get().ChangeScene(MainApp::SceneType::Scene_Map2);

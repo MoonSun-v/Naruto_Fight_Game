@@ -6,7 +6,7 @@
 #include <fstream>
 #include <sstream>
 
-Character::Character(const std::wstring& atlasPath, const std::wstring& motPath)
+Character::Character(const std::wstring& atlasPath, const std::wstring& txtPath)
 {
     pBitmap = new Gdiplus::Bitmap(atlasPath.c_str());
 
@@ -15,8 +15,7 @@ Character::Character(const std::wstring& atlasPath, const std::wstring& motPath)
     else
         OutputDebugString(L"[SUCCESS] 아틀라스 이미지 로딩 성공!\n");
 
-    LoadAnimation(motPath);
-    animator.Play(L"Idle"); // 기본 재생
+    LoadAnimation(txtPath);
 }
 
 Character::~Character()
@@ -24,33 +23,37 @@ Character::~Character()
     delete pBitmap;
 }
 
-void Character::LoadAnimation(const std::wstring& motPath)
+void Character::LoadAnimation(const std::wstring& txtPath)
 {
-    std::wifstream file(motPath);
-    if (!file.is_open())
+    std::wifstream file(txtPath);
+    if (!file.is_open()) { OutputDebugString(L"[ERROR] .txt 파일 로딩 실패!\n"); return; }
+
+    std::wstring line;
+    while (std::getline(file, line))
     {
-        OutputDebugString(L"[ERROR] .mot 파일 로딩 실패!\n");
-        return;
+        std::wstringstream headerStream(line);
+        std::wstring clipName;
+        int frameCount;
+
+        headerStream >> clipName >> frameCount;
+
+        AnimationClip clip;
+
+        for (int i = 0; i < frameCount; ++i)
+        {
+            std::getline(file, line);
+            std::wstringstream frameStream(line);
+
+            int l, t, r, b, offsetX, offsetY;
+            wchar_t comma;
+            frameStream >> l >> comma >> t >> comma >> r >> comma >> b >> comma >> offsetX >> comma >> offsetY;
+
+            clip.AddFrame(Gdiplus::Rect(l, t, r - l, b - t), 0.1f); // 혹은 duration도 파일에 넣어도 됨
+        }
+
+        animator.AddClip(clipName, clip);
     }
 
-    int frameCount = 0;
-    file >> frameCount;
-
-    AnimationClip idleClip;
-
-    for (int i = 0; i < frameCount; ++i)
-    {
-        int l, t, r, b, offsetX, offsetY;
-        wchar_t comma;
-        file >> l >> comma >> t >> comma >> r >> comma >> b >> comma >> offsetX >> comma >> offsetY;
-
-        idleClip.AddFrame(Gdiplus::Rect(l, t, r - l, b - t), 0.1f);
-    }
-
-    animator.AddClip(L"Idle", idleClip);
-    animator.Play(L"Idle");
-
-    file.close();
 }
 
 void Character::Update()
