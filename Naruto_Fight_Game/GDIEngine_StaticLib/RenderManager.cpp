@@ -36,6 +36,74 @@ void RenderManager::DrawImageCenter(Gdiplus::Bitmap* bitmap, float centerX, floa
 	g_pBackBufferGraphics->DrawImage(bitmap, x, y);
 }
 
+void RenderManager::DrawImageClip(Gdiplus::Bitmap* bitmap, float x, float y, const Gdiplus::Rect& srcRect, bool flipX)
+{
+	if (!g_pBackBufferGraphics || !bitmap) return;
+
+	Gdiplus::Matrix oldTransform;
+	g_pBackBufferGraphics->GetTransform(&oldTransform); // 기존 변환 저장
+
+	if (flipX)
+	{
+		Gdiplus::Matrix flipMatrix;
+		flipMatrix.Scale(-1.0f, 1.0f); // 좌우 반전
+
+		float width = static_cast<float>(srcRect.Width);
+		flipMatrix.Translate(-x * 2.0f - width, 0.0f); // 위치 보정
+		g_pBackBufferGraphics->SetTransform(&flipMatrix);
+	}
+
+	Gdiplus::Rect destRect((int)x, (int)y, srcRect.Width, srcRect.Height);
+	g_pBackBufferGraphics->DrawImage(bitmap, destRect, srcRect.X, srcRect.Y, srcRect.Width, srcRect.Height, Gdiplus::UnitPixel);
+
+	if (flipX)
+	{
+		g_pBackBufferGraphics->SetTransform(&oldTransform); // 원래 상태 복원
+	}
+}
+
+void RenderManager::DrawImageClipWithColorKey(
+	Gdiplus::Bitmap* bitmap,
+	float x, float y,
+	const Gdiplus::Rect& srcRect,
+	Gdiplus::Color transparentColor,
+	bool flipX)
+{
+	if (!g_pBackBufferGraphics || !bitmap) return;
+
+	Gdiplus::ImageAttributes attr;
+	attr.SetColorKey(transparentColor, transparentColor);
+
+	Gdiplus::Matrix oldTransform;
+	g_pBackBufferGraphics->GetTransform(&oldTransform);
+
+	if (flipX)
+	{
+		Gdiplus::Matrix flipMatrix;
+		float width = static_cast<float>(srcRect.Width);
+		flipMatrix.Scale(-1.0f, 1.0f);
+		flipMatrix.Translate(-x * 2.0f - width, 0.0f);
+		g_pBackBufferGraphics->SetTransform(&flipMatrix);
+	}
+
+	Gdiplus::Rect destRect((int)x, (int)y, srcRect.Width, srcRect.Height);
+
+	g_pBackBufferGraphics->DrawImage(
+		bitmap,
+		destRect,
+		srcRect.X, srcRect.Y,
+		srcRect.Width, srcRect.Height,
+		Gdiplus::UnitPixel,
+		&attr
+	);
+
+	if (flipX)
+	{
+		g_pBackBufferGraphics->SetTransform(&oldTransform);
+	}
+}
+
+/*
 void RenderManager::DrawImageClip(Gdiplus::Bitmap* bitmap, float x, float y, const Gdiplus::Rect& srcRect)
 {
 	if (!g_pBackBufferGraphics || !bitmap) return;
@@ -66,6 +134,7 @@ void RenderManager::DrawImageClipWithColorKey(
 		&attr
 	);
 }
+*/
 
 void RenderManager::DrawAABB(const AABB& box, Gdiplus::Color color)
 {

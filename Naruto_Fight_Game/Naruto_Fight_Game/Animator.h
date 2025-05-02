@@ -11,12 +11,10 @@ private:
     size_t m_CurrentFrameIndex = 0;
     float m_ElapsedTime = 0.0f;
     std::wstring m_CurrentClipName;
-    bool m_bFlipX = false;
 
 public:
     void AddClip(const std::wstring& name, const AnimationClip& clip);
     void Play(const std::wstring& name, bool forceRestart = false);
     void Update(float deltaTime);
     const Gdiplus::Rect& GetCurrentFrameSourceRect() const;
-    void SetFlipX(bool flip);
 };

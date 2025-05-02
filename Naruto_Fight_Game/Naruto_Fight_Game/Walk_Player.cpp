@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "Walk_Player.h"
 #include "Idle_Player.h"
+#include "Jump_Player.h"
 #include "Player.h"
 #include "InputManager.h"
 
@@ -38,7 +39,7 @@ void Walk_Player::Update(Player* player, float deltaTime)
 
     // 점프 입력 감지
     if (InputManager::Get().IsKeyDown(VK_UP)) {
-        // player->ChangeState(new Jump_Player());
+        player->ChangeState(new Jump_Player());
         return;
     }
 

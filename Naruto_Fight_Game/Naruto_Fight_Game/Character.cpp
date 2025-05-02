@@ -53,7 +53,6 @@ void Character::LoadAnimation(const std::wstring& txtPath)
 
         animator.AddClip(clipName, clip);
     }
-
 }
 
 void Character::Update()
@@ -75,11 +74,11 @@ void Character::Render()
         transparentColor.GetGreen() == 0 &&
         transparentColor.GetBlue() == 0)
     {
-        RenderManager::Get().DrawImageClip(pBitmap, position.x, position.y, frame);
+        RenderManager::Get().DrawImageClip(pBitmap, position.x, position.y, frame, flipX);
     }
     else
     {
-        RenderManager::Get().DrawImageClipWithColorKey(pBitmap, position.x, position.y, frame, transparentColor);
+        RenderManager::Get().DrawImageClipWithColorKey(pBitmap, position.x, position.y, frame, transparentColor, flipX);
     }
 
     RenderManager::Get().DrawAABB(GetAABB());

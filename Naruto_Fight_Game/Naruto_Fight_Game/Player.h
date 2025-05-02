@@ -15,7 +15,7 @@ public:
     // FSM
     void ChangeState(PlayerState* newState);
     void PlayAnimation(const std::wstring& name, bool force = false);
-    void SetFlipX(bool flip);
+    // void SetFlipX(bool flip);
 
 private:
     PlayerState* currentState = nullptr;

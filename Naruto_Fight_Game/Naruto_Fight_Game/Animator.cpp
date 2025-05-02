@@ -52,9 +52,3 @@ const Gdiplus::Rect& Animator::GetCurrentFrameSourceRect() const
 
     return m_CurrentClip->frames[m_CurrentFrameIndex].srcRect;
 }
-
-void Animator::SetFlipX(bool flip)
-{
-    m_bFlipX = flip;
-}
-

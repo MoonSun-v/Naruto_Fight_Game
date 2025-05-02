@@ -6,9 +6,6 @@
 class Character : public Object
 {
 public:
-    // Vector2 position;   
-
-public:
     Character(const std::wstring& atlasPath, const std::wstring& txtPath);
     virtual ~Character();
 
@@ -16,6 +13,10 @@ public:
     virtual void Render() override;
 
     AABB GetAABB() const { return collider; }
+
+    bool flipX = false;
+    void SetFlipX(bool flip) { flipX = flip; }
+    bool IsFlipX() const { return flipX; }
 
 protected:
     void LoadAnimation(const std::wstring& txtPath);
