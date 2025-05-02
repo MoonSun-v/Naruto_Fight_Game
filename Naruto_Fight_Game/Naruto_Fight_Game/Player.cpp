@@ -22,35 +22,14 @@ Player::~Player() = default;
 void Player::Update()
 {
     __super::Update();
-
-    /*
+    float speed = 200.0f;
     float deltaTime = TimeManager::Get().GetDeltaTime();
-    Vector2 direction;
 
-    if (InputManager::Get().IsKeyDown(VK_LEFT))  direction.x -= 1;
-    if (InputManager::Get().IsKeyDown(VK_RIGHT)) direction.x += 1;
-    if (InputManager::Get().IsKeyDown(VK_UP))    direction.y -= 1;
-    if (InputManager::Get().IsKeyDown(VK_DOWN))  direction.y += 1;
+    if (InputManager::Get().IsKeyDown(VK_LEFT))     position.x -= speed * deltaTime;
+    if (InputManager::Get().IsKeyDown(VK_RIGHT))    position.x += speed * deltaTime;
+    if (InputManager::Get().IsKeyDown(VK_UP))       position.y -= speed * deltaTime;
+    if (InputManager::Get().IsKeyDown(VK_DOWN))     position.y += speed * deltaTime;
 
-    if (!direction.IsZero())
-    {
-        direction.Normalize();
-        position += direction * speed * deltaTime;
-    }
-
-    // 경계 제한
-    if (pBitmap)
-    {
-        int maxX = 1024 - pBitmap->GetWidth();
-        int maxY = 768 - pBitmap->GetHeight();
-
-        if (position.x < 0) position.x = 0;
-        if (position.y < 0) position.y = 0;
-        if (position.x > maxX) position.x = static_cast<float>(maxX);
-        if (position.y > maxY) position.y = static_cast<float>(maxY);
-    }
-    */
-    // Character::Update(); // 애니메이션 + 콜라이더 갱신
 }
 
 void Player::Render()
