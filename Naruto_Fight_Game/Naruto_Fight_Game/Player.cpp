@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Idle_Player.h"
 #include "Run_Player.h"
+#include "Attack_Player.h"
 
 #include "../GDIEngine_StaticLib/TimeManager.h"
 #include "../GDIEngine_StaticLib/InputManager.h"
@@ -25,7 +26,13 @@ void Player::Update()
 
     float currentTime = TimeManager::Get().GetTotalTime();
 
-    // 왼쪽 방향키 더블탭 감지
+    // 공격 우선 처리
+    if (InputManager::Get().IsKeyPressed('D')) {
+        ChangeState(new Attack_Player());
+        return;
+    }
+
+    // [ 방향키 더블탭 감지 ]
     if (InputManager::Get().IsKeyPressed(VK_LEFT)) {
         if (lastKeyPressed == VK_LEFT && (currentTime - lastKeyTime) < doubleTapThreshold) {
             ChangeState(new Run_Player());
@@ -34,8 +41,6 @@ void Player::Update()
         lastKeyPressed = VK_LEFT;
         lastKeyTime = currentTime;
     }
-
-    // 오른쪽 방향키 더블탭 감지
     if (InputManager::Get().IsKeyPressed(VK_RIGHT)) {
         if (lastKeyPressed == VK_RIGHT && (currentTime - lastKeyTime) < doubleTapThreshold) {
             ChangeState(new Run_Player());
@@ -47,8 +52,7 @@ void Player::Update()
     
     if (currentState) currentState->Update(this, TimeManager::Get().GetDeltaTime());
     
-    // 화면 경계 제한 주기 
-
+    // [ 화면 경계 제한 주기 ]
 }
 
 void Player::Render()
