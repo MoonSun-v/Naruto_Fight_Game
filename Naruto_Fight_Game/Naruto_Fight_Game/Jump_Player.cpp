@@ -25,7 +25,7 @@ void Jump_Player::Update(Player* player, float deltaTime)
     float t = jumpTime / duration;
     if (t >= 1.0f) {
         player->position.y = startY;
-        player->ChangeState(new Idle_Player());
+        player->ChangeMoveState(new Idle_Player());
         return;
     }
 

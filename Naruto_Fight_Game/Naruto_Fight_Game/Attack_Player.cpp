@@ -18,7 +18,7 @@ void Attack_Player::Update(Player* player, float deltaTime)
     attackTime += deltaTime;
 
     // 이동 입력 처리
-    /*
+    
     if (InputManager::Get().IsKeyDown(VK_LEFT)) {
         player->position.x -= player->speed * deltaTime;
         player->SetFlipX(true);
@@ -27,7 +27,7 @@ void Attack_Player::Update(Player* player, float deltaTime)
         player->position.x += player->speed * deltaTime;
         player->SetFlipX(false);
     }
-    */
+    
     if (attackTime >= attackDuration)
     {
         player->ChangeState(new Idle_Player());

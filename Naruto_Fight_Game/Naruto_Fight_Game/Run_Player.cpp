@@ -31,12 +31,12 @@ void Run_Player::Update(Player* player, float deltaTime)
 
     // 점프 입력
     if (InputManager::Get().IsKeyDown(VK_UP)) {
-        player->ChangeState(new Jump_Player(runSpeed));  // Run 속도 유지
+        player->ChangeMoveState(new Jump_Player(runSpeed));  // Run 속도 유지
         return;
     }
 
     if (!moved) {
-        player->ChangeState(new Walk_Player());  // 방향키를 떼면 걷기로 전환
+        player->ChangeMoveState(new Walk_Player());  // 방향키를 떼면 걷기로 전환
     }
 }
 

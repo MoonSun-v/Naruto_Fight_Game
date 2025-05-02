@@ -2,11 +2,13 @@
 #include "Player.h"
 #include "Idle_Player.h"
 #include "Run_Player.h"
-#include "Attack_Player.h"
+#include "Attack_Action.h"
 
-#include "../GDIEngine_StaticLib/TimeManager.h"
-#include "../GDIEngine_StaticLib/InputManager.h"
-#include "../GDIEngine_StaticLib/RenderManager.h"
+#include "Idle_Action.h"
+
+#include "TimeManager.h"
+#include "InputManager.h"
+#include "RenderManager.h"
 
 #include <fstream>
 #include <sstream>
@@ -15,7 +17,8 @@ Player::Player()
     : Character(L"../Resources/Naruto.png", L"../Resources/Animation/Naruto.txt")
 {
     transparentColor = Gdiplus::Color(0, 128, 0); // 이미지 배경 투명 처리
-    ChangeState(new Idle_Player());
+    ChangeMoveState(new Idle_Player());
+    ChangeActionState(new Idle_Action());
 }
 
 Player::~Player() = default;
@@ -28,14 +31,14 @@ void Player::Update()
 
     // 공격 우선 처리
     if (InputManager::Get().IsKeyPressed('D')) {
-        ChangeState(new Attack_Player());
+        ChangeActionState(new Attack_Action());
         return;
     }
 
     // [ 방향키 더블탭 감지 ]
     if (InputManager::Get().IsKeyPressed(VK_LEFT)) {
         if (lastKeyPressed == VK_LEFT && (currentTime - lastKeyTime) < doubleTapThreshold) {
-            ChangeState(new Run_Player());
+            ChangeMoveState(new Run_Player());
             return;
         }
         lastKeyPressed = VK_LEFT;
@@ -43,14 +46,15 @@ void Player::Update()
     }
     if (InputManager::Get().IsKeyPressed(VK_RIGHT)) {
         if (lastKeyPressed == VK_RIGHT && (currentTime - lastKeyTime) < doubleTapThreshold) {
-            ChangeState(new Run_Player());
+            ChangeMoveState(new Run_Player());
             return;
         }
         lastKeyPressed = VK_RIGHT;
         lastKeyTime = currentTime;
     }
     
-    if (currentState) currentState->Update(this, TimeManager::Get().GetDeltaTime());
+    if (moveState) moveState->Update(this, TimeManager::Get().GetDeltaTime());
+    if (actionState) actionState->Update(this, TimeManager::Get().GetDeltaTime());
     
     // [ 화면 경계 제한 주기 ]
 }
@@ -71,19 +75,22 @@ void Player::Render()
         L"moveSpeed: " + std::to_wstring(moveSpeed), 150, 80, 20, Gdiplus::Color::Green);
 }
 
-void Player::ChangeState(PlayerState* newState)
+void Player::ChangeMoveState(PlayerState* newState) 
 {
-    if (currentState)
-    {
-        currentState->Exit(this);
-        delete currentState;
-    }
-
-    currentState = newState;
-
-    if (currentState)
-        currentState->Enter(this);
+    if (moveState) moveState->Exit(this);
+    delete moveState;
+    moveState = newState;
+    if (moveState) moveState->Enter(this);
 }
+
+void Player::ChangeActionState(ActionState* newState) 
+{
+    if (actionState) actionState->Exit(this);
+    delete actionState;
+    actionState = newState;
+    if (actionState) actionState->Enter(this);
+}
+
 
 void Player::PlayAnimation(const std::wstring& name, bool force)
 {

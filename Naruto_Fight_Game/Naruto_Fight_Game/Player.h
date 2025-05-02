@@ -2,6 +2,7 @@
 
 #include "Character.h"
 #include "PlayerState.h"
+#include "ActionState.h"
 
 class Player : public Character
 {
@@ -21,11 +22,16 @@ public:
     void ResetRunInput();
 
     // [ FSM ]
-    void ChangeState(PlayerState* newState);
+    // void ChangeState(PlayerState* newState);
+    void ChangeMoveState(PlayerState* newState);
+    void ChangeActionState(ActionState* newState);
+
     void PlayAnimation(const std::wstring& name, bool force = false);
 
 private:
-    PlayerState* currentState = nullptr;
+    // PlayerState* currentState = nullptr;
+    PlayerState* moveState = nullptr;
+    ActionState* actionState = nullptr;
 
     // 더블탭을 감지하기 위한 변수
     float lastLeftPressTime = 0.0f;

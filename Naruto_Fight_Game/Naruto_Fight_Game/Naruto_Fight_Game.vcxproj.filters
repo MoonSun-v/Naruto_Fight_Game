@@ -16,6 +16,9 @@
     <Filter Include="Animation">
       <UniqueIdentifier>{f5ee6258-708a-4051-8782-76de56049288}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ActionState">
+      <UniqueIdentifier>{9b035f07-87b3-4d49-802d-4455686c5006}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Map1Scene.cpp">
@@ -63,8 +66,8 @@
     <ClCompile Include="Run_Player.cpp">
       <Filter>PlayerState</Filter>
     </ClCompile>
-    <ClCompile Include="Attack_Player.cpp">
-      <Filter>PlayerState</Filter>
+    <ClCompile Include="Attack_Action.cpp">
+      <Filter>ActionState</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -125,8 +128,14 @@
     <ClInclude Include="Run_Player.h">
       <Filter>PlayerState</Filter>
     </ClInclude>
-    <ClInclude Include="Attack_Player.h">
-      <Filter>PlayerState</Filter>
+    <ClInclude Include="ActionState.h">
+      <Filter>ActionState</Filter>
+    </ClInclude>
+    <ClInclude Include="Idle_Action.h">
+      <Filter>ActionState</Filter>
+    </ClInclude>
+    <ClInclude Include="Attack_Action.h">
+      <Filter>ActionState</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
