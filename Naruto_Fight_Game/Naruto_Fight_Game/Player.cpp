@@ -23,27 +23,29 @@ void Player::Update()
 {
     __super::Update();
 
-    float deltaTime = TimeManager::Get().GetDeltaTime();
+    float currentTime = TimeManager::Get().GetTotalTime();
 
     // 왼쪽 방향키 더블탭 감지
     if (InputManager::Get().IsKeyPressed(VK_LEFT)) {
-        if (deltaTime - lastLeftPressTime < doubleTapThreshold) {
+        if (lastKeyPressed == VK_LEFT && (currentTime - lastKeyTime) < doubleTapThreshold) {
             ChangeState(new Run_Player());
             return;
         }
-        lastLeftPressTime = deltaTime;
+        lastKeyPressed = VK_LEFT;
+        lastKeyTime = currentTime;
     }
 
     // 오른쪽 방향키 더블탭 감지
     if (InputManager::Get().IsKeyPressed(VK_RIGHT)) {
-        if (deltaTime - lastRightPressTime < doubleTapThreshold) {
+        if (lastKeyPressed == VK_RIGHT && (currentTime - lastKeyTime) < doubleTapThreshold) {
             ChangeState(new Run_Player());
             return;
         }
-        lastRightPressTime = deltaTime;
+        lastKeyPressed = VK_RIGHT;
+        lastKeyTime = currentTime;
     }
     
-    if (currentState) currentState->Update(this, deltaTime);
+    if (currentState) currentState->Update(this, TimeManager::Get().GetDeltaTime());
     
     // 화면 경계 제한 주기 
 

@@ -36,7 +36,7 @@ void Walk_Player::Update(Player* player, float deltaTime)
 
     // Jump 
     if (InputManager::Get().IsKeyDown(VK_UP)) {
-        player->ChangeState(new Jump_Player(player->moveSpeed));
+        player->ChangeState(new Jump_Player(player->speed));
         return;
     }
 

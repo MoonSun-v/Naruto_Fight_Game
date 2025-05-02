@@ -10,38 +10,33 @@
 void Run_Player::Enter(Player* player)
 {
     player->PlayAnimation(L"Run");
-    player->moveSpeed = player->speed * 2.0f; // 달리기 속도
 }
 
 void Run_Player::Update(Player* player, float deltaTime)
 {
+    float runSpeed = player->speed * 2.0f;
     bool moved = false;
 
+    // 이동 입력 처리
     if (InputManager::Get().IsKeyDown(VK_LEFT)) {
+        player->position.x -= runSpeed * deltaTime;
         player->SetFlipX(true);
+        moved = true;
     }
-
-    if (InputManager::Get().IsKeyDown(VK_RIGHT)) {
+    else if (InputManager::Get().IsKeyDown(VK_RIGHT)) {
+        player->position.x += runSpeed * deltaTime;
         player->SetFlipX(false);
-    }
-
-    if (InputManager::Get().IsKeyDown(VK_LEFT)) {
-        player->position.x -= player->moveSpeed * deltaTime;
         moved = true;
     }
 
-    if (InputManager::Get().IsKeyDown(VK_RIGHT)) {
-        player->position.x += player->moveSpeed * deltaTime;
-        moved = true;
-    }
-
+    // 점프 입력
     if (InputManager::Get().IsKeyDown(VK_UP)) {
-        player->ChangeState(new Jump_Player(player->moveSpeed));
+        player->ChangeState(new Jump_Player(runSpeed));  // Run 속도 유지
         return;
     }
 
     if (!moved) {
-        player->ChangeState(new Walk_Player());
+        player->ChangeState(new Walk_Player());  // 방향키를 떼면 걷기로 전환
     }
 }
 
