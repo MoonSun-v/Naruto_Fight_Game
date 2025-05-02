@@ -20,7 +20,7 @@ void Idle_Player::Update(Player* player, float deltaTime)
     }
     if (InputManager::Get().IsKeyDown(VK_UP))
     {
-        player->ChangeState(new Jump_Player());
+        player->ChangeState(new Jump_Player(player->moveSpeed));
     }
 }
 

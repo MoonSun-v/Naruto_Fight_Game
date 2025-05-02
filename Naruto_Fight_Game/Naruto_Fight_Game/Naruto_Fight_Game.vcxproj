@@ -146,6 +146,7 @@
     <ClCompile Include="Map2Scene.cpp" />
     <ClCompile Include="Map3Scene.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Run_Player.cpp" />
     <ClCompile Include="StartScene.cpp" />
     <ClCompile Include="Walk_Player.cpp" />
   </ItemGroup>
@@ -165,6 +166,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Run_Player.h" />
     <ClInclude Include="StartScene.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Walk_Player.h" />

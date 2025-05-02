@@ -13,11 +13,21 @@ public:
     void Render() override;
 
     float speed = 200;
+    float moveSpeed = 0.0f;      // 현재 이동 속도 (걷기 or 달리기 상태에 따라 변경)
 
-    // FSM
+    int lastKeyPressed = 0;       // 마지막 방향키 (VK_LEFT 또는 VK_RIGHT)
+    float lastKeyTime = 0.0f;     // 마지막 방향키 입력 시간
+    const float doubleTapThreshold = 0.8f; // 0.3초 이내 두 번 눌렀을 때 Run 전환
+    void ResetRunInput();
+
+    // [ FSM ]
     void ChangeState(PlayerState* newState);
     void PlayAnimation(const std::wstring& name, bool force = false);
 
 private:
     PlayerState* currentState = nullptr;
+
+    // 더블탭을 감지하기 위한 변수
+    float lastLeftPressTime = 0.0f;
+    float lastRightPressTime = 0.0f;
 };

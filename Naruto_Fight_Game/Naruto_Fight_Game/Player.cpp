@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "Player.h"
 #include "Idle_Player.h"
+#include "Run_Player.h"
 
 #include "../GDIEngine_StaticLib/TimeManager.h"
 #include "../GDIEngine_StaticLib/InputManager.h"
@@ -22,11 +23,27 @@ void Player::Update()
 {
     __super::Update();
 
-    float speed = 200.0f;
     float deltaTime = TimeManager::Get().GetDeltaTime();
 
-    if (currentState)
-        currentState->Update(this, deltaTime);
+    // 왼쪽 방향키 더블탭 감지
+    if (InputManager::Get().IsKeyPressed(VK_LEFT)) {
+        if (deltaTime - lastLeftPressTime < doubleTapThreshold) {
+            ChangeState(new Run_Player());
+            return;
+        }
+        lastLeftPressTime = deltaTime;
+    }
+
+    // 오른쪽 방향키 더블탭 감지
+    if (InputManager::Get().IsKeyPressed(VK_RIGHT)) {
+        if (deltaTime - lastRightPressTime < doubleTapThreshold) {
+            ChangeState(new Run_Player());
+            return;
+        }
+        lastRightPressTime = deltaTime;
+    }
+    
+    if (currentState) currentState->Update(this, deltaTime);
     
     // 화면 경계 제한 주기 
 
@@ -43,6 +60,9 @@ void Player::Render()
     RenderManager::Get().DrawText_w(
         L"Collider Center: " + std::to_wstring(collider.m_Center.x) + L", " + std::to_wstring(collider.m_Center.y),
         150, 40, 20, Gdiplus::Color::Red);
+
+    RenderManager::Get().DrawText_w(
+        L"moveSpeed: " + std::to_wstring(moveSpeed), 150, 80, 20, Gdiplus::Color::Green);
 }
 
 void Player::ChangeState(PlayerState* newState)
@@ -62,4 +82,10 @@ void Player::ChangeState(PlayerState* newState)
 void Player::PlayAnimation(const std::wstring& name, bool force)
 {
     animator.Play(name, force);
+}
+
+void Player::ResetRunInput()
+{
+    lastKeyPressed = 0;
+    lastKeyTime = 0.0f;
 }

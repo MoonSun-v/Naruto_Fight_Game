@@ -60,6 +60,9 @@
     <ClCompile Include="Jump_Player.cpp">
       <Filter>PlayerState</Filter>
     </ClCompile>
+    <ClCompile Include="Run_Player.cpp">
+      <Filter>PlayerState</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Map1Scene.h">
@@ -114,6 +117,9 @@
       <Filter>PlayerState</Filter>
     </ClInclude>
     <ClInclude Include="Jump_Player.h">
+      <Filter>PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Run_Player.h">
       <Filter>PlayerState</Filter>
     </ClInclude>
   </ItemGroup>

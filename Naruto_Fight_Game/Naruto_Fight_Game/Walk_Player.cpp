@@ -3,8 +3,10 @@
 
 #include "Idle_Player.h"
 #include "Jump_Player.h"
+#include "Run_Player.h"
 
 #include "InputManager.h"
+#include "TimeManager.h"
 #include "Player.h"
 
 void Walk_Player::Enter(Player* player)
@@ -15,13 +17,17 @@ void Walk_Player::Enter(Player* player)
 void Walk_Player::Update(Player* player, float deltaTime)
 {
     bool moved = false;
+    float currentTime = TimeManager::Get().GetTotalTime(); // 현재 시간
 
     // Walk 
+    // 왼쪽 이동
     if (InputManager::Get().IsKeyDown(VK_LEFT)) {
         player->position.x -= player->speed * deltaTime;
-        player->SetFlipX(true);  
+        player->SetFlipX(true);
         moved = true;
     }
+
+    // 오른쪽 이동
     if (InputManager::Get().IsKeyDown(VK_RIGHT)) {
         player->position.x += player->speed * deltaTime;
         player->SetFlipX(false);
@@ -30,7 +36,7 @@ void Walk_Player::Update(Player* player, float deltaTime)
 
     // Jump 
     if (InputManager::Get().IsKeyDown(VK_UP)) {
-        player->ChangeState(new Jump_Player());
+        player->ChangeState(new Jump_Player(player->moveSpeed));
         return;
     }
 
