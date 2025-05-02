@@ -1,8 +1,11 @@
 #include "framework.h"
 #include "Idle_Player.h"
+
 #include "Walk_Player.h"
-#include "Player.h"
+#include "Jump_Player.h"
+
 #include "InputManager.h"
+#include "Player.h"
 
 void Idle_Player::Enter(Player* player)
 {
@@ -14,6 +17,10 @@ void Idle_Player::Update(Player* player, float deltaTime)
     if (InputManager::Get().IsKeyDown(VK_LEFT) || InputManager::Get().IsKeyDown(VK_RIGHT))
     {
         player->ChangeState(new Walk_Player());
+    }
+    if (InputManager::Get().IsKeyDown(VK_UP))
+    {
+        player->ChangeState(new Jump_Player());
     }
 }
 

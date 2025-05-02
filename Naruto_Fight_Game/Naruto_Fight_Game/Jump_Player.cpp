@@ -1,7 +1,10 @@
 #include "framework.h"
 #include "Jump_Player.h"
-#include "Player.h"
+
 #include "Idle_Player.h"
+
+#include "InputManager.h"
+#include "Player.h"
 
 void Jump_Player::Enter(Player* player)
 {
@@ -14,6 +17,15 @@ void Jump_Player::Update(Player* player, float deltaTime)
 {
     jumpTime += deltaTime;
 
+    if (InputManager::Get().IsKeyDown(VK_LEFT)) {
+        player->position.x -= player->speed * deltaTime;
+        player->SetFlipX(true);
+    }
+    if (InputManager::Get().IsKeyDown(VK_RIGHT)) {
+        player->position.x += player->speed * deltaTime;
+        player->SetFlipX(false);
+
+    }
     // 간단한 점프 파라볼라 (sin 곡선 활용)
     float t = jumpTime / duration;
     if (t >= 1.0f) {

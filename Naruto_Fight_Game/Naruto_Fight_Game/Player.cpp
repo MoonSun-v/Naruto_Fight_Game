@@ -63,9 +63,3 @@ void Player::PlayAnimation(const std::wstring& name, bool force)
 {
     animator.Play(name, force);
 }
-
-/*
-void Player::SetFlipX(bool flip)
-{
-    animator.SetFlipX(flip);  // GDI+에서 좌우 반전 지원 코드 필요
-}*/

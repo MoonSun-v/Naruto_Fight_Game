@@ -12,10 +12,11 @@ public:
     void Update() override;
     void Render() override;
 
+    float speed = 200;
+
     // FSM
     void ChangeState(PlayerState* newState);
     void PlayAnimation(const std::wstring& name, bool force = false);
-    // void SetFlipX(bool flip);
 
 private:
     PlayerState* currentState = nullptr;
