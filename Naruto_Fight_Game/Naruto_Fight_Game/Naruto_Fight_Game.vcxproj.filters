@@ -10,13 +10,13 @@
     <Filter Include="Main">
       <UniqueIdentifier>{58925249-bc54-4242-8665-5ebedecf20fb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="PlayerState">
-      <UniqueIdentifier>{f8a3ebc2-a6b4-405a-b5a2-f992e7b3ef00}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Animation">
       <UniqueIdentifier>{f5ee6258-708a-4051-8782-76de56049288}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ActionState">
+    <Filter Include="PlayerState_Move">
+      <UniqueIdentifier>{f8a3ebc2-a6b4-405a-b5a2-f992e7b3ef00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayerState_Action">
       <UniqueIdentifier>{9b035f07-87b3-4d49-802d-4455686c5006}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -55,19 +55,19 @@
       <Filter>Animation</Filter>
     </ClCompile>
     <ClCompile Include="Idle_Player.cpp">
-      <Filter>PlayerState</Filter>
+      <Filter>PlayerState_Move</Filter>
     </ClCompile>
     <ClCompile Include="Walk_Player.cpp">
-      <Filter>PlayerState</Filter>
+      <Filter>PlayerState_Move</Filter>
     </ClCompile>
     <ClCompile Include="Jump_Player.cpp">
-      <Filter>PlayerState</Filter>
+      <Filter>PlayerState_Move</Filter>
     </ClCompile>
     <ClCompile Include="Run_Player.cpp">
-      <Filter>PlayerState</Filter>
+      <Filter>PlayerState_Move</Filter>
     </ClCompile>
-    <ClCompile Include="Attack_Action.cpp">
-      <Filter>ActionState</Filter>
+    <ClCompile Include="Attack_Action_Player.cpp">
+      <Filter>PlayerState_Action</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -108,7 +108,7 @@
       <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="PlayerState.h">
-      <Filter>PlayerState</Filter>
+      <Filter>PlayerState_Move</Filter>
     </ClInclude>
     <ClInclude Include="Animator.h">
       <Filter>Animation</Filter>
@@ -117,25 +117,25 @@
       <Filter>Animation</Filter>
     </ClInclude>
     <ClInclude Include="Idle_Player.h">
-      <Filter>PlayerState</Filter>
+      <Filter>PlayerState_Move</Filter>
     </ClInclude>
     <ClInclude Include="Walk_Player.h">
-      <Filter>PlayerState</Filter>
+      <Filter>PlayerState_Move</Filter>
     </ClInclude>
     <ClInclude Include="Jump_Player.h">
-      <Filter>PlayerState</Filter>
+      <Filter>PlayerState_Move</Filter>
     </ClInclude>
     <ClInclude Include="Run_Player.h">
-      <Filter>PlayerState</Filter>
+      <Filter>PlayerState_Move</Filter>
     </ClInclude>
-    <ClInclude Include="ActionState.h">
-      <Filter>ActionState</Filter>
+    <ClInclude Include="PlayerActionState.h">
+      <Filter>PlayerState_Action</Filter>
     </ClInclude>
-    <ClInclude Include="Idle_Action.h">
-      <Filter>ActionState</Filter>
+    <ClInclude Include="Idle_Action_Player.h">
+      <Filter>PlayerState_Action</Filter>
     </ClInclude>
-    <ClInclude Include="Attack_Action.h">
-      <Filter>ActionState</Filter>
+    <ClInclude Include="Attack_Action_Player.h">
+      <Filter>PlayerState_Action</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

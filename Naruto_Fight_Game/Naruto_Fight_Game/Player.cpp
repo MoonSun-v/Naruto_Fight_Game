@@ -2,9 +2,9 @@
 #include "Player.h"
 #include "Idle_Player.h"
 #include "Run_Player.h"
-#include "Attack_Action.h"
+#include "Attack_Action_Player.h"
 
-#include "Idle_Action.h"
+#include "Idle_Action_Player.h"
 
 #include "TimeManager.h"
 #include "InputManager.h"
@@ -18,7 +18,7 @@ Player::Player()
 {
     transparentColor = Gdiplus::Color(0, 128, 0); // 이미지 배경 투명 처리
     ChangeMoveState(new Idle_Player());
-    ChangeActionState(new Idle_Action());
+    ChangeActionState(new Idle_Action_Player());
 }
 
 Player::~Player() = default;
@@ -31,7 +31,7 @@ void Player::Update()
 
     // 공격 우선 처리
     if (InputManager::Get().IsKeyPressed('D')) {
-        ChangeActionState(new Attack_Action());
+        ChangeActionState(new Attack_Action_Player());
         return;
     }
 
@@ -83,7 +83,7 @@ void Player::ChangeMoveState(PlayerState* newState)
     if (moveState) moveState->Enter(this);
 }
 
-void Player::ChangeActionState(ActionState* newState) 
+void Player::ChangeActionState(PlayerActionState* newState) 
 {
     if (actionState) actionState->Exit(this);
     delete actionState;
