@@ -1,96 +1,120 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{15e72bf4-f2ad-466b-a1e3-9bd4655a9743}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Character">
+      <UniqueIdentifier>{b5c7d46e-84cc-4ba2-ab07-c18042116817}</UniqueIdentifier>
     </Filter>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Main">
+      <UniqueIdentifier>{58925249-bc54-4242-8665-5ebedecf20fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayerState">
+      <UniqueIdentifier>{f8a3ebc2-a6b4-405a-b5a2-f992e7b3ef00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animation">
+      <UniqueIdentifier>{f5ee6258-708a-4051-8782-76de56049288}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="MainApp.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="StartScene.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Map1Scene.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="Map2Scene.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="Map3Scene.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="EndScene.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Animator.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="StartScene.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
     <ClCompile Include="Character.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="MainApp.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="EndScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>Animation</Filter>
     </ClCompile>
     <ClCompile Include="AnimationClip.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Idle_Player.cpp">
+      <Filter>PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Walk_Player.cpp">
+      <Filter>PlayerState</Filter>
+    </ClCompile>
+    <ClCompile Include="Jump_Player.cpp">
+      <Filter>PlayerState</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Main.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="framework.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="MainApp.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="StartScene.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Map1Scene.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="Map2Scene.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="Map3Scene.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Scene</Filter>
     </ClInclude>
-    <ClInclude Include="EndScene.h">
-      <Filter>헤더 파일</Filter>
+    <ClInclude Include="StartScene.h">
+      <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimationClip.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Animator.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Character</Filter>
     </ClInclude>
     <ClInclude Include="Character.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="MainApp.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="EndScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerState.h">
+      <Filter>PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationClip.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Idle_Player.h">
+      <Filter>PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Walk_Player.h">
+      <Filter>PlayerState</Filter>
+    </ClInclude>
+    <ClInclude Include="Jump_Player.h">
+      <Filter>PlayerState</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

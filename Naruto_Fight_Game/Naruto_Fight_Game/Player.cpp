@@ -1,5 +1,6 @@
 #include "framework.h"
 #include "Player.h"
+#include "Idle_Player.h"
 
 #include "../GDIEngine_StaticLib/TimeManager.h"
 #include "../GDIEngine_StaticLib/InputManager.h"
@@ -11,10 +12,8 @@
 Player::Player()
     : Character(L"../Resources/Naruto.png", L"../Resources/Animation/Naruto.txt")
 {
-    // 연두색 투명 처리
-    transparentColor = Gdiplus::Color(0, 128, 0);
-
-    // Character 쪽에서 이미지와 애니메이션 로딩 및 collider 초기화 다 처리됨
+    transparentColor = Gdiplus::Color(0, 128, 0); // 이미지 배경 투명 처리
+    ChangeState(new Idle_Player());
 }
 
 Player::~Player() = default;
@@ -22,19 +21,12 @@ Player::~Player() = default;
 void Player::Update()
 {
     __super::Update();
+
     float speed = 200.0f;
     float deltaTime = TimeManager::Get().GetDeltaTime();
-    bool isMoving = false;
 
-    if (InputManager::Get().IsKeyDown(VK_LEFT)) { position.x -= speed * deltaTime; isMoving = true; }
-    if (InputManager::Get().IsKeyDown(VK_RIGHT)) { position.x += speed * deltaTime; isMoving = true; }
-    if (InputManager::Get().IsKeyDown(VK_UP)) { position.y -= speed * deltaTime; isMoving = true; }
-    if (InputManager::Get().IsKeyDown(VK_DOWN)) { position.y += speed * deltaTime; isMoving = true; }
-
-    if (isMoving)
-        animator.Play(L"Walk");
-    else
-        animator.Play(L"Idle");
+    if (currentState)
+        currentState->Update(this, deltaTime);
     
     // 화면 경계 제한 주기 
 
@@ -51,4 +43,28 @@ void Player::Render()
     RenderManager::Get().DrawText_w(
         L"Collider Center: " + std::to_wstring(collider.m_Center.x) + L", " + std::to_wstring(collider.m_Center.y),
         150, 40, 20, Gdiplus::Color::Red);
+}
+
+void Player::ChangeState(PlayerState* newState)
+{
+    if (currentState)
+    {
+        currentState->Exit(this);
+        delete currentState;
+    }
+
+    currentState = newState;
+
+    if (currentState)
+        currentState->Enter(this);
+}
+
+void Player::PlayAnimation(const std::wstring& name, bool force)
+{
+    animator.Play(name, force);
+}
+
+void Player::SetFlipX(bool flip)
+{
+    animator.SetFlipX(flip);  // GDI+에서 좌우 반전 지원 코드 필요
 }

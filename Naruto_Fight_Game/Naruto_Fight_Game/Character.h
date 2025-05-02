@@ -6,6 +6,9 @@
 class Character : public Object
 {
 public:
+    // Vector2 position;   
+
+public:
     Character(const std::wstring& atlasPath, const std::wstring& txtPath);
     virtual ~Character();
 
@@ -17,9 +20,6 @@ public:
 protected:
     void LoadAnimation(const std::wstring& txtPath);
     virtual void UpdateCollider();
-
-protected:
-    Vector2 position;
 
     Gdiplus::Bitmap* pBitmap = nullptr;
     AABB collider;

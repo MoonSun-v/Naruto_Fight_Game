@@ -26,7 +26,6 @@ struct AnimationFrame
 class AnimationClip
 {
 public:
-
     std::vector<AnimationFrame> frames;
     bool isLoop = true;
     float totalDuration = 0.0f;

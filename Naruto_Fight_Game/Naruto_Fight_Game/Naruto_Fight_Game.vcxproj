@@ -138,6 +138,8 @@
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="EndScene.cpp" />
+    <ClCompile Include="Idle_Player.cpp" />
+    <ClCompile Include="Jump_Player.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainApp.cpp" />
     <ClCompile Include="Map1Scene.cpp" />
@@ -145,6 +147,7 @@
     <ClCompile Include="Map3Scene.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="StartScene.cpp" />
+    <ClCompile Include="Walk_Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationClip.h" />
@@ -152,15 +155,19 @@
     <ClInclude Include="Character.h" />
     <ClInclude Include="EndScene.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="Idle_Player.h" />
+    <ClInclude Include="Jump_Player.h" />
     <ClInclude Include="Main.h" />
     <ClInclude Include="MainApp.h" />
     <ClInclude Include="Map1Scene.h" />
     <ClInclude Include="Map2Scene.h" />
     <ClInclude Include="Map3Scene.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerState.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="StartScene.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Walk_Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
