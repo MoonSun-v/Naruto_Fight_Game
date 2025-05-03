@@ -33,6 +33,11 @@ public:
     bool isLoop = true;                 // true일 경우 애니메이션을 루프 재생함
     float totalDuration = 0.0f;         // 전체 클립의 지속시간 (선택적 정보)
 
+    AnimationClip(bool loop = true) : isLoop(loop)
+    {
+    }
+    // void SetLoop(bool loop) { isLoop = loop; }
+
     void AddFrame(const Gdiplus::Rect& rect, float duration)
     {
         frames.push_back({ rect, duration });   // 새로운 프레임 추가

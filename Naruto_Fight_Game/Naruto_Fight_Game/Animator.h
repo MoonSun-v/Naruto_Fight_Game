@@ -18,4 +18,8 @@ public:
     void Stop();
     void Update(float deltaTime);
     const Gdiplus::Rect& GetCurrentFrameSourceRect() const;
+    // bool IsAnimationFinished() const;
+
+    // bool m_FinishedOnce = false;
+    bool IsAnimationFinished() const;
 };

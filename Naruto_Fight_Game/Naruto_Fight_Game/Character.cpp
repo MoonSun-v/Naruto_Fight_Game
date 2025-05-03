@@ -34,10 +34,11 @@ void Character::LoadAnimation(const std::wstring& txtPath)
         std::wstringstream headerStream(line);
         std::wstring clipName;
         int frameCount;
+        int loopFlag;
 
-        headerStream >> clipName >> frameCount;
+        headerStream >> clipName >> frameCount >> loopFlag;
 
-        AnimationClip clip;
+        AnimationClip clip(loopFlag != 0); 
 
         for (int i = 0; i < frameCount; ++i)
         {
