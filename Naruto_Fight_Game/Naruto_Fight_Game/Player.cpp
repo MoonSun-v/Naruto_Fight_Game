@@ -53,6 +53,7 @@ void Player::Update()
         lastKeyTime = currentTime;
     }
 
+    // [ FSM ] 
     if (moveState) moveState->Update(this, deltaTime);
     if (actionState) actionState->Update(this, deltaTime);
     

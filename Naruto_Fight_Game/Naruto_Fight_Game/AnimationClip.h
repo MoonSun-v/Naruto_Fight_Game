@@ -29,14 +29,13 @@ struct AnimationFrame
 class AnimationClip
 {
 public:
-    std::vector<AnimationFrame> frames; // 프레임 목록
-    bool isLoop = true;                 // true일 경우 애니메이션을 루프 재생함
-    float totalDuration = 0.0f;         // 전체 클립의 지속시간 (선택적 정보)
-
     AnimationClip(bool loop = true) : isLoop(loop)
     {
     }
-    // void SetLoop(bool loop) { isLoop = loop; }
+
+    std::vector<AnimationFrame> frames; // 프레임 목록
+    bool isLoop = true;                 // true일 경우 애니메이션을 루프 재생함
+    float totalDuration = 0.0f;         // 전체 클립의 지속시간 (선택적 정보)
 
     void AddFrame(const Gdiplus::Rect& rect, float duration)
     {
