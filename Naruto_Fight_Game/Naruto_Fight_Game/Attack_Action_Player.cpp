@@ -9,29 +9,32 @@ void Attack_Action_Player::Enter(Player* player)
 {
     player->PlayAnimation(L"Attack", false);
     elapsedTime = 0.0f;
-    comboInputTime = false;
+    comboInputTime = 0.0f;
+    comboCount = 0;
+    comboQueued = false;
 }
 
 void Attack_Action_Player::Update(Player* player, float deltaTime)
 {
     elapsedTime += deltaTime;
+    comboInputTime += deltaTime;
 
-    // D 키 입력을 받으면 콤보 예약
-    if (InputManager::Get().IsKeyPressed('D') && elapsedTime > 0.3f) {
-        comboQueued = true;
+    // 키 꾹 누르기 판단
+    if (InputManager::Get().IsKeyDown('D')) {
+        comboInputTime += deltaTime;
+    }
+    else {
+        comboInputTime = 0.0f; // 손 뗐으면 초기화
     }
 
-    // 애니메이션 끝났는지 확인
-    /*
-    if (player->GetAnimator().IsAnimationFinished()) 
+    if (comboInputTime >= 0.6f) {
+        comboQueued = true; // 콤보 공격 예약
+    }
+
+    if (player->GetAnimator().IsAnimationFinished())
     {
         if (comboQueued)    player->ChangeActionState(new AttackCombo_Action_Player());
         else                player->ChangeActionState(new Idle_Action_Player());
-    }
-    */
-    if (player->GetAnimator().IsAnimationFinished())
-    {
-        player->ChangeActionState(new Idle_Action_Player());
     }
 }
 

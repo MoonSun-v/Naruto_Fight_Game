@@ -12,6 +12,8 @@ private:
     float attackDuration = 0.3f;
     float elapsedTime = 0.0f;
 
+    float comboInputTime = 0.0f;
+    int comboCount = 0;
     bool comboQueued = false;
-    float comboInputTime = 0.4f; // 0.4초 이내에 누르면 콤보로 인정
+    // float comboInputTime = 0.4f; // 0.4초 이내에 누르면 콤보로 인정
 };

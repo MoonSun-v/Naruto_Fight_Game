@@ -4,7 +4,7 @@
 struct AnimationFrame
 {
     Gdiplus::Rect srcRect;
-    float duration = 0.1f; // 해당 프레임 유지 시간 
+    float duration = 0.2f; // 해당 프레임 유지 시간 
 
     // 좌표로부터 사각형 생성, 지속시간 기본값 0.1초
     AnimationFrame(int l, int t, int r, int b)
