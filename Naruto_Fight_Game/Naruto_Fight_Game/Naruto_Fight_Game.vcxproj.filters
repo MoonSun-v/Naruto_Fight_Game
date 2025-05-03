@@ -19,6 +19,12 @@
     <Filter Include="PlayerState_Action">
       <UniqueIdentifier>{9b035f07-87b3-4d49-802d-4455686c5006}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameObject">
+      <UniqueIdentifier>{2dee3c97-bd08-4f6d-9c62-0f4a53303ff5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObject\Weapon">
+      <UniqueIdentifier>{c10c77d7-ee69-4b17-ae9d-8accd83446c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Map1Scene.cpp">
@@ -74,6 +80,9 @@
     </ClCompile>
     <ClCompile Include="Throw_Action_Player.cpp">
       <Filter>PlayerState_Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>GameObject\Weapon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="Throw_Action_Player.h">
       <Filter>PlayerState_Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>GameObject\Weapon</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

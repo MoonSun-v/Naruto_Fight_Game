@@ -77,6 +77,18 @@ void Vector2::Normalize() {
     }
 }
 
+// 정규화된 복사본 반환
+Vector2 Vector2::Normalized() const
+{
+    float length = Length();
+
+    if (length > EPSILON)
+        return Vector2(x / length, y / length);
+
+    return Vector2(0.0f, 0.0f);
+}
+
+
 // 벡터 길이
 float Vector2::Length() const {
 

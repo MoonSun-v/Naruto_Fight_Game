@@ -28,6 +28,7 @@ public:
     bool IsZero() const;
     float Dot(const Vector2& other) const;
     void Normalize();
+    Vector2 Normalized() const;
     float Length() const;
     float LengthSQ() const;
 

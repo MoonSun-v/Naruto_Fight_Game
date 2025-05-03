@@ -152,6 +152,7 @@
     <ClCompile Include="StartScene.cpp" />
     <ClCompile Include="Throw_Action_Player.cpp" />
     <ClCompile Include="Walk_Player.cpp" />
+    <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationClip.h" />
@@ -178,6 +179,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Throw_Action_Player.h" />
     <ClInclude Include="Walk_Player.h" />
+    <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
