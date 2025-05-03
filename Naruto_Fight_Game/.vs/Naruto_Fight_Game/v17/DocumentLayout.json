@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|solutionrelative:Naruto_Fight_Game\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|solutionrelative:Naruto_Fight_Game\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Attack_Action_Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|solutionrelative:Naruto_Fight_Game\\Attack_Action_Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Throw_Action_Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|solutionrelative:Naruto_Fight_Game\\Throw_Action_Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Throw_Action_Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|solutionrelative:Naruto_Fight_Game\\Throw_Action_Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Idle_Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|solutionrelative:Naruto_Fight_Game\\Idle_Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -11,24 +31,8 @@
       "RelativeMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|solutionrelative:Naruto_Fight_Game\\Idle_Action_Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Attack_Action_Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|solutionrelative:Naruto_Fight_Game\\Attack_Action_Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\AttackCombo_Action_Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|solutionrelative:Naruto_Fight_Game\\AttackCombo_Action_Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|solutionrelative:Naruto_Fight_Game\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Attack_Action_Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|solutionrelative:Naruto_Fight_Game\\Attack_Action_Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{C38AB020-EA0B-4D06-BCFF-E8F491F0B295}|Naruto_Fight_Game\\Naruto_Fight_Game.vcxproj|solutionrelative:Naruto_Fight_Game\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,71 +42,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 464,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Idle_Player.cpp",
-              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Idle_Player.cpp",
-              "RelativeDocumentMoniker": "Naruto_Fight_Game\\Idle_Player.cpp",
-              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Idle_Player.cpp",
-              "RelativeToolTip": "Naruto_Fight_Game\\Idle_Player.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-03T17:46:26.245Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AttackCombo_Action_Player.cpp",
-              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\AttackCombo_Action_Player.cpp",
-              "RelativeDocumentMoniker": "Naruto_Fight_Game\\AttackCombo_Action_Player.cpp",
-              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\AttackCombo_Action_Player.cpp",
-              "RelativeToolTip": "Naruto_Fight_Game\\AttackCombo_Action_Player.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Title": "Throw_Action_Player.cpp",
+              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Throw_Action_Player.cpp",
+              "RelativeDocumentMoniker": "Naruto_Fight_Game\\Throw_Action_Player.cpp",
+              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Throw_Action_Player.cpp",
+              "RelativeToolTip": "Naruto_Fight_Game\\Throw_Action_Player.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-03T17:44:38.576Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Player.cpp",
-              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Player.cpp",
-              "RelativeDocumentMoniker": "Naruto_Fight_Game\\Player.cpp",
-              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Player.cpp",
-              "RelativeToolTip": "Naruto_Fight_Game\\Player.cpp",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAAAE4AAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-03T17:02:07.536Z",
+              "WhenOpened": "2025-05-03T17:59:46.798Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Player.h",
-              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Player.h",
-              "RelativeDocumentMoniker": "Naruto_Fight_Game\\Player.h",
-              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Player.h",
-              "RelativeToolTip": "Naruto_Fight_Game\\Player.h",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABwAAABFAAAAAAAAAA==",
+              "Title": "Throw_Action_Player.h",
+              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Throw_Action_Player.h",
+              "RelativeDocumentMoniker": "Naruto_Fight_Game\\Throw_Action_Player.h",
+              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Throw_Action_Player.h",
+              "RelativeToolTip": "Naruto_Fight_Game\\Throw_Action_Player.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-03T16:34:31.754Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Idle_Action_Player.h",
-              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Idle_Action_Player.h",
-              "RelativeDocumentMoniker": "Naruto_Fight_Game\\Idle_Action_Player.h",
-              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Idle_Action_Player.h",
-              "RelativeToolTip": "Naruto_Fight_Game\\Idle_Action_Player.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-03T17:08:54.577Z",
+              "WhenOpened": "2025-05-03T17:59:39.183Z",
               "EditorCaption": ""
             },
             {
@@ -113,23 +78,73 @@
               "RelativeDocumentMoniker": "Naruto_Fight_Game\\Attack_Action_Player.cpp",
               "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Attack_Action_Player.cpp",
               "RelativeToolTip": "Naruto_Fight_Game\\Attack_Action_Player.cpp",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABkAAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-03T14:58:14.629Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Attack_Action_Player.h",
-              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Attack_Action_Player.h",
-              "RelativeDocumentMoniker": "Naruto_Fight_Game\\Attack_Action_Player.h",
-              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Attack_Action_Player.h",
-              "RelativeToolTip": "Naruto_Fight_Game\\Attack_Action_Player.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-03T16:33:30.315Z",
+              "DocumentIndex": 0,
+              "Title": "Player.cpp",
+              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Player.cpp",
+              "RelativeDocumentMoniker": "Naruto_Fight_Game\\Player.cpp",
+              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Player.cpp",
+              "RelativeToolTip": "Naruto_Fight_Game\\Player.cpp",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAowE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-03T17:02:07.536Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Player.h",
+              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Player.h",
+              "RelativeDocumentMoniker": "Naruto_Fight_Game\\Player.h",
+              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Player.h",
+              "RelativeToolTip": "Naruto_Fight_Game\\Player.h",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACgAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-03T16:34:31.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Idle_Player.cpp",
+              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Idle_Player.cpp",
+              "RelativeDocumentMoniker": "Naruto_Fight_Game\\Idle_Player.cpp",
+              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Idle_Player.cpp",
+              "RelativeToolTip": "Naruto_Fight_Game\\Idle_Player.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-03T17:46:26.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AttackCombo_Action_Player.cpp",
+              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\AttackCombo_Action_Player.cpp",
+              "RelativeDocumentMoniker": "Naruto_Fight_Game\\AttackCombo_Action_Player.cpp",
+              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\AttackCombo_Action_Player.cpp",
+              "RelativeToolTip": "Naruto_Fight_Game\\AttackCombo_Action_Player.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-03T17:44:38.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Idle_Action_Player.h",
+              "DocumentMoniker": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Idle_Action_Player.h",
+              "RelativeDocumentMoniker": "Naruto_Fight_Game\\Idle_Action_Player.h",
+              "ToolTip": "C:\\Users\\Owner\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Idle_Action_Player.h",
+              "RelativeToolTip": "Naruto_Fight_Game\\Idle_Action_Player.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-03T17:08:54.577Z"
             }
           ]
         }

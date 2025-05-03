@@ -3,6 +3,7 @@
 #include "Idle_Player.h"
 #include "Run_Player.h"
 #include "Attack_Action_Player.h"
+#include "Throw_Action_Player.h"
 
 #include "Idle_Action_Player.h"
 
@@ -30,28 +31,11 @@ void Player::Update()
     float currentTime = TimeManager::Get().GetTotalTime();
     float deltaTime = TimeManager::Get().GetDeltaTime();
 
-    if (InputManager::Get().IsKeyPressed('D')) {
-        ChangeActionState(new Attack_Action_Player());
-        return;
-    }
+    // [ Attack_Action_Player ]
+    PlayAttack();
 
-    // [ 방향키 더블탭 감지 ]
-    if (InputManager::Get().IsKeyPressed(VK_LEFT)) {
-        if (lastKeyPressed == VK_LEFT && (currentTime - lastKeyTime) < doubleTapThreshold) {
-            ChangeMoveState(new Run_Player());
-            return;
-        }
-        lastKeyPressed = VK_LEFT;
-        lastKeyTime = currentTime;
-    }
-    if (InputManager::Get().IsKeyPressed(VK_RIGHT)) {
-        if (lastKeyPressed == VK_RIGHT && (currentTime - lastKeyTime) < doubleTapThreshold) {
-            ChangeMoveState(new Run_Player());
-            return;
-        }
-        lastKeyPressed = VK_RIGHT;
-        lastKeyTime = currentTime;
-    }
+    // [ Move_Action_Player ]
+    PlayMove(currentTime);
 
     // [ FSM ] 
     if (moveState) moveState->Update(this, deltaTime);
@@ -74,6 +58,47 @@ void Player::Render()
 
     RenderManager::Get().DrawText_w(
         L"moveSpeed: " + std::to_wstring(moveSpeed), 150, 80, 20, Gdiplus::Color::Green);
+}
+
+void Player::PlayAttack()
+{
+
+    // [ Attack ] 
+    if (InputManager::Get().IsKeyPressed('D')) {
+        ChangeActionState(new Attack_Action_Player());
+        return;
+    }
+
+    // [ AttackCombo ] : Attack에서 관리 
+
+    // [ Throw ]
+    if (InputManager::Get().IsKeyPressed('F')) {
+        ChangeActionState(new Throw_Action_Player());
+        return;
+    }
+}
+
+void Player::PlayMove(float currentTime)
+{
+    // [ Walk ] : Idle에서 관리 
+    
+    // [ Run ] : 방향키 더블탭 감지 
+    if (InputManager::Get().IsKeyPressed(VK_LEFT)) {
+        if (lastKeyPressed == VK_LEFT && (currentTime - lastKeyTime) < doubleTapThreshold) {
+            ChangeMoveState(new Run_Player());
+            return;
+        }
+        lastKeyPressed = VK_LEFT;
+        lastKeyTime = currentTime;
+    }
+    if (InputManager::Get().IsKeyPressed(VK_RIGHT)) {
+        if (lastKeyPressed == VK_RIGHT && (currentTime - lastKeyTime) < doubleTapThreshold) {
+            ChangeMoveState(new Run_Player());
+            return;
+        }
+        lastKeyPressed = VK_RIGHT;
+        lastKeyTime = currentTime;
+    }
 }
 
 void Player::ChangeMoveState(PlayerState* newState) 

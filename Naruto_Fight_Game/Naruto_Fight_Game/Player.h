@@ -36,4 +36,7 @@ private:
     // 더블탭을 감지하기 위한 변수
     float lastLeftPressTime = 0.0f;
     float lastRightPressTime = 0.0f;
+
+    void PlayAttack();
+    void PlayMove(float currentTime);
 };
