@@ -28,8 +28,8 @@ void Player::Update()
     __super::Update();
 
     float currentTime = TimeManager::Get().GetTotalTime();
+    float deltaTime = TimeManager::Get().GetDeltaTime();
 
-    // 공격 우선 처리
     if (InputManager::Get().IsKeyPressed('D')) {
         ChangeActionState(new Attack_Action_Player());
         return;
@@ -52,9 +52,9 @@ void Player::Update()
         lastKeyPressed = VK_RIGHT;
         lastKeyTime = currentTime;
     }
-    
-    if (moveState) moveState->Update(this, TimeManager::Get().GetDeltaTime());
-    if (actionState) actionState->Update(this, TimeManager::Get().GetDeltaTime());
+
+    if (moveState) moveState->Update(this, deltaTime);
+    if (actionState) actionState->Update(this, deltaTime);
     
     // [ 화면 경계 제한 주기 ]
 }

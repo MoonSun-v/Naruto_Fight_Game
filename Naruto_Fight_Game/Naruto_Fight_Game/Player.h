@@ -22,14 +22,14 @@ public:
     void ResetRunInput();
 
     // [ FSM ]
-    // void ChangeState(PlayerState* newState);
     void ChangeMoveState(PlayerState* newState);
     void ChangeActionState(PlayerActionState* newState);
 
+    // [ 애니메이션 ]
     void PlayAnimation(const std::wstring& name, bool force = false);
+    Animator& GetAnimator() { return animator; }
 
 private:
-    // PlayerState* currentState = nullptr;
     PlayerState* moveState = nullptr;
     PlayerActionState* actionState = nullptr;
 

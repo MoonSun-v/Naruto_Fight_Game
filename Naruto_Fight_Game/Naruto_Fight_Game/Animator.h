@@ -15,6 +15,7 @@ private:
 public:
     void AddClip(const std::wstring& name, const AnimationClip& clip);
     void Play(const std::wstring& name, bool forceRestart = false);
+    void Stop();
     void Update(float deltaTime);
     const Gdiplus::Rect& GetCurrentFrameSourceRect() const;
 };

@@ -16,7 +16,7 @@ void Map1Scene::Enter()
 
 	// 플레이어 생성 및 초기 위치 설정
 	Player* pPlayer = (Player*)CreateObject<Player>();
-	pPlayer->SetPosition( 60.0f, 150.0f );  
+	pPlayer->SetPosition( 60.0f, 400.0f );  
 }
 
 void Map1Scene::Exit()

@@ -5,7 +5,7 @@
 
 void Attack_Action_Player::Enter(Player* player)
 {
-    player->PlayAnimation(L"Attack", true);
+    player->PlayAnimation(L"Attack", false);
     elapsedTime = 0.0f;
 }
 
