@@ -1,5 +1,8 @@
 #include "framework.h"
 #include "Player.h"
+#include "Weapon.h"
+#include "Scene.h"
+
 #include "Idle_Player.h"
 #include "Run_Player.h"
 #include "Attack_Action_Player.h"
@@ -10,6 +13,7 @@
 #include "TimeManager.h"
 #include "InputManager.h"
 #include "RenderManager.h"
+#include "SceneManager.h"
 
 #include <fstream>
 #include <sstream>
@@ -62,7 +66,6 @@ void Player::Render()
 
 void Player::PlayAttack()
 {
-
     // [ Attack ] 
     if (InputManager::Get().IsKeyPressed('D')) {
         ChangeActionState(new Attack_Action_Player());
@@ -72,7 +75,8 @@ void Player::PlayAttack()
     // [ AttackCombo ] : Attack에서 관리 
 
     // [ Throw ]
-    if (InputManager::Get().IsKeyPressed('F')) {
+    if (InputManager::Get().IsKeyPressed('F')) 
+    {
         ChangeActionState(new Throw_Action_Player());
         return;
     }

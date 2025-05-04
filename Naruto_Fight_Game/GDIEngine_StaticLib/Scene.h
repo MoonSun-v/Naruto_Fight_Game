@@ -30,4 +30,7 @@ public:
 	virtual void Render();
 	virtual void Enter() {};
 	virtual void Exit() { Clear(); }
+
+	void AddObject(Object* obj);
+	void MarkForDelete(Object* obj);
 };

@@ -2,9 +2,21 @@
 #include "Idle_Player.h"
 #include "Throw_Action_Player.h"
 #include "Player.h"
+#include "Weapon.h"
+
+#include "Scene.h"
+#include "SceneManager.h"
 
 void Throw_Action_Player::Enter(Player* player)
 {
+    Scene* currentScene = SceneManager::Get().GetCurrentScene();
+    Weapon* weapon = (Weapon*)currentScene->CreateObject<Weapon>();
+    Vector2 dir = player->flipX ? Vector2(-1, 0) : Vector2(1, 0);
+    weapon->Init(L"../Resources/Kunai1.png", L"../Resources/Weapon/Kunai1.txt", player->GetPosition(), dir, player->flipX);
+    /*
+    if (currentScene)
+        currentScene->AddObject(weapon);
+    */
     player->PlayAnimation(L"Throw_Action", false);
 }
 

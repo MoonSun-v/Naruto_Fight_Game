@@ -3,6 +3,7 @@
 #include "MainApp.h"
 
 #include "Player.h"
+#include "Weapon.h"
 
 #include "../GDIEngine_StaticLib/SceneManager.h"
 #include "../GDIEngine_StaticLib/InputManager.h"
