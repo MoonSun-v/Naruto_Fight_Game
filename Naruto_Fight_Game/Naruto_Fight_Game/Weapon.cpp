@@ -79,7 +79,7 @@ void Weapon::Update()
 
     UpdateCollider();
 
-    // 필요하면 충돌 검사
+    // 충돌 검사
 }
 
 void Weapon::Render()

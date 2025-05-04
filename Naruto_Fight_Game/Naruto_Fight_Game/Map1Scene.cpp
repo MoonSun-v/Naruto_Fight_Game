@@ -3,6 +3,7 @@
 #include "MainApp.h"
 
 #include "Player.h"
+#include "Enemy1.h"
 #include "Weapon.h"
 
 #include "../GDIEngine_StaticLib/SceneManager.h"
@@ -18,6 +19,9 @@ void Map1Scene::Enter()
 	// 플레이어 생성 및 초기 위치 설정
 	Player* pPlayer = (Player*)CreateObject<Player>();
 	pPlayer->SetPosition( 60.0f, 400.0f );  
+
+	Enemy1* pEnemy1 = (Enemy1*)CreateObject<Enemy1>();
+	pEnemy1->SetPosition(500.0f, 400.0f);
 }
 
 void Map1Scene::Exit()

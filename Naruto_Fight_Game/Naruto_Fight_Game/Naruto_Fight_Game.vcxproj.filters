@@ -25,6 +25,9 @@
     <Filter Include="GameObject\Weapon">
       <UniqueIdentifier>{c10c77d7-ee69-4b17-ae9d-8accd83446c9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Enemy1State">
+      <UniqueIdentifier>{cc8dd396-55ee-440d-b9bf-8055ad6809a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Map1Scene.cpp">
@@ -83,6 +86,12 @@
     </ClCompile>
     <ClCompile Include="Weapon.cpp">
       <Filter>GameObject\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy1.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Walk_Enemy1.cpp">
+      <Filter>Enemy1State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +169,15 @@
     </ClInclude>
     <ClInclude Include="Weapon.h">
       <Filter>GameObject\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy1.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Walk_Enemy1.h">
+      <Filter>Enemy1State</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy1State.h">
+      <Filter>Enemy1State</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
