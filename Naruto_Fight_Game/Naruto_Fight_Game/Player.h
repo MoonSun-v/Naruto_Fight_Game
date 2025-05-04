@@ -17,6 +17,7 @@ public:
     };
 
     KeySet keySet;
+    const KeySet& GetKeySet() const { return keySet; }
 
     Player();
     ~Player();

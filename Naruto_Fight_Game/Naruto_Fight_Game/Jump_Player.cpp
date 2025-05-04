@@ -19,6 +19,8 @@ void Jump_Player::Enter(Player* player)
 
 void Jump_Player::Update(Player* player, float deltaTime)
 {
+    const auto& keys = player->GetKeySet();
+
     jumpTime += deltaTime;
 
     // 간단한 점프 곡선 (sin 파라볼라)
@@ -33,12 +35,12 @@ void Jump_Player::Update(Player* player, float deltaTime)
     player->position.y = startY - jumpOffset;
 
     // 점프 중 좌우 이동
-    if (InputManager::Get().IsKeyDown(VK_LEFT)) {
+    if (InputManager::Get().IsKeyDown(keys.keyLeft)) {
         player->position.x -= horizontalSpeed * deltaTime;
         player->SetFlipX(true);
     }
 
-    if (InputManager::Get().IsKeyDown(VK_RIGHT)) {
+    if (InputManager::Get().IsKeyDown(keys.keyRight)) {
         player->position.x += horizontalSpeed * deltaTime;
         player->SetFlipX(false);
     }

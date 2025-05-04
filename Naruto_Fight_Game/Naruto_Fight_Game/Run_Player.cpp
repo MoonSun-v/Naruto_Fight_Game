@@ -14,23 +14,25 @@ void Run_Player::Enter(Player* player)
 
 void Run_Player::Update(Player* player, float deltaTime)
 {
+    const auto& keys = player->GetKeySet();
+
     float runSpeed = player->speed * 2.0f;
     bool moved = false;
 
     // 이동 입력 처리
-    if (InputManager::Get().IsKeyDown(VK_LEFT)) {
+    if (InputManager::Get().IsKeyDown(keys.keyLeft)) {
         player->position.x -= runSpeed * deltaTime;
         player->SetFlipX(true);
         moved = true;
     }
-    else if (InputManager::Get().IsKeyDown(VK_RIGHT)) {
+    else if (InputManager::Get().IsKeyDown(keys.keyRight)) {
         player->position.x += runSpeed * deltaTime;
         player->SetFlipX(false);
         moved = true;
     }
 
     // 점프 입력
-    if (InputManager::Get().IsKeyDown(VK_UP)) {
+    if (InputManager::Get().IsKeyDown(keys.keyUp)) {
         player->ChangeMoveState(new Jump_Player(runSpeed));  // Run 속도 유지
         return;
     }

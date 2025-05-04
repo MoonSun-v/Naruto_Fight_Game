@@ -14,11 +14,13 @@ void Idle_Player::Enter(Player* player)
 
 void Idle_Player::Update(Player* player, float deltaTime)
 {
-    if (InputManager::Get().IsKeyDown(VK_LEFT) || InputManager::Get().IsKeyDown(VK_RIGHT))
+    const auto& keys = player->GetKeySet();  // <- keySet을 안전하게 가져오기
+
+    if (InputManager::Get().IsKeyDown(keys.keyLeft) || InputManager::Get().IsKeyDown(keys.keyRight))
     {
         player->ChangeMoveState(new Walk_Player());
     }
-    if (InputManager::Get().IsKeyPressed(VK_UP))
+    if (InputManager::Get().IsKeyPressed(keys.keyUp))
     {
         player->ChangeMoveState(new Jump_Player(player->moveSpeed));
     }

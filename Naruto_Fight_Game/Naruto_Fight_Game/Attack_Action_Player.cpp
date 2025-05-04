@@ -16,11 +16,13 @@ void Attack_Action_Player::Enter(Player* player)
 
 void Attack_Action_Player::Update(Player* player, float deltaTime)
 {
+    const auto& keys = player->GetKeySet();
+
     elapsedTime += deltaTime;
     comboInputTime += deltaTime;
 
     // 키 꾹 누르기 판단
-    if (InputManager::Get().IsKeyDown('D')) comboInputTime += deltaTime;
+    if (InputManager::Get().IsKeyDown(keys.keyAttack)) comboInputTime += deltaTime;
     else                                    comboInputTime = 0.0f; // 손 뗐으면 초기화
 
     if (comboInputTime >= 0.6f) comboQueued = true; // 콤보 공격 예약
