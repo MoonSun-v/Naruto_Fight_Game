@@ -26,7 +26,7 @@ private:
     Gdiplus::Bitmap* pBitmap = nullptr;
 
     Vector2 direction = Vector2(1.0f, 0.0f);  // 이동 방향
-    float speed = 400.0f;                     // 픽셀/초
+    float speed = 700.0f;                     // 픽셀/초
     bool flipX = false;                       // 좌우 반전 여부
 
     AABB collider;

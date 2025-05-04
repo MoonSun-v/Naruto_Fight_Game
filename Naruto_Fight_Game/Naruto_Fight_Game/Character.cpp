@@ -69,18 +69,18 @@ void Character::Render()
     if (!pBitmap) return;
 
     const Gdiplus::Rect& frame = animator.GetCurrentFrameSourceRect();
-    // Vector2 drawPos = position - Vector2(frame.Width / 2.0f, frame.Height / 2.0f);
+    Vector2 drawPos = position - Vector2(frame.Width / 2.0f, frame.Height / 2.0f);
 
     if (transparentColor.GetAlpha() == 0 &&
         transparentColor.GetRed() == 0 &&
         transparentColor.GetGreen() == 0 &&
         transparentColor.GetBlue() == 0)
     {
-        RenderManager::Get().DrawImageClip(pBitmap, position.x, position.y, frame, flipX);
+        RenderManager::Get().DrawImageClip(pBitmap, drawPos.x, drawPos.y, frame, flipX);
     }
     else
     {
-        RenderManager::Get().DrawImageClipWithColorKey(pBitmap, position.x, position.y, frame, transparentColor, flipX);
+        RenderManager::Get().DrawImageClipWithColorKey(pBitmap, drawPos.x, drawPos.y, frame, transparentColor, flipX);
     }
 
     RenderManager::Get().DrawAABB(GetAABB());
@@ -89,6 +89,7 @@ void Character::Render()
 void Character::UpdateCollider()
 {
     const Gdiplus::Rect& rect = animator.GetCurrentFrameSourceRect();
-    collider.m_Center = position + Vector2(rect.Width / 2.0f, rect.Height / 2.0f);
+    // collider.m_Center = position + Vector2(rect.Width / 2.0f, rect.Height / 2.0f);
+    collider.m_Center = position; // 이미지 중심 기준
     collider.m_Extent = Vector2(rect.Width / 2.0f, rect.Height / 2.0f);
 }

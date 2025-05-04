@@ -12,7 +12,7 @@ public:
 
 private:
     float jumpTime = 0.0f;
-    float duration = 0.6f;  // 점프 지속 시간
+    float duration = 0.5f;  // 점프 지속 시간
     float jumpHeight = 100.0f;
     float startY = 0.0f;
 
