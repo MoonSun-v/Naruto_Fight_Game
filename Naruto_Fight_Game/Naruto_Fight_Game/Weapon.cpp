@@ -73,6 +73,7 @@ void Weapon::Update()
     if (position.x < 0 || position.x > 500 || position.y < 0 || position.y > 1080) {
         Scene* currentScene = SceneManager::Get().GetCurrentScene();
         currentScene->MarkForDelete(this);  // 무기가 화면 밖으로 나가면 삭제 대기
+        return;
     }
 
     UpdateCollider();

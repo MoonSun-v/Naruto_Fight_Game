@@ -20,7 +20,8 @@ public:
 	T* CreateObject()
 	{
 		T* pObject = new T();
-		m_Objects.push_back(pObject);
+		if (pObject) // 유효성 확인
+			m_Objects.push_back(pObject);
 		return pObject;
 	}
 
