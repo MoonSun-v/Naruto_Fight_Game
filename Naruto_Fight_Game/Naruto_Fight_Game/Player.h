@@ -7,6 +7,17 @@
 class Player : public Character
 {
 public:
+    struct KeySet
+    {
+        int keyLeft;
+        int keyRight;
+        int keyUp;      // 필요하다면
+        int keyAttack;
+        int keyThrow;
+    };
+
+    KeySet keySet;
+
     Player();
     ~Player();
 
@@ -29,7 +40,10 @@ public:
     void PlayAnimation(const std::wstring& name, bool force = false);
     Animator& GetAnimator() { return animator; }
 
+    void SetKeySet(const KeySet& keys);
+
 private:
+
     PlayerState* moveState = nullptr;
     PlayerActionState* actionState = nullptr;
 

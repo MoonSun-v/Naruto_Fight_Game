@@ -67,7 +67,7 @@ void Player::Render()
 void Player::PlayAttack()
 {
     // [ Attack ] 
-    if (InputManager::Get().IsKeyPressed('D')) {
+    if (InputManager::Get().IsKeyPressed(keySet.keyAttack)) {
         ChangeActionState(new Attack_Action_Player());
         return;
     }
@@ -75,8 +75,7 @@ void Player::PlayAttack()
     // [ AttackCombo ] : Attack에서 관리 
 
     // [ Throw ]
-    if (InputManager::Get().IsKeyPressed('F')) 
-    {
+    if (InputManager::Get().IsKeyPressed(keySet.keyThrow)) {
         ChangeActionState(new Throw_Action_Player());
         return;
     }
@@ -87,20 +86,20 @@ void Player::PlayMove(float currentTime)
     // [ Walk ] : Idle에서 관리 
     
     // [ Run ] : 방향키 더블탭 감지 
-    if (InputManager::Get().IsKeyPressed(VK_LEFT)) {
-        if (lastKeyPressed == VK_LEFT && (currentTime - lastKeyTime) < doubleTapThreshold) {
+    if (InputManager::Get().IsKeyPressed(keySet.keyLeft)) {
+        if (lastKeyPressed == keySet.keyLeft && (currentTime - lastKeyTime) < doubleTapThreshold) {
             ChangeMoveState(new Run_Player());
             return;
         }
-        lastKeyPressed = VK_LEFT;
+        lastKeyPressed = keySet.keyLeft;
         lastKeyTime = currentTime;
     }
-    if (InputManager::Get().IsKeyPressed(VK_RIGHT)) {
-        if (lastKeyPressed == VK_RIGHT && (currentTime - lastKeyTime) < doubleTapThreshold) {
+    if (InputManager::Get().IsKeyPressed(keySet.keyRight)) {
+        if (lastKeyPressed == keySet.keyRight && (currentTime - lastKeyTime) < doubleTapThreshold) {
             ChangeMoveState(new Run_Player());
             return;
         }
-        lastKeyPressed = VK_RIGHT;
+        lastKeyPressed = keySet.keyRight;
         lastKeyTime = currentTime;
     }
 }
@@ -131,4 +130,9 @@ void Player::ResetRunInput()
 {
     lastKeyPressed = 0;
     lastKeyTime = 0.0f;
+}
+
+void Player::SetKeySet(const KeySet& keys)
+{
+    keySet = keys;
 }

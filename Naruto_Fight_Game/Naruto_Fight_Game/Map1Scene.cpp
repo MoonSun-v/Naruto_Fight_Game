@@ -17,11 +17,20 @@ void Map1Scene::Enter()
 	TimeManager::Get().StartUp();
 
 	// 플레이어 생성 및 초기 위치 설정
-	Player* pPlayer = (Player*)CreateObject<Player>();
-	pPlayer->SetPosition( 60.0f, 400.0f );  
+	// Player* pPlayer = (Player*)CreateObject<Player>();
+	// pPlayer->SetPosition( 60.0f, 400.0f );  
+	Player* pPlayer1 = (Player*)CreateObject<Player>();
+	pPlayer1->SetPosition(60.0f, 400.0f);
+	pPlayer1->SetKeySet({ 'A', 'D', 'W', '1', '2' }); // Left, Right, Up, Attack. Throw
 
+	Player* pPlayer2 = (Player*)CreateObject<Player>();
+	pPlayer2->SetPosition(500.0f, 400.0f);
+	pPlayer2->SetKeySet({ VK_LEFT, VK_RIGHT, VK_UP, 'O', 'P'});
+
+	/*
 	Enemy1* pEnemy1 = (Enemy1*)CreateObject<Enemy1>();
 	pEnemy1->SetPosition(500.0f, 400.0f);
+	*/
 }
 
 void Map1Scene::Exit()
