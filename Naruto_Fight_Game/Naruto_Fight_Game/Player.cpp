@@ -60,8 +60,8 @@ void Player::Render()
         L"Collider Center: " + std::to_wstring(collider.m_Center.x) + L", " + std::to_wstring(collider.m_Center.y),
         150, 40, 20, Gdiplus::Color::Red);
 
-    RenderManager::Get().DrawText_w(
-        L"moveSpeed: " + std::to_wstring(moveSpeed), 150, 80, 20, Gdiplus::Color::Green);
+    // RenderManager::Get().DrawText_w(
+    //    L"moveSpeed: " + std::to_wstring(moveSpeed), 150, 80, 20, Gdiplus::Color::Green);
 }
 
 void Player::PlayAttack()

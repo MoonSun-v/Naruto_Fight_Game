@@ -13,6 +13,26 @@ Weapon::~Weapon()
     delete pBitmap;
 }
 
+void Weapon::Init(const std::wstring& atlasPath, const std::wstring& txtPath,
+    const Vector2& pos, const Vector2& dir, bool flip)
+{
+    if (pBitmap) delete pBitmap;
+
+    pBitmap = new Gdiplus::Bitmap(atlasPath.c_str());
+    transparentColor = Gdiplus::Color(0, 255, 0);
+
+    if (pBitmap->GetLastStatus() != Gdiplus::Ok)
+        OutputDebugString(L"[ERROR] 무기 이미지 로딩 실패!\n");
+
+    LoadAnimation(txtPath);
+
+    position = pos;
+    direction = dir.Normalized();
+    flipX = flip;
+
+    animator.Play(L"Kunai1");
+}
+
 void Weapon::LoadAnimation(const std::wstring& txtPath)
 {
     std::wifstream file(txtPath);
@@ -41,27 +61,8 @@ void Weapon::LoadAnimation(const std::wstring& txtPath)
 
             clip.AddFrame(Gdiplus::Rect(l, t, r - l, b - t), 0.1f);
         }
-
         animator.AddClip(clipName, clip);
     }
-}
-
-void Weapon::Init(const std::wstring& atlasPath, const std::wstring& txtPath,
-    const Vector2& pos, const Vector2& dir, bool flip)
-{
-    if (pBitmap) delete pBitmap;
-
-    pBitmap = new Gdiplus::Bitmap(atlasPath.c_str());
-    transparentColor = Gdiplus::Color(0, 255, 0);
-
-    if (pBitmap->GetLastStatus() != Gdiplus::Ok)
-        OutputDebugString(L"[ERROR] 무기 이미지 로딩 실패!\n");
-
-    LoadAnimation(txtPath);
-
-    position = pos;
-    direction = dir.Normalized();
-    flipX = flip;
 }
 
 void Weapon::Update()
@@ -69,8 +70,8 @@ void Weapon::Update()
     float deltaTime = TimeManager::Get().GetDeltaTime();
     position += direction * speed * deltaTime;
 
-    // 화면 밖으로 벗어나면 삭제 처리 : 이것도 잘 안됨
-    if (position.x < 0 || position.x > 500 || position.y < 0 || position.y > 1080) {
+    // 일정 영역 밖으로 벗어나면 삭제 처리 
+    if (position.x < 0 || position.x > 1900 || position.y < 0 || position.y > 1080) {
         Scene* currentScene = SceneManager::Get().GetCurrentScene();
         currentScene->MarkForDelete(this);  // 무기가 화면 밖으로 나가면 삭제 대기
         return;
@@ -78,14 +79,14 @@ void Weapon::Update()
 
     UpdateCollider();
 
-    // 필요하면 충돌 검사 or 화면 벗어나면 삭제 처리 추가
+    // 필요하면 충돌 검사
 }
 
 void Weapon::Render()
 {
     if (!pBitmap) return;
 
-    Gdiplus::Rect srcRect(0, 0, pBitmap->GetWidth(), pBitmap->GetHeight());
+    const Gdiplus::Rect& srcRect = animator.GetCurrentFrameSourceRect();
 
     if (transparentColor.GetAlpha() == 0 &&
         transparentColor.GetRed() == 0 &&
@@ -99,6 +100,9 @@ void Weapon::Render()
         RenderManager::Get().DrawImageClipWithColorKey(pBitmap, position.x, position.y, srcRect, transparentColor, flipX);
     }
     RenderManager::Get().DrawAABB(GetAABB());
+
+    RenderManager::Get().DrawText_w(
+        L"Collider Center: " + std::to_wstring(collider.m_Center.x), 150, 80, 20, Gdiplus::Color::Green);
 }
 
 void Weapon::UpdateCollider()

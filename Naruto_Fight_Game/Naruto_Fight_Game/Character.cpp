@@ -69,6 +69,7 @@ void Character::Render()
     if (!pBitmap) return;
 
     const Gdiplus::Rect& frame = animator.GetCurrentFrameSourceRect();
+    // Vector2 drawPos = position - Vector2(frame.Width / 2.0f, frame.Height / 2.0f);
 
     if (transparentColor.GetAlpha() == 0 &&
         transparentColor.GetRed() == 0 &&
