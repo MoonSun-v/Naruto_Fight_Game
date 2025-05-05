@@ -8,6 +8,8 @@
 #include <fstream>
 #include <sstream>
 
+#include "Hurt_Action_Player.h"
+
 Weapon::~Weapon()
 {
     delete pBitmap;
@@ -97,7 +99,9 @@ void Weapon::Update()
         AABB targetAABB = player->GetAABB();
         if (myAABB.CheckIntersect(targetAABB))
         {
-            player->TakeDamage();
+            // player->TakeDamage();
+            // hurt 애니메이션 재생 
+            player->ChangeActionState(new Hurt_Action_Player());
 
             currentScene->MarkForDelete(this); // 무기 삭제 예약
             break;

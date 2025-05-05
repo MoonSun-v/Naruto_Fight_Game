@@ -26,7 +26,7 @@ void Map1Scene::Enter()
 	player1->SetKeySet({ 'A', 'D', 'W', '1', '2' }); // Left, Right, Up, Attack. Throw
 
 	Player* player2 = CreateObject<Player>(
-		L"../Resources/Sasuke.png",
+		L"../Resources/Sasuke_ver.png",
 		L"../Resources/Animation/Sasuke.txt"
 	);
 	player2->SetPosition(700.0f, 400.0f);
@@ -48,10 +48,12 @@ void Map1Scene::Update()
 		SceneManager::Get().ChangeScene(MainApp::SceneType::Scene_Map2);
 	}
 
+    // ------- 공격 충돌 체크 ----------
+
     Player* player1 = nullptr;
     Player* player2 = nullptr;
 
-    // 플레이어 객체 가져오기 (추적 방법에 따라 수정 필요)
+    // 플레이어 객체 가져오기
     for (Object* obj : m_Objects)
     {
         if (Player* p = dynamic_cast<Player*>(obj))
@@ -63,42 +65,41 @@ void Map1Scene::Update()
 
     if (!player1 || !player2) return;
 
-    // 둘 다 공격 중일 때
-    if (player1->IsAttacking() && player2->IsAttacking())
+    // 플레이어 1이 공격 중일 때
+    if (player1->IsAttacking() && player1->m_AttackStartedThisFrame && !player2->IsHurt())
     {
         if (player1->GetAABB().CheckIntersect(player2->GetAABB()))
         {
-            float time1 = player1->GetAnimator().GetElapsedTime();
-            float time2 = player2->GetAnimator().GetElapsedTime();
+            if (!player1->m_HasHitThisAttack && !player1->m_HasCollidedWithTarget)
+            {
+                player2->ChangeActionState(new Hurt_Action_Player());
+                player1->m_HasHitThisAttack = true;
+            }
+            player1->m_HasCollidedWithTarget = true;
+        }
+        else
+        {
+            player1->m_HasCollidedWithTarget = false;
+            player1->m_HasHitThisAttack = false;
+        }
+    }
 
-            if (fabs(time1 - time2) < 0.1f)  // 거의 동시에 공격
-            {
-                player1->ChangeActionState(new Hurt_Action_Player());
-                player2->ChangeActionState(new Hurt_Action_Player());
-            }
-            else if (time1 < time2)
-            {
-                player2->ChangeActionState(new Hurt_Action_Player());
-            }
-            else
-            {
-                player1->ChangeActionState(new Hurt_Action_Player());
-            }
-        }
-    }
-    // 한쪽만 공격 중일 때
-    else if (player1->IsAttacking() && !player2->IsHurt())
-    {
-        if (player1->GetAABB().CheckIntersect(player2->GetAABB()))
-        {
-            player2->ChangeActionState(new Hurt_Action_Player());
-        }
-    }
-    else if (player2->IsAttacking() && !player1->IsHurt())
+    // 플레이어 2가 공격 중일 때
+    if (player2->IsAttacking() && player2->m_AttackStartedThisFrame && !player1->IsHurt())
     {
         if (player2->GetAABB().CheckIntersect(player1->GetAABB()))
         {
-            player1->ChangeActionState(new Hurt_Action_Player());
+            if (!player2->m_HasHitThisAttack && !player2->m_HasCollidedWithTarget)
+            {
+                player1->ChangeActionState(new Hurt_Action_Player());
+                player2->m_HasHitThisAttack = true;
+            }
+            player2->m_HasCollidedWithTarget = true;
+        }
+        else
+        {
+            player2->m_HasCollidedWithTarget = false;
+            player2->m_HasHitThisAttack = false;
         }
     }
 }

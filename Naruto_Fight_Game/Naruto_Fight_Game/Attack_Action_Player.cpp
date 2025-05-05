@@ -8,6 +8,9 @@
 
 void Attack_Action_Player::Enter(Player* player)
 {
+    player->m_HasHitThisAttack = false;
+    player->m_HasCollidedWithTarget = false;
+    player->m_AttackStartedThisFrame = true;  // Ãß°¡
     player->PlayAnimation(L"Attack", false);
     elapsedTime = 0.0f;
     comboInputTime = 0.0f;

@@ -47,6 +47,10 @@ public:
     bool IsAttacking() const;
     bool IsHurt() const;
 
+    bool m_HasHitThisAttack = false;    // 현재 공격 중 피격 여부
+    bool m_HasCollidedWithTarget = false; // 현재 충돌 중 여부
+    bool m_AttackStartedThisFrame = false;
+
 private:
 
     PlayerState* moveState = nullptr;

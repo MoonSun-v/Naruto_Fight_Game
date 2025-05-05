@@ -34,6 +34,8 @@ void Player::Update()
 {
     __super::Update();
 
+    m_AttackStartedThisFrame = false; // 매 프레임 초기화
+
     float currentTime = TimeManager::Get().GetTotalTime();
     float deltaTime = TimeManager::Get().GetDeltaTime();
 

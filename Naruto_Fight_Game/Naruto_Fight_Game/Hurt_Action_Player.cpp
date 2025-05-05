@@ -6,6 +6,7 @@
 void Hurt_Action_Player::Enter(Player* player)
 {
     player->PlayAnimation(L"Hurt_Short", false);
+    player->TakeDamage();
 }
 
 void Hurt_Action_Player::Update(Player* player, float deltaTime)
