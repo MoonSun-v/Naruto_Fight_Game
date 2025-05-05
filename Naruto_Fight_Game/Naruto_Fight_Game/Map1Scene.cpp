@@ -4,6 +4,7 @@
 
 #include "Player.h"
 #include "Weapon.h"
+#include "Background.h"
 
 #include "../GDIEngine_StaticLib/SceneManager.h"
 #include "../GDIEngine_StaticLib/InputManager.h"
@@ -16,6 +17,10 @@ void Map1Scene::Enter()
 	__super::Enter();
 
 	TimeManager::Get().StartUp();
+
+    // 배경 객체 생성 (배경을 객체로 관리)
+    Background* pBackground = CreateObject<Background>(L"../Resources/Map1.png");
+
 
 	// 플레이어 생성 및 초기 위치 설정
 	Player* player1 = CreateObject<Player>(

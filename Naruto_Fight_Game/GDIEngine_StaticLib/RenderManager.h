@@ -24,6 +24,7 @@ public:
 	void ShutDown(HWND hwnd);
 
 	void DrawImage(Gdiplus::Bitmap* g_pCurrentFrame_, float posX_, float posY_);
+	void DrawImage(Gdiplus::Bitmap* g_pCurrentFrame_, float posX_, float posY_, float width_, float height_);
 	void DrawImageCenter(Gdiplus::Bitmap* bitmap, float centerX, float centerY);
 
 	// Atlas Bitmap Image

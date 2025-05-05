@@ -29,6 +29,12 @@ void RenderManager::DrawImage(Gdiplus::Bitmap* g_pCurrentFrame_, float posX_, fl
 	g_pBackBufferGraphics->DrawImage(g_pCurrentFrame_, posX_, posY_);
 }
 
+void RenderManager::DrawImage(Gdiplus::Bitmap* g_pCurrentFrame_, float posX_, float posY_, float width_, float height_)
+{
+	Gdiplus::Rect destRect((int)posX_, (int)posY_, (int)width_, (int)height_);
+	g_pBackBufferGraphics->DrawImage(g_pCurrentFrame_, destRect);
+}
+
 void RenderManager::DrawImageCenter(Gdiplus::Bitmap* bitmap, float centerX, float centerY)
 {
 	float x = centerX - bitmap->GetWidth() / 2.0f; 
