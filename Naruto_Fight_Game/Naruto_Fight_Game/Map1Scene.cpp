@@ -29,16 +29,18 @@ void Map1Scene::Enter()
 	);
 	player1->SetPosition(60.0f, 400.0f);
 	player1->SetKeySet({ 'A', 'D', 'W', '1', '2' }); // Left, Right, Up, Attack. Throw
+    player1->transparentColor = Gdiplus::Color(0, 128, 0);
 
 	Player* player2 = CreateObject<Player>(
-		L"../Resources/Sasuke_ver.png",
-		L"../Resources/Animation/Sasuke.txt"
+		L"../Resources/New_Sasuke.png",
+		L"../Resources/Animation/New_Sasuke.txt"
 	);
 	player2->SetPosition(700.0f, 400.0f);
 	player2->SetKeySet({ VK_LEFT, VK_RIGHT, VK_UP, 'O', 'P' });
+    player2->transparentColor = Gdiplus::Color(141, 183, 230);
 
     player1->SetScale({ 1.2f, 1.2f });
-    player2->SetScale({ 1.3f, 1.3f }); 
+    player2->SetScale({ 1.2f, 1.2f }); 
 }
 
 void Map1Scene::Exit()

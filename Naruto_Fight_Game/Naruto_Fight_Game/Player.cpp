@@ -23,7 +23,7 @@
 Player::Player(const std::wstring& imagePath, const std::wstring& animPath)
     : Character(imagePath, animPath)
 {
-    transparentColor = Gdiplus::Color(0, 128, 0); // 이미지 배경 투명 처리
+    // transparentColor = Gdiplus::Color(0, 128, 0); // 이미지 배경 투명 처리
     ChangeMoveState(new Idle_Player());
     ChangeActionState(new Idle_Action_Player());
 }
