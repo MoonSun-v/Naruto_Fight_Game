@@ -17,6 +17,7 @@ public:
     };
 
     KeySet keySet;
+    void SetKeySet(const KeySet& keys);
     const KeySet& GetKeySet() const { return keySet; }
 
     Player();
@@ -30,7 +31,7 @@ public:
 
     int lastKeyPressed = 0;       // 마지막 방향키 (VK_LEFT 또는 VK_RIGHT)
     float lastKeyTime = 0.0f;     // 마지막 방향키 입력 시간
-    const float doubleTapThreshold = 0.8f; // 0.3초 이내 두 번 눌렀을 때 Run 전환
+    const float doubleTapThreshold = 0.8f; // 0.8초 이내 두 번 눌렀을 때 Run 전환
     void ResetRunInput();
 
     // [ FSM ]
@@ -41,7 +42,7 @@ public:
     void PlayAnimation(const std::wstring& name, bool force = false);
     Animator& GetAnimator() { return animator; }
 
-    void SetKeySet(const KeySet& keys);
+    void TakeDamage();
 
 private:
 

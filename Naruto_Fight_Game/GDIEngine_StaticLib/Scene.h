@@ -16,6 +16,7 @@ public:
 		Clear();
 	}
 
+	// 오브젝트를 생성하고, 해당 오브젝트를 씬에 추가
 	template<typename T>
 	T* CreateObject()
 	{
@@ -32,6 +33,13 @@ public:
 	virtual void Enter() {};
 	virtual void Exit() { Clear(); }
 
-	void AddObject(Object* obj);
-	void MarkForDelete(Object* obj);
+	// 객체를 씬에 추가
+	void AddObject(Object* obj) { m_Objects.push_back(obj); }
+
+	// 삭제 예정 객체를 임시 리스트에 추가
+	void MarkForDelete(Object* obj) { m_DeletePendingObjects.push_back(obj); }
+
+	// 현재 씬에 있는 모든 객체를 반환
+	const std::vector<Object*>& GetObjects() const { return m_Objects; }
+
 };

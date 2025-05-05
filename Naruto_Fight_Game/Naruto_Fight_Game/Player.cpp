@@ -51,7 +51,7 @@ void Player::Update()
 void Player::Render()
 {
     __super::Render();
-
+    /*
     RenderManager::Get().DrawText_w(
         L"Player Pos: " + std::to_wstring(position.x) + L", " + std::to_wstring(position.y),
         150, 10, 20, Gdiplus::Color::Blue);
@@ -59,7 +59,7 @@ void Player::Render()
     RenderManager::Get().DrawText_w(
         L"Collider Center: " + std::to_wstring(collider.m_Center.x) + L", " + std::to_wstring(collider.m_Center.y),
         150, 40, 20, Gdiplus::Color::Red);
-
+    */
     // RenderManager::Get().DrawText_w(
     //    L"moveSpeed: " + std::to_wstring(moveSpeed), 150, 80, 20, Gdiplus::Color::Green);
 }
@@ -136,3 +136,10 @@ void Player::SetKeySet(const KeySet& keys)
 {
     keySet = keys;
 }
+
+void Player::TakeDamage()
+{
+    // 예: 체력 감소, 피격 애니메이션, 디버그 출력
+    OutputDebugString(L"Player Hit!\n");
+}
+

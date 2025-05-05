@@ -2,11 +2,11 @@
 
 #include "Object.h"
 #include "Animator.h"
+#include "Player.h"
 #include <gdiplus.h>
 
 class Weapon : public Object
 {
-public:
 public:
     Weapon() = default;  // 기본 생성자만 필요
     virtual ~Weapon();
@@ -19,7 +19,11 @@ public:
 
     AABB GetAABB() const { return collider; }
 
+    void SetOwner(Player* owner) { m_Owner = owner; }
+
 private:
+    Player* m_Owner = nullptr; // 무기 소유자 
+
     void LoadAnimation(const std::wstring& txtPath);
     void UpdateCollider();
 

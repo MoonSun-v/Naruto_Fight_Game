@@ -67,6 +67,8 @@ void Weapon::LoadAnimation(const std::wstring& txtPath)
 
 void Weapon::Update()
 {
+    // __super::Update(); // 기본 무기 움직임
+
     float deltaTime = TimeManager::Get().GetDeltaTime();
     position += direction * speed * deltaTime;
 
@@ -75,6 +77,31 @@ void Weapon::Update()
         Scene* currentScene = SceneManager::Get().GetCurrentScene();
         currentScene->MarkForDelete(this);  // 무기가 화면 밖으로 나가면 삭제 대기
         return;
+    }
+
+    AABB myAABB = this->GetAABB();
+
+    Scene* currentScene = SceneManager::Get().GetCurrentScene();
+    const std::vector<Object*>& objects = currentScene->GetObjects();
+
+    for (Object* target : objects)
+    {
+        if (target == this || target->IsPendingDelete())
+            continue;
+
+        Player* player = dynamic_cast<Player*>(target);
+        if (!player) continue;
+
+        if (player == m_Owner) continue; // 자기 자신은 무시
+
+        AABB targetAABB = player->GetAABB();
+        if (myAABB.CheckIntersect(targetAABB))
+        {
+            player->TakeDamage();
+
+            currentScene->MarkForDelete(this); // 무기 삭제 예약
+            break;
+        }
     }
 
     UpdateCollider();
@@ -101,8 +128,8 @@ void Weapon::Render()
     }
     RenderManager::Get().DrawAABB(GetAABB());
 
-    RenderManager::Get().DrawText_w(
-        L"Collider Center: " + std::to_wstring(collider.m_Center.x), 150, 80, 20, Gdiplus::Color::Green);
+    // RenderManager::Get().DrawText_w(
+    //    L"Collider Center: " + std::to_wstring(collider.m_Center.x), 150, 80, 20, Gdiplus::Color::Green);
 }
 
 void Weapon::UpdateCollider()
