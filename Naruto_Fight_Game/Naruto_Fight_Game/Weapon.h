@@ -18,6 +18,7 @@ public:
     virtual void Render() override;
 
     AABB GetAABB() const { return collider; }
+    void SetScale(const Vector2& s) { scale = s; }
 
     void SetOwner(Player* owner) { m_Owner = owner; }
 
@@ -37,5 +38,6 @@ private:
     Animator animator;
 
     Gdiplus::Color transparentColor;          // »ö»ó Å°
+    Vector2 scale = { 1.5f, 1.5f };
 };
 

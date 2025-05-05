@@ -18,6 +18,8 @@ public:
     void SetFlipX(bool flip) { flipX = flip; }
     bool IsFlipX() const { return flipX; }
 
+    void SetScale(const Vector2& s) { scale = s; }
+
 protected:
     void LoadAnimation(const std::wstring& txtPath);
     virtual void UpdateCollider();
@@ -28,4 +30,6 @@ protected:
 
     // 0이면 투명색 없음, 아니면 사용
     Gdiplus::Color transparentColor = Gdiplus::Color(0, 0, 0, 0);
+
+    Vector2 scale = { 1.0f, 1.0f }; // 기본 크기 (100%)
 };

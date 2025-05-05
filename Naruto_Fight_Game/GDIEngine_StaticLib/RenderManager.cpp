@@ -109,6 +109,64 @@ void RenderManager::DrawImageClipWithColorKey(
 	}
 }
 
+void RenderManager::DrawImageClipScaled(Gdiplus::Image* image, float x, float y,
+	const Gdiplus::RectF& destRect, const Gdiplus::Rect& srcRect, bool flipX)
+{
+	if (!g_pBackBufferGraphics || !image) return;
+
+	Gdiplus::Graphics* g = g_pBackBufferGraphics;
+
+	if (flipX)
+	{
+		g->TranslateTransform(destRect.X + destRect.Width / 2, 0);
+		g->ScaleTransform(-1, 1); // 좌우 반전
+		g->TranslateTransform(-destRect.X - destRect.Width / 2, 0);
+	}
+
+	g->DrawImage(image,
+		destRect, // 목적지 영역
+		static_cast<float>(srcRect.X),
+		static_cast<float>(srcRect.Y),
+		static_cast<float>(srcRect.Width),
+		static_cast<float>(srcRect.Height),
+		Gdiplus::UnitPixel);
+
+	if (flipX)
+		g->ResetTransform(); // 변환 초기화
+}
+
+void RenderManager::DrawImageClipWithColorKeyScaled(Gdiplus::Image* image, float x, float y,
+	const Gdiplus::RectF& destRect, const Gdiplus::Rect& srcRect,
+	const Gdiplus::Color& transparentColor, bool flipX)
+{
+	if (!g_pBackBufferGraphics || !image) return;
+
+	Gdiplus::Graphics* g = g_pBackBufferGraphics;
+
+	// 색상 키를 가진 속성 설정
+	Gdiplus::ImageAttributes imgAttr;
+	imgAttr.SetColorKey(transparentColor, transparentColor);
+
+	if (flipX)
+	{
+		g->TranslateTransform(destRect.X + destRect.Width / 2, 0);
+		g->ScaleTransform(-1, 1);
+		g->TranslateTransform(-destRect.X - destRect.Width / 2, 0);
+	}
+
+	g->DrawImage(image,
+		destRect,
+		static_cast<float>(srcRect.X),
+		static_cast<float>(srcRect.Y),
+		static_cast<float>(srcRect.Width),
+		static_cast<float>(srcRect.Height),
+		Gdiplus::UnitPixel,
+		&imgAttr);
+
+	if (flipX)
+		g->ResetTransform();
+}
+/*
 void RenderManager::DrawAABB(const AABB& box, Gdiplus::Color color)
 {
 	if (!g_pBackBufferGraphics) return;
@@ -119,6 +177,24 @@ void RenderManager::DrawAABB(const AABB& box, Gdiplus::Color color)
 	float top = box.m_Center.y - box.m_Extent.y;
 	float width = box.m_Extent.x * 2;
 	float height = box.m_Extent.y * 2;
+
+	g_pBackBufferGraphics->DrawRectangle(&pen, left, top, width, height);
+}
+*/
+void RenderManager::DrawAABB(const AABB& box, Gdiplus::Color color, float scaleX /*= 1.0f*/, float scaleY /*= 1.0f*/)
+{
+	if (!g_pBackBufferGraphics) return;
+
+	Gdiplus::Pen pen(color, 2); // 테두리 두께: 2
+
+	// 스케일 적용된 extent
+	float scaledExtentX = box.m_Extent.x * scaleX;
+	float scaledExtentY = box.m_Extent.y * scaleY;
+
+	float left = box.m_Center.x - scaledExtentX;
+	float top = box.m_Center.y - scaledExtentY;
+	float width = scaledExtentX * 2;
+	float height = scaledExtentY * 2;
 
 	g_pBackBufferGraphics->DrawRectangle(&pen, left, top, width, height);
 }

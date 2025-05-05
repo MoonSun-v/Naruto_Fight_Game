@@ -30,6 +30,12 @@ public:
 	// Atlas Bitmap Image
 	void DrawImageClip(Gdiplus::Bitmap* bitmap, float x, float y, const Gdiplus::Rect& srcRect, bool flipX = false);
 	void DrawImageClipWithColorKey(Gdiplus::Bitmap* bitmap, float x, float y, const Gdiplus::Rect& srcRect, Gdiplus::Color transparentColor, bool flipX = false);
+	void DrawImageClipScaled(Gdiplus::Image* image, float x, float y,
+		const Gdiplus::RectF& destRect, const Gdiplus::Rect& srcRect, bool flipX);
+	void DrawImageClipWithColorKeyScaled(Gdiplus::Image* image, float x, float y,
+		const Gdiplus::RectF& destRect, const Gdiplus::Rect& srcRect,
+		const Gdiplus::Color& transparentColor, bool flipX);
+
 
 	// [ 더블 버퍼링을 활용한 Draw 함수들 ] 백 버퍼에 그린 후 -> 프론트 버퍼에 복사 
 	// BeginDraw() -> Draw() -> EndDraw() 
@@ -43,7 +49,8 @@ public:
 	}
 	 
 	// [ AABB 경계 그리기 ]
-	void DrawAABB(const AABB& box, Gdiplus::Color color = Gdiplus::Color::Red);
+	// void DrawAABB(const AABB& box, Gdiplus::Color color = Gdiplus::Color::Red);
+	void DrawAABB(const AABB& box, Gdiplus::Color color, float scaleX, float scaleY);
 
 	// [ 텍스트 출력 ]
 	void DrawText_w(const std::wstring& text, float x, float y, float fontSize, Gdiplus::Color color);

@@ -37,6 +37,8 @@ void Map1Scene::Enter()
 	player2->SetPosition(700.0f, 400.0f);
 	player2->SetKeySet({ VK_LEFT, VK_RIGHT, VK_UP, 'O', 'P' });
 
+    player1->SetScale({ 1.2f, 1.2f });
+    player2->SetScale({ 1.3f, 1.3f }); 
 }
 
 void Map1Scene::Exit()

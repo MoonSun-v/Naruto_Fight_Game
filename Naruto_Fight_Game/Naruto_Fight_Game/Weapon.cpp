@@ -116,18 +116,37 @@ void Weapon::Render()
 
     const Gdiplus::Rect& srcRect = animator.GetCurrentFrameSourceRect();
 
+    // 스케일 적용된 크기 계산
+    float drawWidth = srcRect.Width * scale.x;
+    float drawHeight = srcRect.Height * scale.y;
+
+    Vector2 drawPos = position - Vector2(drawWidth / 2.0f, drawHeight / 2.0f);
+
     if (transparentColor.GetAlpha() == 0 &&
         transparentColor.GetRed() == 0 &&
         transparentColor.GetGreen() == 0 &&
         transparentColor.GetBlue() == 0)
     {
-        RenderManager::Get().DrawImageClip(pBitmap, position.x, position.y, srcRect, flipX);
+        RenderManager::Get().DrawImageClipScaled(
+            pBitmap,
+            drawPos.x, drawPos.y,
+            Gdiplus::RectF(drawPos.x, drawPos.y, drawWidth, drawHeight), // 크기 조절
+            srcRect,
+            flipX
+        );
     }
     else
     {
-        RenderManager::Get().DrawImageClipWithColorKey(pBitmap, position.x, position.y, srcRect, transparentColor, flipX);
+        RenderManager::Get().DrawImageClipWithColorKeyScaled(
+            pBitmap,
+            drawPos.x, drawPos.y,
+            Gdiplus::RectF(drawPos.x, drawPos.y, drawWidth, drawHeight),
+            srcRect,
+            transparentColor,
+            flipX
+        );
     }
-    RenderManager::Get().DrawAABB(GetAABB());
+    RenderManager::Get().DrawAABB(GetAABB(), Gdiplus::Color::Red, scale.x, scale.y);
 
 }
 
