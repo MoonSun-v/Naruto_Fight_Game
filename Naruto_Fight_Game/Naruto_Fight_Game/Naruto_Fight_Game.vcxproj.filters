@@ -84,6 +84,9 @@
     <ClCompile Include="Weapon.cpp">
       <Filter>GameObject\Weapon</Filter>
     </ClCompile>
+    <ClCompile Include="Hurt_Action_Player.cpp">
+      <Filter>PlayerState_Action</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Map1Scene.h">
@@ -160,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="Weapon.h">
       <Filter>GameObject\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Hurt_Action_Player.h">
+      <Filter>PlayerState_Action</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -20,4 +20,5 @@ public:
     const Gdiplus::Rect& GetCurrentFrameSourceRect() const;
 
     bool IsAnimationFinished() const;
+    float GetElapsedTime() const { return m_ElapsedTime; }
 };

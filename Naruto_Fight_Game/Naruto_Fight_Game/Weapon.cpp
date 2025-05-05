@@ -67,7 +67,6 @@ void Weapon::LoadAnimation(const std::wstring& txtPath)
 
 void Weapon::Update()
 {
-    // __super::Update(); // 기본 무기 움직임
     UpdateCollider();
 
     float deltaTime = TimeManager::Get().GetDeltaTime();
@@ -105,7 +104,6 @@ void Weapon::Update()
         }
     }
 
-    
 }
 
 void Weapon::Render()
@@ -127,8 +125,6 @@ void Weapon::Render()
     }
     RenderManager::Get().DrawAABB(GetAABB());
 
-    // RenderManager::Get().DrawText_w(
-    //    L"Collider Center: " + std::to_wstring(collider.m_Center.x), 150, 80, 20, Gdiplus::Color::Green);
 }
 
 void Weapon::UpdateCollider()

@@ -44,6 +44,8 @@ public:
     Animator& GetAnimator() { return animator; }
 
     void TakeDamage();
+    bool IsAttacking() const;
+    bool IsHurt() const;
 
 private:
 

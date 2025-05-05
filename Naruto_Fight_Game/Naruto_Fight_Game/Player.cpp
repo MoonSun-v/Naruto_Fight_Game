@@ -6,7 +6,9 @@
 #include "Idle_Player.h"
 #include "Run_Player.h"
 #include "Attack_Action_Player.h"
+#include "AttackCombo_Action_Player.h"
 #include "Throw_Action_Player.h"
+#include "Hurt_Action_Player.h"
 
 #include "Idle_Action_Player.h"
 
@@ -141,4 +143,15 @@ void Player::TakeDamage()
 {
     // 예: 체력 감소, 피격 애니메이션, 디버그 출력
     OutputDebugString(L"Player Hit!\n");
+}
+
+bool Player::IsAttacking() const
+{
+    return dynamic_cast<Attack_Action_Player*>(actionState) != nullptr ||
+        dynamic_cast<AttackCombo_Action_Player*>(actionState) != nullptr;
+}
+
+bool Player::IsHurt() const
+{
+    return dynamic_cast<Hurt_Action_Player*>(actionState) != nullptr;
 }
