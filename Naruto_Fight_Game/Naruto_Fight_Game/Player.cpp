@@ -18,8 +18,8 @@
 #include <fstream>
 #include <sstream>
 
-Player::Player()
-    : Character(L"../Resources/Naruto.png", L"../Resources/Animation/Naruto.txt")
+Player::Player(const std::wstring& imagePath, const std::wstring& animPath)
+    : Character(imagePath, animPath)
 {
     transparentColor = Gdiplus::Color(0, 128, 0); // 이미지 배경 투명 처리
     ChangeMoveState(new Idle_Player());
@@ -142,4 +142,3 @@ void Player::TakeDamage()
     // 예: 체력 감소, 피격 애니메이션, 디버그 출력
     OutputDebugString(L"Player Hit!\n");
 }
-

@@ -20,7 +20,8 @@ public:
     void SetKeySet(const KeySet& keys);
     const KeySet& GetKeySet() const { return keySet; }
 
-    Player();
+    // Player();
+    Player(const std::wstring& imagePath, const std::wstring& animPath);
     ~Player();
 
     void Update() override;

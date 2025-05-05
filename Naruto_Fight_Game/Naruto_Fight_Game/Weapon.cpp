@@ -68,6 +68,7 @@ void Weapon::LoadAnimation(const std::wstring& txtPath)
 void Weapon::Update()
 {
     // __super::Update(); // 기본 무기 움직임
+    UpdateCollider();
 
     float deltaTime = TimeManager::Get().GetDeltaTime();
     position += direction * speed * deltaTime;
@@ -104,9 +105,7 @@ void Weapon::Update()
         }
     }
 
-    UpdateCollider();
-
-    // 충돌 검사
+    
 }
 
 void Weapon::Render()

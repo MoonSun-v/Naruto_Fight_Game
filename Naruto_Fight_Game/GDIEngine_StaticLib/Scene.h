@@ -17,11 +17,21 @@ public:
 	}
 
 	// 오브젝트를 생성하고, 해당 오브젝트를 씬에 추가
+	/*
 	template<typename T>
 	T* CreateObject()
 	{
 		T* pObject = new T();
 		if (pObject) // 유효성 확인
+			m_Objects.push_back(pObject);
+		return pObject;
+	}
+	*/
+	template<typename T, typename... Args>
+	T* CreateObject(Args&&... args)
+	{
+		T* pObject = new T(std::forward<Args>(args)...);
+		if (pObject)
 			m_Objects.push_back(pObject);
 		return pObject;
 	}

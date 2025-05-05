@@ -4,13 +4,21 @@
 
 void Scene::Clear()
 {
-    // 모든 객체 삭제 
-	for (auto& object : m_Objects) delete object;
-	m_Objects.clear();
+    // 모든 객체 삭제
+    for (auto& object : m_Objects) delete object;
+    m_Objects.clear();
 
-    // 삭제 예정 객체 삭제 
-	for (auto& object : m_DeletePendingObjects) delete object;
-	m_DeletePendingObjects.clear();
+    // 삭제 예정 객체 삭제
+    for (auto& object : m_DeletePendingObjects)
+    {
+        auto it = std::find(m_Objects.begin(), m_Objects.end(), object);
+        if (it != m_Objects.end())
+        {
+            delete* it;
+            m_Objects.erase(it);
+        }
+    }
+    m_DeletePendingObjects.clear();
 }
 
 void Scene::Update()
@@ -35,15 +43,13 @@ void Scene::Update()
     {
         if (!object) continue;
 
-        if (object->IsPendingDelete()) continue;  // 삭제 예약된 객체는 건너뜀
-
-        // swprintf_s(buffer, L"[DEBUG] object addr: %p\n", object);
-        // OutputDebugString(buffer);
+        // 삭제 예약된 객체는 건너뜀
+        if (object->IsPendingDelete()) continue;
 
         object->Update();
     }
 
-    // [ 삭제 예약된 객체 실제 삭제 ]
+    // 삭제 예정 객체 실제 삭제
     for (auto& obj : m_DeletePendingObjects)
     {
         auto it = std::find(m_Objects.begin(), m_Objects.end(), obj);
@@ -60,5 +66,9 @@ void Scene::Update()
 // [ 씬에 존재하는 객체들 렌더링 ]
 void Scene::Render()
 { 
-	for (auto& object : m_Objects) object->Render();
+	for (auto& object : m_Objects)
+    {
+        if (!object) continue;  // 삭제된 객체를 건너뜁니다.
+        object->Render();
+    }
 }
