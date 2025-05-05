@@ -84,6 +84,6 @@ bool Animator::IsAnimationFinished() const
     return m_CurrentClip &&
         !m_CurrentClip->isLoop &&
         m_CurrentFrameIndex == m_CurrentClip->frames.size() - 1;
-        //&& m_ElapsedTime >= m_CurrentClip->frames.back().duration; 
+        // && m_ElapsedTime >= m_CurrentClip->frames.back().duration; 
     // 임시로 isLoop가 false인 애니메이션은 마지막 같은 프레임을 하나 더 추가해야 자연스러움..
 }

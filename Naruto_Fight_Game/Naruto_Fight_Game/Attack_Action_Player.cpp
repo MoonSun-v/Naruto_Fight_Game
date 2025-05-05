@@ -2,7 +2,6 @@
 #include "Attack_Action_Player.h"
 #include "Player.h"
 #include "Idle_Action_Player.h"
-#include "Idle_Player.h"
 #include "AttackCombo_Action_Player.h"
 #include "InputManager.h"
 
@@ -33,7 +32,7 @@ void Attack_Action_Player::Update(Player* player, float deltaTime)
     if (player->GetAnimator().IsAnimationFinished())
     {
         if (comboQueued)    player->ChangeActionState(new AttackCombo_Action_Player());
-        else                player->ChangeMoveState(new Idle_Player());
+        else                player->ChangeActionState(new Idle_Action_Player());
     }
 }
 
