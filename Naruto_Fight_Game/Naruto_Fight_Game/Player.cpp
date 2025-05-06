@@ -53,11 +53,22 @@ void Player::Update()
     // [ FSM ] 
     if (moveState && !isInputLocked) moveState->Update(this, deltaTime);
     if (actionState) actionState->Update(this, deltaTime);
-    
-    // [ 화면 경계 제한 주기 ]
 
     // [MP 회복]
-    UpdateMP(); // ← MP 회복 체크
+    UpdateMP(); 
+
+    // [ 화면 경계 제한 ]
+    if (pBitmap != nullptr)
+    {
+        int maxX = WindowGame::Get().m_Width - 25;
+        int maxY = WindowGame::Get().m_Height;
+
+        // X, Y 좌표를 화면 안으로 제한
+        if (position.x < 25) position.x = 25;
+        if (position.y < 0) position.y = 0;
+        if (position.x > maxX) position.x = maxX;
+        if (position.y > maxY) position.y = maxY;
+    }
 }
 
 void Player::Render()

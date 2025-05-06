@@ -3,9 +3,11 @@
 #include "Character.h"
 #include "PlayerState.h"
 #include "PlayerActionState.h"
+#include "WindowGame.h"
 
 class Player : public Character
 {
+
 public:
     struct KeySet
     {
