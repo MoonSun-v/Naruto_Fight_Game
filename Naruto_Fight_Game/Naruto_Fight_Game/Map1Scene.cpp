@@ -28,7 +28,7 @@ void Map1Scene::Enter()
 		L"../Resources/Animation/Naruto.txt"
 	);
 	player1->SetPosition(60.0f, 400.0f);
-	player1->SetKeySet({ 'A', 'D', 'W', '1', '2' }); // Left, Right, Up, Attack. Throw
+	player1->SetKeySet({ 'A', 'D', 'W', '1', '2', VK_LCONTROL }); // Left, Right, Up, Attack. Throw
     player1->transparentColor = Gdiplus::Color(0, 128, 0);
 
 	Player* player2 = CreateObject<Player>(
@@ -36,7 +36,7 @@ void Map1Scene::Enter()
 		L"../Resources/Animation/New_Sasuke.txt"
 	);
 	player2->SetPosition(700.0f, 400.0f);
-	player2->SetKeySet({ VK_LEFT, VK_RIGHT, VK_UP, 'O', 'P' });
+	player2->SetKeySet({ VK_LEFT, VK_RIGHT, VK_UP, 'O', 'P', VK_RETURN });
     player2->transparentColor = Gdiplus::Color(141, 183, 230);
 
     player1->SetScale({ 1.3f, 1.3f });

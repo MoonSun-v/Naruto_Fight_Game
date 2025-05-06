@@ -9,6 +9,7 @@
 #include "AttackCombo_Action_Player.h"
 #include "Throw_Action_Player.h"
 #include "Hurt_Action_Player.h"
+#include "Skill_Action_Player.h"
 
 #include "Idle_Action_Player.h"
 
@@ -23,7 +24,6 @@
 Player::Player(const std::wstring& imagePath, const std::wstring& animPath)
     : Character(imagePath, animPath)
 {
-    // transparentColor = Gdiplus::Color(0, 128, 0); // 이미지 배경 투명 처리
     ChangeMoveState(new Idle_Player());
     ChangeActionState(new Idle_Action_Player());
 }
@@ -58,19 +58,7 @@ void Player::Update()
 void Player::Render()
 {
     __super::Render();
-    /*
-    RenderManager::Get().DrawText_w(
-        L"Player Pos: " + std::to_wstring(position.x) + L", " + std::to_wstring(position.y),
-        150, 10, 20, Gdiplus::Color::Blue);
 
-    RenderManager::Get().DrawText_w(
-        L"Collider Center: " + std::to_wstring(collider.m_Center.x) + L", " + std::to_wstring(collider.m_Center.y),
-        150, 40, 20, Gdiplus::Color::Red);
-    */
-    // RenderManager::Get().DrawText_w(
-    //    L"moveSpeed: " + std::to_wstring(moveSpeed), 150, 80, 20, Gdiplus::Color::Green);
-
-   
 }
 
 void Player::PlayAttack()
@@ -86,6 +74,12 @@ void Player::PlayAttack()
     // [ Throw ]
     if (InputManager::Get().IsKeyPressed(keySet.keyThrow)) {
         ChangeActionState(new Throw_Action_Player());
+        return;
+    }
+
+    // [ Skill ]
+    if (InputManager::Get().IsKeyPressed(keySet.keySkill)) {
+        ChangeActionState(new Skill_Action_Player());
         return;
     }
 }
@@ -129,7 +123,6 @@ void Player::ChangeActionState(PlayerActionState* newState)
     if (actionState) actionState->Enter(this);
 }
 
-
 void Player::PlayAnimation(const std::wstring& name, bool force)
 {
     animator.Play(name, force);
@@ -150,9 +143,6 @@ void Player::TakeDamage(float damage)
 {
     hp -= damage;
     if (hp < 0) hp = 0;
-
-    // 예: 체력 감소, 피격 애니메이션, 디버그 출력
-    OutputDebugString(L"Player Hit!");
 }
 
 float Player::SetHP(float value) 
@@ -205,7 +195,7 @@ bool Player::CanThrowWeapon() const
 
 bool Player::CanUseSkill() const
 {
-    return mp >= 100.0f;
+    return mp >= 80.0f;
 }
 
 void Player::ConsumeMPForWeapon()
@@ -215,5 +205,5 @@ void Player::ConsumeMPForWeapon()
 
 void Player::ConsumeMPForSkill()
 {
-    mp = std::max(0.0f, mp - 100.0f);
+    mp = std::max(0.0f, mp - 80.0f);
 }

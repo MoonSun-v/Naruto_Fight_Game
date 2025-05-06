@@ -11,9 +11,10 @@ public:
     {
         int keyLeft;
         int keyRight;
-        int keyUp;      // 필요하다면
+        int keyUp;      
         int keyAttack;
         int keyThrow;
+        int keySkill;
     };
 
     KeySet keySet;
