@@ -11,4 +11,6 @@ public:
 	void Exit() override;
 	void Update() override;
 	void Render() override;
+
+	Gdiplus::Bitmap* StartTitle = nullptr;
 };

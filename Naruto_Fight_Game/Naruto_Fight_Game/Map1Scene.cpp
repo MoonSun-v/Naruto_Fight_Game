@@ -65,6 +65,9 @@ void Map1Scene::Update()
 
     float deltaTime = TimeManager::Get().GetDeltaTime();
 
+    if (InputManager::Get().IsKeyPressed('6')) SceneManager::Get().ChangeScene(MainApp::SceneType::Scene_End);
+
+
     // 플레이어 객체 가져오기
     for (Object* obj : m_Objects)
     {
@@ -225,9 +228,10 @@ void Map1Scene::Render()
 
 
     // [ 조작키 ]
-    RenderManager::Get().DrawText_w(L"A D             [이동]              <- ->", 500, 40, 15, Gdiplus::Color::Black);
-    RenderManager::Get().DrawText_w(L"W               [점프]                  UP", 500, 70, 15, Gdiplus::Color::Black);
-    RenderManager::Get().DrawText_w(L"1                [때리기]                O", 500, 100, 15, Gdiplus::Color::Black);
-    RenderManager::Get().DrawText_w(L"2      [표창 던지기(MP-5)]     P", 500, 130, 15, Gdiplus::Color::Black);
-    RenderManager::Get().DrawText_w(L"LCtrl     [스킬(MP-60)]     Enter   ", 500, 160, 15, Gdiplus::Color::Black);
+    RenderManager::Get().DrawText_w(L"A D                 [이동]                 <- ->", 500, 10, 15, Gdiplus::Color::Black);
+    RenderManager::Get().DrawText_w(L"W                   [점프]                     UP", 500, 40, 15, Gdiplus::Color::Black);
+    RenderManager::Get().DrawText_w(L"1                   [때리기]                   O", 500, 70, 15, Gdiplus::Color::Black);
+    RenderManager::Get().DrawText_w(L"        [연속 때리기는 꾹누르기]", 500, 100, 15, Gdiplus::Color::Black);
+    RenderManager::Get().DrawText_w(L"2         [표창 던지기(MP-5)]        P", 500, 130, 15, Gdiplus::Color::Black);
+    RenderManager::Get().DrawText_w(L"LCtrl        [스킬(MP-60)]        Enter   ", 500, 160, 15, Gdiplus::Color::Black);
 }

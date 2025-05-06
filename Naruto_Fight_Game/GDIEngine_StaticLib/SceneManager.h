@@ -23,7 +23,6 @@ public:
 	void ChangeScene(size_t index);
 	Scene* GetCurrentScene() { return m_pCurrentScene; }
 
-	// CreateScene<TestScene>();
 
 	template<typename T>
 	void CreateScene()
