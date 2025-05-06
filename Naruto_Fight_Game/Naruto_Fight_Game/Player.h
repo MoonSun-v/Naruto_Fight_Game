@@ -99,4 +99,6 @@ public:
     bool CanUseSkill() const;
     void ConsumeMPForWeapon();
     void ConsumeMPForSkill();
+
+    bool isInputLocked = false;
 };

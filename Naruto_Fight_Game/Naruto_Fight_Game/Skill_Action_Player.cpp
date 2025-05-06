@@ -8,21 +8,23 @@
 void Skill_Action_Player::Enter(Player* player)
 {
     player->PlayAnimation(L"Skill", false);
+
+    SetInputLockForAllPlayers(true); // 입력 잠금
 }
 
 void Skill_Action_Player::Update(Player* player, float deltaTime)
 {
     elapsed += deltaTime;
 
-    if (m_MoveDistance < m_TotalDistance && elapsed >= 5.0f)
+    if (elapsed >= 5.0f && movedDistance < totalDistance)
     {
-        float moveStep = m_MoveSpeed * deltaTime;
-        m_MoveDistance += moveStep;
+        float moveStep = moveSpeed * deltaTime;
+        movedDistance += moveStep;
 
         Vector2 dir = player->IsFlipX() ? Vector2(-1, 0) : Vector2(1, 0);
         player->SetPosition(player->GetPosition() + dir * moveStep);
 
-        if (!m_DamageApplied)
+        if (!damageApplied)
         {
             for (auto other : SceneManager::Get().GetCurrentScene()->GetObjects())
             {
@@ -32,7 +34,7 @@ void Skill_Action_Player::Update(Player* player, float deltaTime)
                     if (player->GetAABB().CheckIntersect(enemy->GetAABB()))
                     {
                         enemy->TakeDamage(20.0f);
-                        m_DamageApplied = true;
+                        damageApplied = true;
                         break;
                     }
                 }
@@ -46,6 +48,21 @@ void Skill_Action_Player::Update(Player* player, float deltaTime)
     }
 }
 
-void Skill_Action_Player::Exit(Player* player) {
-    
+void Skill_Action_Player::Exit(Player* player) 
+{
+    SetInputLockForAllPlayers(false); 
+}
+
+
+// [ 입력 잠금/해제 ]
+void Skill_Action_Player::SetInputLockForAllPlayers(bool lock)
+{
+    for (Object* obj : SceneManager::Get().GetCurrentScene()->GetObjects())
+    {
+        Player* p = dynamic_cast<Player*>(obj);
+        if (p)
+        {
+            p->isInputLocked = lock;
+        }
+    }
 }

@@ -39,14 +39,17 @@ void Player::Update()
     float currentTime = TimeManager::Get().GetTotalTime();
     float deltaTime = TimeManager::Get().GetDeltaTime();
 
-    // [ Attack_Action_Player ]
-    PlayAttack();
+    if (!isInputLocked)
+    {
+        // [ Attack_Action_Player ]
+        PlayAttack();
 
-    // [ Move_Action_Player ]
-    PlayMove(currentTime);
-
+        // [ Move_Action_Player ]
+        PlayMove(currentTime);
+    }
+    
     // [ FSM ] 
-    if (moveState) moveState->Update(this, deltaTime);
+    if (moveState && !isInputLocked) moveState->Update(this, deltaTime);
     if (actionState) actionState->Update(this, deltaTime);
     
     // [ 화면 경계 제한 주기 ]

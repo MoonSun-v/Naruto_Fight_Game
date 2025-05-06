@@ -8,10 +8,14 @@ public:
     void Update(Player* player, float deltaTime) override;
     void Exit(Player* player) override;
 
+private:
     float elapsed = 0.0f;
 
-    float m_MoveSpeed = 300.0f; 
-    float m_TotalDistance = 600.0f;
-    float m_MoveDistance = 0.0f;
-    bool m_DamageApplied = false;
+    const float moveSpeed = 300.0f;
+    const float totalDistance = 600.0f;
+    float movedDistance = 0.0f;
+
+    bool damageApplied = false;
+
+    void SetInputLockForAllPlayers(bool lock);
 };
