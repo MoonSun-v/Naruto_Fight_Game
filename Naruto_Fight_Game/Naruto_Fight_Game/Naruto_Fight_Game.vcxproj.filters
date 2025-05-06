@@ -30,12 +30,6 @@
     <ClCompile Include="Map1Scene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Map2Scene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Map3Scene.cpp">
-      <Filter>Scene</Filter>
-    </ClCompile>
     <ClCompile Include="StartScene.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
@@ -111,12 +105,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Map1Scene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Map2Scene.h">
-      <Filter>Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Map3Scene.h">
       <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="StartScene.h">
