@@ -42,8 +42,9 @@ void Map1Scene::Enter()
     player1->SetScale({ 1.3f, 1.3f });
     player2->SetScale({ 1.2f, 1.2f }); 
 
-    player1->SetStats(100, 50);  // ¿¹: HP 100, MP 50
-    player2->SetStats(100, 50);
+    player1->SetStats(100, 100); 
+    player2->SetStats(100, 100);
+
 }
 
 void Map1Scene::Exit()

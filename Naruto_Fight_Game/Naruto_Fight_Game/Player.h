@@ -70,6 +70,8 @@ protected:
     float mp;
     float maxMp;
 
+    float MPRecoveryTimer = 0.0f;
+
 public:
     float SetHP(float value);
     float SetMP(float value);
@@ -86,6 +88,14 @@ public:
         maxHp = _maxHp;
         hp = _maxHp;
         maxMp = _maxMp;
-        mp = _maxMp;
+        mp = 0;
     }
+
+    // ------ MP ฐüทร --------
+    void UpdateMP();
+    void OnHitEnemy(bool isCombo);
+    bool CanThrowWeapon() const;
+    bool CanUseSkill() const;
+    void ConsumeMPForWeapon();
+    void ConsumeMPForSkill();
 };

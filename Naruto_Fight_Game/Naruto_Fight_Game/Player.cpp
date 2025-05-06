@@ -50,6 +50,9 @@ void Player::Update()
     if (actionState) actionState->Update(this, deltaTime);
     
     // [ 화면 경계 제한 주기 ]
+
+    // [MP 회복]
+    UpdateMP(); // ← MP 회복 체크
 }
 
 void Player::Render()
@@ -167,6 +170,7 @@ float Player::SetMP(float value)
 
 bool Player::IsAttacking() const
 {
+    // 여기서 예외처리 발생! 수정 필요 
     return dynamic_cast<Attack_Action_Player*>(actionState) != nullptr ||
         dynamic_cast<AttackCombo_Action_Player*>(actionState) != nullptr;
 }
@@ -174,4 +178,43 @@ bool Player::IsAttacking() const
 bool Player::IsHurt() const
 {
     return dynamic_cast<Hurt_Action_Player*>(actionState) != nullptr;
+}
+
+// ------- MP 관련 ----------
+
+void Player::UpdateMP()
+{
+   MPRecoveryTimer += TimeManager::Get().GetDeltaTime();
+
+   if (MPRecoveryTimer >= 5.0f)
+   {
+       mp = std::min(mp + 5.0f, maxMp); 
+       MPRecoveryTimer = 0.0f;
+   }
+}
+
+void Player::OnHitEnemy(bool isCombo)
+{
+    float recoverAmount = isCombo ? 10.0f : 5.0f;
+    mp = std::min(mp + recoverAmount, maxMp);
+}
+
+bool Player::CanThrowWeapon() const
+{
+    return mp >= 5.0f;
+}
+
+bool Player::CanUseSkill() const
+{
+    return mp >= 100.0f;
+}
+
+void Player::ConsumeMPForWeapon()
+{
+    mp = std::max(0.0f, mp - 5.0f);
+}
+
+void Player::ConsumeMPForSkill()
+{
+    mp = std::max(0.0f, mp - 100.0f);
 }

@@ -146,7 +146,7 @@ void Weapon::Render()
             flipX
         );
     }
-    RenderManager::Get().DrawAABB(GetAABB(), Gdiplus::Color::Red, scale.x, scale.y);
+    // RenderManager::Get().DrawAABB(GetAABB(), Gdiplus::Color::Red, scale.x, scale.y);
 
 }
 
