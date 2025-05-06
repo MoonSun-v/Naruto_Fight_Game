@@ -168,6 +168,11 @@ float Player::SetMP(float value)
     return value;
 }
 
+void Player::IncreaseMP(float value)
+{
+    if (mp < 100) mp += value;
+}
+
 bool Player::IsAttacking() const
 {
     // 여기서 예외처리 발생! 수정 필요 
@@ -191,12 +196,6 @@ void Player::UpdateMP()
        mp = std::min(mp + 5.0f, maxMp); 
        MPRecoveryTimer = 0.0f;
    }
-}
-
-void Player::OnHitEnemy(bool isCombo)
-{
-    float recoverAmount = isCombo ? 10.0f : 5.0f;
-    mp = std::min(mp + recoverAmount, maxMp);
 }
 
 bool Player::CanThrowWeapon() const

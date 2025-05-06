@@ -80,6 +80,7 @@ public:
     float GetMP() const { return mp; }
 
     void TakeDamage(float damage);
+    void IncreaseMP(float value);
     bool IsDead() const { return hp <= 0; }
 
     // 초기화
@@ -93,7 +94,6 @@ public:
 
     // ------ MP 관련 --------
     void UpdateMP();
-    void OnHitEnemy(bool isCombo);
     bool CanThrowWeapon() const;
     bool CanUseSkill() const;
     void ConsumeMPForWeapon();

@@ -6,8 +6,8 @@
 void ComboHurt_Action_Player::Enter(Player* player)
 {
     player->PlayAnimation(L"Hurt_Long", false);
-    player->TakeDamage(0.3f);
-    OutputDebugString(L"ComboHurt !\n");
+    // player->TakeDamage(0.3f);
+    // OutputDebugString(L"ComboHurt !\n");
 }
 
 void ComboHurt_Action_Player::Update(Player* player, float deltaTime)
@@ -16,5 +16,11 @@ void ComboHurt_Action_Player::Update(Player* player, float deltaTime)
 }
 
 void ComboHurt_Action_Player::Exit(Player* player) {
-    // 아무 작업 없음
+    player->TakeDamage(0.2f);
+    player->IncreaseMP(0.1f);
+    if (player->IsDead())
+    {
+        // player->ChangeActionState(new Die_Action_Player());
+        OutputDebugString(L"[GameOver] 플레이어가 사망했습니다!\n");
+    }
 }
