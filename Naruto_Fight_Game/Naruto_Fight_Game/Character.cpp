@@ -112,3 +112,19 @@ void Character::UpdateCollider()
     // collider.m_Extent = Vector2(rect.Width / 2.0f, rect.Height / 2.0f);
     collider.m_Extent = Vector2(rect.Width * scale.x / 2.0f, rect.Height * scale.y / 2.0f);
 }
+
+void Character::SetTexture(const std::wstring& atlasPath)
+{
+    if (pBitmap)
+    {
+        delete pBitmap;
+        pBitmap = nullptr;
+    }
+
+    pBitmap = new Gdiplus::Bitmap(atlasPath.c_str());
+
+    if (pBitmap->GetLastStatus() != Gdiplus::Ok)
+        OutputDebugString(L"[ERROR] 텍스처 교체 실패!\n");
+    else
+        OutputDebugString(L"[SUCCESS] 텍스처 교체 성공!\n");
+}

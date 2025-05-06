@@ -14,6 +14,6 @@ void Die_Action_Player::Update(Player* player, float deltaTime)
 
 void Die_Action_Player::Exit(Player* player)
 {
-    OutputDebugString(L"[GameOver] 플레이어가 사망했습니다!\n");
+    // OutputDebugString(L"[GameOver] 플레이어가 사망했습니다!\n");
 }
 

@@ -70,20 +70,7 @@ const Gdiplus::Rect& Animator::GetCurrentFrameSourceRect() const
 
 bool Animator::IsAnimationFinished() const 
 {
-    /*
-    if (m_CurrentClip) {
-        std::wstring log = L"m_CurrentClip " + m_CurrentClipName + L"\n" +
-            L"!m_CurrentClip->isLoop: " + std::to_wstring(!m_CurrentClip->isLoop) + L"\n" +
-            L"m_CurrentFrameIndex == m_CurrentClip->frames.size() - 1 : " + std::to_wstring(m_CurrentFrameIndex == m_CurrentClip->frames.size() - 1) + L"\n" +
-            L"m_ElapsedTime >= m_CurrentClip->frames.back().duration: " + std::to_wstring(m_ElapsedTime >= m_CurrentClip->frames.back().duration) + L"\n\n" ;
-
-        OutputDebugString(log.c_str()); // 디버그 출력
-    }
-    */
-    
     return m_CurrentClip &&
         !m_CurrentClip->isLoop &&
         m_CurrentFrameIndex == m_CurrentClip->frames.size() - 1;
-        // && m_ElapsedTime >= m_CurrentClip->frames.back().duration; 
-    // 임시로 isLoop가 false인 애니메이션은 마지막 같은 프레임을 하나 더 추가해야 자연스러움..
 }

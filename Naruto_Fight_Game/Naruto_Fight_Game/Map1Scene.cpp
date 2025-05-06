@@ -41,11 +41,16 @@ void Map1Scene::Enter()
     player2->transparentColor = Gdiplus::Color(141, 183, 230);
 
     player1->SetScale({ 1.3f, 1.3f });
-    player2->SetScale({ 1.2f, 1.2f }); 
+    player2->SetScale({ 1.3f, 1.3f }); 
 
-    player1->SetStats(100, 100); 
+    player1->SetStats(10, 100); 
     player2->SetStats(100, 100);
 
+
+    // 초기화
+    m_GameOver = false;
+    m_EndSceneTimer = 0.0f;
+    m_WaitingForSceneChange = false;
 }
 
 void Map1Scene::Exit()
@@ -56,6 +61,8 @@ void Map1Scene::Exit()
 void Map1Scene::Update()
 {
 	__super::Update();
+
+    float deltaTime = TimeManager::Get().GetDeltaTime();
 
 	if (InputManager::Get().IsKeyPressed(VK_SPACE))
 	{
@@ -121,18 +128,31 @@ void Map1Scene::Update()
             player1->ChangeActionState(new Win_Action_Player());
             OutputDebugString(L"플레이어 1 승리\n");
             m_GameOver = true;
+            m_WaitingForSceneChange = true;
+            m_EndSceneTimer = 0.0f; // 타이머 시작
         }
         else if (!player2->IsDead() && player1->IsDead())
         {
             player1->ChangeActionState(new Die_Action_Player());
-            player2->ChangeActionState(new Win_Action_Player());
-            // 이미지 및 애니메이션 교체
             // player2->SetTexture(L"../Resources/Sasuke_Win.png");
-            // player2->GetAnimator().LoadAnimationFromFile(L"../Resources/Animation/Sasuke_Win.txt");
+            // player2->transparentColor = Gdiplus::Color(0, 120, 0);
+            player2->ChangeActionState(new Win_Action_Player());
+            OutputDebugString(L"플레이어 2 승리\n");
             m_GameOver = true;
+            m_WaitingForSceneChange = true;
+            m_EndSceneTimer = 0.0f; // 타이머 시작
         }
     }
+    else if (m_WaitingForSceneChange)
+    {
+        m_EndSceneTimer += deltaTime;
 
+        if (m_EndSceneTimer >= 5.0f)
+        {
+            SceneManager::Get().ChangeScene(MainApp::SceneType::Scene_End);
+            m_WaitingForSceneChange = false;
+        }
+    }
 }
 
 void Map1Scene::Render()

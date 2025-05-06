@@ -10,6 +10,8 @@
 #include "Throw_Action_Player.h"
 #include "Hurt_Action_Player.h"
 #include "Skill_Action_Player.h"
+#include "Die_Action_Player.h"
+#include "Win_Action_Player.h"
 
 #include "Idle_Action_Player.h"
 
@@ -112,6 +114,12 @@ void Player::PlayMove(float currentTime)
 
 void Player::ChangeMoveState(PlayerState* newState) 
 {
+    if (dynamic_cast<Die_Action_Player*>(moveState) ||
+        dynamic_cast<Win_Action_Player*>(moveState))
+    {
+        return;
+    }
+
     if (moveState) moveState->Exit(this);
     delete moveState;
     moveState = newState;
@@ -120,6 +128,13 @@ void Player::ChangeMoveState(PlayerState* newState)
 
 void Player::ChangeActionState(PlayerActionState* newState) 
 {
+    // 이미 Die 또는 Win 상태일 경우, 상태 변경 금지
+    if (dynamic_cast<Die_Action_Player*>(actionState) ||
+        dynamic_cast<Win_Action_Player*>(actionState))
+    {
+        return;
+    }
+
     if (actionState) actionState->Exit(this);
     delete actionState;
     actionState = newState;

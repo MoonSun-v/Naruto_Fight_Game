@@ -24,6 +24,8 @@ public:
     // 0이면 투명색 없음, 아니면 사용
     Gdiplus::Color transparentColor = Gdiplus::Color(0, 0, 0, 0);
 
+    void SetTexture(const std::wstring& atlasPath);
+
 protected:
     void LoadAnimation(const std::wstring& txtPath);
     virtual void UpdateCollider();

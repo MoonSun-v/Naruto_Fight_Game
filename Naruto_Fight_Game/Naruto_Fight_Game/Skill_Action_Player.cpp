@@ -7,13 +7,7 @@
 #include "Scene.h"
 
 void Skill_Action_Player::Enter(Player* player)
-{
-    player->PlayAnimation(L"Skill", false);
-    player->ConsumeMP(80.0f);
-    SetInputLockForAllPlayers(true); // 입력 잠금
-
-    // 테스트 위해 잠깐 주석 처리 
-    /*
+{ 
     if (player->CanUseSkill())
     {
         player->PlayAnimation(L"Skill", false);
@@ -21,7 +15,6 @@ void Skill_Action_Player::Enter(Player* player)
         SetInputLockForAllPlayers(true); // 입력 잠금
     }
     else player->ChangeActionState(new Idle_Action_Player());
-    */
 }
 
 void Skill_Action_Player::Update(Player* player, float deltaTime)

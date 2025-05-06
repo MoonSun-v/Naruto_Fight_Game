@@ -17,4 +17,6 @@ public:
 	Player* player2 = nullptr;
 
 	bool m_GameOver = false; 
+	float m_EndSceneTimer = 0.0f;
+	bool m_WaitingForSceneChange = false;
 };
