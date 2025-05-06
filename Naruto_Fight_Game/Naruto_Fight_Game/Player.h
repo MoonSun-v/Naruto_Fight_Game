@@ -46,6 +46,7 @@ public:
 
     
     bool IsAttacking() const;
+    bool IsSkill() const;
     bool IsHurt() const;
 
     bool m_HasHitThisAttack = false;    // 현재 공격 중 피격 여부

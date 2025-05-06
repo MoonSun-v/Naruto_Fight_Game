@@ -115,6 +115,30 @@ void Map1Scene::Update()
         }
     }
 
+    if (player1->IsSkill() && player1->m_AttackStartedThisFrame && m_SkillEffectImage == nullptr)
+    {
+        m_SkillEffectImage = new Gdiplus::Bitmap(L"../Resources/Naruto_Skill.png");
+        m_SkillEffectTimer = 0.0f;
+        m_SkillEffectOwner = SkillOwner::Player1;
+    }
+
+    if (player2->IsSkill() && player2->m_AttackStartedThisFrame && m_SkillEffectImage == nullptr)
+    {
+        m_SkillEffectImage = new Gdiplus::Bitmap(L"../Resources/Sasuke_Skill.png");
+        m_SkillEffectTimer = 0.0f;
+        m_SkillEffectOwner = SkillOwner::Player2;
+    }
+    if (m_SkillEffectImage)
+    {
+        m_SkillEffectTimer += deltaTime;
+        if (m_SkillEffectTimer >= m_SkillEffectDuration)
+        {
+            delete m_SkillEffectImage;
+            m_SkillEffectImage = nullptr;
+            m_SkillEffectOwner = SkillOwner::None;
+        }
+    }
+
     // [ 게임 오버 ]
     if (!m_GameOver)
     {
@@ -130,8 +154,6 @@ void Map1Scene::Update()
         else if (!player2->IsDead() && player1->IsDead())
         {
             player1->ChangeActionState(new Die_Action_Player());
-            // player2->SetTexture(L"../Resources/Sasuke_Win.png");
-            // player2->transparentColor = Gdiplus::Color(0, 120, 0);
             player2->ChangeActionState(new Win_Action_Player());
             OutputDebugString(L"플레이어 2 승리\n");
             m_GameOver = true;
@@ -143,7 +165,7 @@ void Map1Scene::Update()
     {
         m_EndSceneTimer += deltaTime;
 
-        if (m_EndSceneTimer >= 10.0f)
+        if (m_EndSceneTimer >= 5.0f)
         {
             SceneManager::Get().ChangeScene(MainApp::SceneType::Scene_End);
             m_WaitingForSceneChange = false;
@@ -154,6 +176,22 @@ void Map1Scene::Update()
 void Map1Scene::Render()
 {
 	__super::Render();
+
+    if (m_SkillEffectImage)
+    {
+        float x = 0.0f, y = 0.0f;
+
+        if (m_SkillEffectOwner == SkillOwner::Player1)
+        {
+            x = 150.0f; y = 100.0f;
+        }
+        else if (m_SkillEffectOwner == SkillOwner::Player2)
+        {
+            x = 700.0f; y = 100.0f;
+        }
+
+        RenderManager::Get().DrawImage(m_SkillEffectImage, x, y);
+    }
 
     // [ HP, MP 텍스트 ]
     RenderManager::Get().DrawText_w(std::to_wstring((int)player1->GetHP()), 110, 40, 20, Gdiplus::Color::Red);
@@ -184,4 +222,12 @@ void Map1Scene::Render()
     float mpRatio2 = player2->GetMP() / 100.0f;
     float mpBarWidth2 = mpBarWidth * mpRatio2;
     RenderManager::Get().DrawFilledRect(screenWidth - 310 + (mpBarWidth - mpBarWidth2), 65, mpBarWidth2, 15, Gdiplus::Color::Blue);
+
+
+    // [ 조작키 ]
+    RenderManager::Get().DrawText_w(L"A D             [이동]              <- ->", 500, 40, 15, Gdiplus::Color::Black);
+    RenderManager::Get().DrawText_w(L"W               [점프]                  UP", 500, 70, 15, Gdiplus::Color::Black);
+    RenderManager::Get().DrawText_w(L"1                [때리기]                O", 500, 100, 15, Gdiplus::Color::Black);
+    RenderManager::Get().DrawText_w(L"2      [표창 던지기(MP-5)]     P", 500, 130, 15, Gdiplus::Color::Black);
+    RenderManager::Get().DrawText_w(L"LCtrl     [스킬(MP-60)]     Enter   ", 500, 160, 15, Gdiplus::Color::Black);
 }

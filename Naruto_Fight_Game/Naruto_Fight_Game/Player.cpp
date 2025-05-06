@@ -187,6 +187,11 @@ bool Player::IsAttacking() const
         dynamic_cast<AttackCombo_Action_Player*>(actionState) != nullptr;
 }
 
+bool Player::IsSkill() const
+{
+    return dynamic_cast<Skill_Action_Player*>(actionState) != nullptr ;
+}
+
 bool Player::IsHurt() const
 {
     return dynamic_cast<Hurt_Action_Player*>(actionState) != nullptr;
@@ -212,7 +217,7 @@ bool Player::CanThrowWeapon() const
 
 bool Player::CanUseSkill() const
 {
-    return mp >= 80.0f;
+    return mp >= 60.0f;
 }
 
 void Player::ConsumeMP(float amount)

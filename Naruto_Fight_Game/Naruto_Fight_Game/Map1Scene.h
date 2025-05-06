@@ -19,4 +19,13 @@ public:
 	bool m_GameOver = false; 
 	float m_EndSceneTimer = 0.0f;
 	bool m_WaitingForSceneChange = false;
+
+
+	// 스킬 관련 이미지 
+	enum class SkillOwner { None, Player1, Player2 };
+	SkillOwner m_SkillEffectOwner = SkillOwner::None;
+
+	Gdiplus::Bitmap* m_SkillEffectImage = nullptr;
+	float m_SkillEffectTimer = 0.0f;
+	const float m_SkillEffectDuration = 5.0f;
 };

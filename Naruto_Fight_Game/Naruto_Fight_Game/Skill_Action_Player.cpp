@@ -8,13 +8,16 @@
 
 void Skill_Action_Player::Enter(Player* player)
 { 
+    
     if (player->CanUseSkill())
     {
         player->PlayAnimation(L"Skill", false);
-        player->ConsumeMP(80.0f);
+        player->ConsumeMP(60.0f);
         SetInputLockForAllPlayers(true); // 입력 잠금
     }
     else player->ChangeActionState(new Idle_Action_Player());
+    
+    player->m_AttackStartedThisFrame = true;
 }
 
 void Skill_Action_Player::Update(Player* player, float deltaTime)
