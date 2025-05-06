@@ -16,8 +16,6 @@ void MainApp::Initialize()
 	// ¾À »ý¼º 
 	SceneManager::Get().CreateScene<StartScene>();
 	SceneManager::Get().CreateScene<Map1Scene>();
-	// SceneManager::Get().CreateScene<Map2Scene>();
-	// SceneManager::Get().CreateScene<Map3Scene>();
 	SceneManager::Get().CreateScene<EndScene>();
 
 	SceneManager::Get().ChangeScene(Scene_Start); // Ã³À½ ¾À 

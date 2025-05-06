@@ -6,6 +6,7 @@
 
 #include "../GDIEngine_StaticLib/SceneManager.h"
 #include "../GDIEngine_StaticLib/InputManager.h"
+#include "../GDIEngine_StaticLib/SoundManager.h"
 
 
 void StartScene::Enter()
@@ -16,6 +17,8 @@ void StartScene::Enter()
 	Background* pBackground = CreateObject<Background>(L"../Resources/StartScene.png");
 
 	StartTitle = new Gdiplus::Bitmap(L"../Resources/Start_Title.png");
+
+	SoundManager::Get().PlayBGM("../Resources/Sounds/Naruto_BGM.mp3");
 
 }
 

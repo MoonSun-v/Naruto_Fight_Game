@@ -106,7 +106,7 @@ void WindowGame::Initialize()
 
 	m_TimeManager.StartUp();
 	m_InputManager.StartUp(m_hWnd);
-	// m_SoundManager.StartUp();
+	m_SoundManager.StartUp();
 	m_RenderManager.StartUp(m_hWnd, m_Width, m_Height);
 	m_SceneManager.StartUp();
 }
@@ -115,7 +115,7 @@ void WindowGame::ShutDown()
 {
 	m_SceneManager.ShutDown();
 	m_RenderManager.ShutDown(m_hWnd);
-	// m_SoundManager.ShutDown();
+	m_SoundManager.ShutDown();
 	m_TimeManager.ShutDown();
 	m_InputManager.ShutDown();
 

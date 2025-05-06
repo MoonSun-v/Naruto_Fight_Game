@@ -2,7 +2,7 @@
 #include "InputManager.h"
 #include "SceneManager.h"
 #include "TimeManager.h"
-// #include "SoundManager.h"
+#include "SoundManager.h"
 #include "RenderManager.h"
 #include "Singleton.h"
 
@@ -33,7 +33,7 @@ private:
 	InputManager    m_InputManager;
 	SceneManager    m_SceneManager;
 	TimeManager     m_TimeManager;
-	// SoundManager    m_SoundManager;
+	SoundManager    m_SoundManager;
 	RenderManager   m_RenderManager;
 
 public:
