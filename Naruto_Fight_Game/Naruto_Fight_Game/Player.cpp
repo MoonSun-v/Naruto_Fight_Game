@@ -66,6 +66,8 @@ void Player::Render()
     */
     // RenderManager::Get().DrawText_w(
     //    L"moveSpeed: " + std::to_wstring(moveSpeed), 150, 80, 20, Gdiplus::Color::Green);
+
+   
 }
 
 void Player::PlayAttack()

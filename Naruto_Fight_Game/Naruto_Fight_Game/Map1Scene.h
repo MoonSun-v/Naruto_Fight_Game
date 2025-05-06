@@ -1,5 +1,6 @@
 #pragma once
 #include "../GDIEngine_StaticLib/Scene.h"
+#include "Player.h"
 
 class Map1Scene : public Scene
 {
@@ -11,4 +12,7 @@ public:
 	void Exit() override;
 	void Update() override;
 	void Render() override;
+
+	Player* player1 = nullptr;
+	Player* player2 = nullptr;
 };

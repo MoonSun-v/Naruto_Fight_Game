@@ -62,9 +62,7 @@ void Map1Scene::Update()
 
     // ------- 공격 충돌 체크 ----------
 
-    Player* player1 = nullptr;
-    Player* player2 = nullptr;
-
+    
     // 플레이어 객체 가져오기
     for (Object* obj : m_Objects)
     {
@@ -120,5 +118,33 @@ void Map1Scene::Render()
 {
 	__super::Render();
 
-	RenderManager::Get().DrawText_w(L"Map1Scene", 10, 10, 30, Gdiplus::Color::Yellow);
+    // [ HP, MP 텍스트 ]
+    RenderManager::Get().DrawText_w(std::to_wstring((int)player1->GetHP()), 80, 40, 20, Gdiplus::Color::Red);
+    RenderManager::Get().DrawText_w(std::to_wstring((int)player1->GetMP()), 80, 80, 20, Gdiplus::Color::Blue);
+
+    RenderManager::Get().DrawText_w(std::to_wstring((int)player2->GetHP()), WindowGame::Get().m_Width - 100, 40, 20, Gdiplus::Color::Red);
+    RenderManager::Get().DrawText_w(std::to_wstring((int)player2->GetMP()), WindowGame::Get().m_Width - 100, 80, 20, Gdiplus::Color::Blue);
+
+    // [ HP, MP Bar ]
+    float hpBarWidth = 200.0f;
+    float mpBarWidth = 200.0f;
+
+    float player1HPRatio = player1->GetHP() / 100.0f;
+    float player1MPRatio = player1->GetMP() / 100.0f;
+
+    RenderManager::Get().DrawFilledRect(80, 25, hpBarWidth * player1HPRatio, 15, Gdiplus::Color::Red);
+    RenderManager::Get().DrawFilledRect(80, 65, mpBarWidth * player1MPRatio, 15, Gdiplus::Color::Blue);
+
+    // 오른쪽은 위치만 반대로
+    float screenWidth = WindowGame::Get().m_Width;
+
+    // Player2 HP
+    float hpRatio2 = player2->GetHP() / 100.0f;
+    float hpBarWidth2 = hpBarWidth * hpRatio2;
+    RenderManager::Get().DrawFilledRect(screenWidth - 280 + (hpBarWidth - hpBarWidth2), 25, hpBarWidth2, 15, Gdiplus::Color::Red);
+
+    // Player2 MP
+    float mpRatio2 = player2->GetMP() / 100.0f;
+    float mpBarWidth2 = mpBarWidth * mpRatio2;
+    RenderManager::Get().DrawFilledRect(screenWidth - 280 + (mpBarWidth - mpBarWidth2), 65, mpBarWidth2, 15, Gdiplus::Color::Blue);
 }

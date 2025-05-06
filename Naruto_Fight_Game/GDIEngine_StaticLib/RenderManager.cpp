@@ -223,3 +223,11 @@ void RenderManager::DrawText_w(const std::wstring& text, float x, float y, float
 	// 폰트 리소스 해제
 	DeleteObject(hFont);
 }
+
+void RenderManager::DrawFilledRect(float x, float y, float width, float height, Gdiplus::Color color)
+{
+	if (!g_pBackBufferGraphics) return;
+
+	Gdiplus::SolidBrush brush(color);
+	g_pBackBufferGraphics->FillRectangle(&brush, x, y, width, height);
+}

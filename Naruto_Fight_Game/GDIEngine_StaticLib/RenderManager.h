@@ -54,4 +54,7 @@ public:
 
 	// [ 텍스트 출력 ]
 	void DrawText_w(const std::wstring& text, float x, float y, float fontSize, Gdiplus::Color color);
+
+	// [ HP MP Bar ]
+	void DrawFilledRect(float x, float y, float width, float height, Gdiplus::Color color);
 };
