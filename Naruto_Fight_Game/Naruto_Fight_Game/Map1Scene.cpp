@@ -23,7 +23,7 @@ void Map1Scene::Enter()
 
 
 	// 플레이어 생성 및 초기 위치 설정
-	Player* player1 = CreateObject<Player>(
+	player1 = CreateObject<Player>(
 		L"../Resources/Naruto.png",
 		L"../Resources/Animation/Naruto.txt"
 	);
@@ -31,7 +31,7 @@ void Map1Scene::Enter()
 	player1->SetKeySet({ 'A', 'D', 'W', '1', '2', VK_LCONTROL }); // Left, Right, Up, Attack. Throw
     player1->transparentColor = Gdiplus::Color(0, 128, 0);
 
-	Player* player2 = CreateObject<Player>(
+	player2 = CreateObject<Player>(
 		L"../Resources/New_Sasuke.png",
 		L"../Resources/Animation/New_Sasuke.txt"
 	);

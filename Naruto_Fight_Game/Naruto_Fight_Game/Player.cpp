@@ -168,7 +168,6 @@ void Player::IncreaseMP(float value)
 
 bool Player::IsAttacking() const
 {
-    // 여기서 예외처리 발생! 수정 필요 
     return dynamic_cast<Attack_Action_Player*>(actionState) != nullptr ||
         dynamic_cast<AttackCombo_Action_Player*>(actionState) != nullptr;
 }
@@ -201,12 +200,7 @@ bool Player::CanUseSkill() const
     return mp >= 80.0f;
 }
 
-void Player::ConsumeMPForWeapon()
+void Player::ConsumeMP(float amount)
 {
-    mp = std::max(0.0f, mp - 5.0f);
-}
-
-void Player::ConsumeMPForSkill()
-{
-    mp = std::max(0.0f, mp - 80.0f);
+    mp = std::max(0.0f, mp - amount);
 }

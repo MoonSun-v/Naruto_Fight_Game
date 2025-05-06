@@ -97,8 +97,7 @@ public:
     void UpdateMP();
     bool CanThrowWeapon() const;
     bool CanUseSkill() const;
-    void ConsumeMPForWeapon();
-    void ConsumeMPForSkill();
+    void ConsumeMP(float amount);
 
     bool isInputLocked = false;
 };
