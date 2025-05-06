@@ -100,4 +100,6 @@ public:
     void ConsumeMP(float amount);
 
     bool isInputLocked = false;
+
+    // void SetAnimationResource(const std::wstring& imagePath, const std::wstring& animPath);
 };

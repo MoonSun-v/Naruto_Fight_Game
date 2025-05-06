@@ -204,3 +204,11 @@ void Player::ConsumeMP(float amount)
 {
     mp = std::max(0.0f, mp - amount);
 }
+
+/*
+void Player::SetAnimationResource(const std::wstring& imagePath, const std::wstring& animPath)
+{
+    m_ImagePath = imagePath;
+    m_AnimationPath = animPath;
+    LoadImageAndAnimation(); // 내부에서 이미지 로드 및 Animator 초기화
+}*/

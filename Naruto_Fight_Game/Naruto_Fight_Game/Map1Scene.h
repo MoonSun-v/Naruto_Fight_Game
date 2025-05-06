@@ -15,4 +15,6 @@ public:
 
 	Player* player1 = nullptr;
 	Player* player2 = nullptr;
+
+	bool m_GameOver = false; 
 };

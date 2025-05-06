@@ -19,5 +19,5 @@ void ComboHurt_Action_Player::Update(Player* player, float deltaTime)
 void ComboHurt_Action_Player::Exit(Player* player) {
     player->TakeDamage(0.2f);
     player->IncreaseMP(0.1f);
-    if (player->IsDead()) player->ChangeActionState(new Die_Action_Player());
+    // if (player->IsDead()) player->ChangeActionState(new Die_Action_Player());
 }

@@ -141,6 +141,7 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="ComboHurt_Action_Player.cpp" />
+    <ClCompile Include="Die_Action_Player.cpp" />
     <ClCompile Include="EndScene.cpp" />
     <ClCompile Include="Hurt_Action_Player.cpp" />
     <ClCompile Include="Idle_Action_Player.cpp" />
@@ -159,6 +160,7 @@
     <ClCompile Include="Throw_Action_Player.cpp" />
     <ClCompile Include="Walk_Player.cpp" />
     <ClCompile Include="Weapon.cpp" />
+    <ClCompile Include="Win_Action_Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationClip.h" />
@@ -168,6 +170,7 @@
     <ClInclude Include="Background.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="ComboHurt_Action_Player.h" />
+    <ClInclude Include="Die_Action_Player.h" />
     <ClInclude Include="EndScene.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Hurt_Action_Player.h" />
@@ -191,6 +194,7 @@
     <ClInclude Include="Throw_Action_Player.h" />
     <ClInclude Include="Walk_Player.h" />
     <ClInclude Include="Weapon.h" />
+    <ClInclude Include="Win_Action_Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

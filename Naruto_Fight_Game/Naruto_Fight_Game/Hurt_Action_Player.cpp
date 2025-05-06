@@ -18,5 +18,5 @@ void Hurt_Action_Player::Exit(Player* player)
 {
     player->TakeDamage(2.0f);
     player->IncreaseMP(1.0f);
-    if (player->IsDead()) player->ChangeActionState(new Die_Action_Player());
+    // if (player->IsDead()) player->ChangeActionState(new Die_Action_Player());
 }

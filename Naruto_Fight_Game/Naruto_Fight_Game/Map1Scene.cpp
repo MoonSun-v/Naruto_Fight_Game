@@ -11,6 +11,8 @@
 #include "../GDIEngine_StaticLib/TimeManager.h"
 
 #include "Hurt_Action_Player.h"
+#include "Die_Action_Player.h"
+#include "Win_Action_Player.h"
 
 void Map1Scene::Enter()
 {
@@ -20,7 +22,6 @@ void Map1Scene::Enter()
 
     // 배경 객체 생성 (배경을 객체로 관리)
     Background* pBackground = CreateObject<Background>(L"../Resources/Map1.png");
-
 
 	// 플레이어 생성 및 초기 위치 설정
 	player1 = CreateObject<Player>(
@@ -32,7 +33,7 @@ void Map1Scene::Enter()
     player1->transparentColor = Gdiplus::Color(0, 128, 0);
 
 	player2 = CreateObject<Player>(
-		L"../Resources/New_Sasuke.png",
+		L"../Resources/Sasuke.png",
 		L"../Resources/Animation/New_Sasuke.txt"
 	);
 	player2->SetPosition(700.0f, 400.0f);
@@ -110,6 +111,28 @@ void Map1Scene::Update()
             player2->m_HasHitThisAttack = false;
         }
     }
+
+    // [ 게임 오버 ]
+    if (!m_GameOver)
+    {
+        if (!player1->IsDead() && player2->IsDead())
+        {
+            player2->ChangeActionState(new Die_Action_Player());
+            player1->ChangeActionState(new Win_Action_Player());
+            OutputDebugString(L"플레이어 1 승리\n");
+            m_GameOver = true;
+        }
+        else if (!player2->IsDead() && player1->IsDead())
+        {
+            player1->ChangeActionState(new Die_Action_Player());
+            player2->ChangeActionState(new Win_Action_Player());
+            // 이미지 및 애니메이션 교체
+            // player2->SetTexture(L"../Resources/Sasuke_Win.png");
+            // player2->GetAnimator().LoadAnimationFromFile(L"../Resources/Animation/Sasuke_Win.txt");
+            m_GameOver = true;
+        }
+    }
+
 }
 
 void Map1Scene::Render()
