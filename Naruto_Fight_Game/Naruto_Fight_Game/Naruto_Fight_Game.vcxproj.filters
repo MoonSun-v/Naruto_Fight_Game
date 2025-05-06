@@ -99,6 +99,9 @@
     <ClCompile Include="Skill_Action_Player.cpp">
       <Filter>PlayerState_Action</Filter>
     </ClCompile>
+    <ClCompile Include="SkillHurt_Action_Player.cpp">
+      <Filter>PlayerState_Action</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Map1Scene.h">
@@ -186,6 +189,9 @@
       <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Skill_Action_Player.h">
+      <Filter>PlayerState_Action</Filter>
+    </ClInclude>
+    <ClInclude Include="SkillHurt_Action_Player.h">
       <Filter>PlayerState_Action</Filter>
     </ClInclude>
   </ItemGroup>

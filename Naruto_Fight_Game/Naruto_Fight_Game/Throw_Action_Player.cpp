@@ -19,7 +19,6 @@ void Throw_Action_Player::Enter(Player* player)
         Vector2 dir = player->flipX ? Vector2(-1, 0) : Vector2(1, 0);
         weapon->Init(L"../Resources/Kunai1.png", L"../Resources/Weapon/Kunai1.txt", player->GetPosition(), dir, player->flipX);
        
-        // player->ConsumeMPForWeapon();
         player->ConsumeMP(5.0f);
         player->PlayAnimation(L"Throw_Action", false);
     }

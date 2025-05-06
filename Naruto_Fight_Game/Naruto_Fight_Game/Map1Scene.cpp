@@ -61,9 +61,6 @@ void Map1Scene::Update()
 		SceneManager::Get().ChangeScene(MainApp::SceneType::Scene_Map2);
 	}
 
-    // ------- 공격 충돌 체크 ----------
-
-    
     // 플레이어 객체 가져오기
     for (Object* obj : m_Objects)
     {
