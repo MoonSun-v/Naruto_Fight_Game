@@ -16,8 +16,8 @@ public:
 	virtual ~WindowGame();
 	static WindowGame* m_pInstance;
 
-	int				m_Width = 1024;
-	int				m_Height = 576;
+	int				m_Width = 1200;
+	int				m_Height = 500;
 
 private:
 	HINSTANCE		m_hInstance;

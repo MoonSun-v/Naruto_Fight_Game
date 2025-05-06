@@ -21,14 +21,14 @@ void Map1Scene::Enter()
 	TimeManager::Get().StartUp();
 
     // 배경 객체 생성 (배경을 객체로 관리)
-    Background* pBackground = CreateObject<Background>(L"../Resources/Map1.png");
+    Background* pBackground = CreateObject<Background>(L"../Resources/Map1_Background.png");
 
 	// 플레이어 생성 및 초기 위치 설정
 	player1 = CreateObject<Player>(
 		L"../Resources/Naruto.png",
 		L"../Resources/Animation/Naruto.txt"
 	);
-	player1->SetPosition(60.0f, 400.0f);
+	player1->SetPosition(200.0f, 390.0f);
 	player1->SetKeySet({ 'A', 'D', 'W', '1', '2', VK_LCONTROL }); // Left, Right, Up, Attack. Throw
     player1->transparentColor = Gdiplus::Color(0, 128, 0);
 
@@ -36,14 +36,15 @@ void Map1Scene::Enter()
 		L"../Resources/Sasuke.png",
 		L"../Resources/Animation/New_Sasuke.txt"
 	);
-	player2->SetPosition(700.0f, 400.0f);
+	player2->SetPosition(1000.0f, 390.0f);
 	player2->SetKeySet({ VK_LEFT, VK_RIGHT, VK_UP, 'O', 'P', VK_RETURN });
     player2->transparentColor = Gdiplus::Color(141, 183, 230);
 
     player1->SetScale({ 1.3f, 1.3f });
     player2->SetScale({ 1.3f, 1.3f }); 
+    player2->flipX = true;
 
-    player1->SetStats(10, 100); 
+    player1->SetStats(100, 100); 
     player2->SetStats(100, 100);
 
 
@@ -147,7 +148,7 @@ void Map1Scene::Update()
     {
         m_EndSceneTimer += deltaTime;
 
-        if (m_EndSceneTimer >= 5.0f)
+        if (m_EndSceneTimer >= 10.0f)
         {
             SceneManager::Get().ChangeScene(MainApp::SceneType::Scene_End);
             m_WaitingForSceneChange = false;
