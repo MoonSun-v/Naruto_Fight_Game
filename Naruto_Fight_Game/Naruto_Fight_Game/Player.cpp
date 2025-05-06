@@ -141,10 +141,26 @@ void Player::SetKeySet(const KeySet& keys)
     keySet = keys;
 }
 
-void Player::TakeDamage()
+void Player::TakeDamage(float damage)
 {
+    hp -= damage;
+    if (hp < 0) hp = 0;
+
     // 예: 체력 감소, 피격 애니메이션, 디버그 출력
-    OutputDebugString(L"Player Hit!\n");
+    OutputDebugString(L"Player Hit!");
+}
+
+float Player::SetHP(float value) 
+{ 
+    if (value < 0) return 0.0f;
+    if (value > maxHp) return maxHp;
+    return value;
+}
+float Player::SetMP(float value)
+{
+    if (value < 0) return 0.0f;
+    if (value > maxHp) return maxHp;
+    return value;
 }
 
 bool Player::IsAttacking() const

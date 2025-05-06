@@ -5,6 +5,7 @@
 
 class Character : public Object
 {
+
 public:
     Character(const std::wstring& atlasPath, const std::wstring& txtPath);
     virtual ~Character();

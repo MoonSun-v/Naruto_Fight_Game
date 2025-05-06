@@ -6,7 +6,7 @@
 void ComboHurt_Action_Player::Enter(Player* player)
 {
     player->PlayAnimation(L"Hurt_Long", false);
-    // player->TakeDamage();
+    player->TakeDamage(0.3f);
     OutputDebugString(L"ComboHurt !\n");
 }
 

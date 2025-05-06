@@ -43,7 +43,7 @@ public:
     void PlayAnimation(const std::wstring& name, bool force = false);
     Animator& GetAnimator() { return animator; }
 
-    void TakeDamage();
+    
     bool IsAttacking() const;
     bool IsHurt() const;
 
@@ -63,4 +63,29 @@ private:
 
     void PlayAttack();
     void PlayMove(float currentTime);
+
+protected:
+    float hp;
+    float maxHp;
+    float mp;
+    float maxMp;
+
+public:
+    float SetHP(float value);
+    float SetMP(float value);
+
+    float GetHP() const { return hp; }
+    float GetMP() const { return mp; }
+
+    void TakeDamage(float damage);
+    bool IsDead() const { return hp <= 0; }
+
+    // ÃÊ±âÈ­
+    void SetStats(float _maxHp, float _maxMp)
+    {
+        maxHp = _maxHp;
+        hp = _maxHp;
+        maxMp = _maxMp;
+        mp = _maxMp;
+    }
 };

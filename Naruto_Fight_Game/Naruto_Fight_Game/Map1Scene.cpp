@@ -39,8 +39,11 @@ void Map1Scene::Enter()
 	player2->SetKeySet({ VK_LEFT, VK_RIGHT, VK_UP, 'O', 'P' });
     player2->transparentColor = Gdiplus::Color(141, 183, 230);
 
-    player1->SetScale({ 1.2f, 1.2f });
+    player1->SetScale({ 1.3f, 1.3f });
     player2->SetScale({ 1.2f, 1.2f }); 
+
+    player1->SetStats(100, 50);  // ¿¹: HP 100, MP 50
+    player2->SetStats(100, 50);
 }
 
 void Map1Scene::Exit()
