@@ -146,8 +146,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\StartScene.h",
               "ViewState": "AgIAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:23:56.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:23:56.15Z"
             },
             {
               "$type": "Document",
@@ -159,8 +158,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Map1Scene.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:23:54.122Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:23:54.122Z"
             },
             {
               "$type": "Document",
@@ -170,7 +168,7 @@
               "RelativeDocumentMoniker": "Naruto_Fight_Game\\Map1Scene.cpp",
               "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\Naruto_Fight_Game\\Naruto_Fight_Game\\Naruto_Fight_Game\\Map1Scene.cpp",
               "RelativeToolTip": "Naruto_Fight_Game\\Map1Scene.cpp",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAAAJcAAABAAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-05-07T02:14:31.415Z",
               "EditorCaption": ""
@@ -185,8 +183,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\EndScene.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:14:30.371Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:14:30.371Z"
             },
             {
               "$type": "Document",
@@ -198,8 +195,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Walk_Player.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:14:21.738Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:14:21.738Z"
             },
             {
               "$type": "Document",
@@ -211,8 +207,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Run_Player.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:14:16.886Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:14:16.886Z"
             },
             {
               "$type": "Document",
@@ -224,8 +219,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Run_Player.cpp",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAC4AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-07T02:13:14.396Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:13:14.396Z"
             },
             {
               "$type": "Document",
@@ -237,8 +231,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Jump_Player.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:13:11.737Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:13:11.737Z"
             },
             {
               "$type": "Document",
@@ -250,8 +243,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Jump_Player.cpp",
               "ViewState": "AgIAABUAAAAAAAAAAAAAABkAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-07T02:12:57.576Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:12:57.576Z"
             },
             {
               "$type": "Document",
@@ -263,8 +255,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Idle_Player.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:12:56.827Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:12:56.827Z"
             },
             {
               "$type": "Document",
@@ -276,8 +267,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Idle_Player.cpp",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-07T02:12:49.917Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:12:49.917Z"
             },
             {
               "$type": "Document",
@@ -289,8 +279,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Win_Action_Player.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:12:48.502Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:12:48.502Z"
             },
             {
               "$type": "Document",
@@ -302,8 +291,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Win_Action_Player.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-07T02:12:43.506Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:12:43.506Z"
             },
             {
               "$type": "Document",
@@ -315,8 +303,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Throw_Action_Player.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:12:42.146Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:12:42.146Z"
             },
             {
               "$type": "Document",
@@ -328,8 +315,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\SkillHurt_Action_Player.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:12:41.406Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:12:41.406Z"
             },
             {
               "$type": "Document",
@@ -341,8 +327,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Skill_Action_Player.cpp",
               "ViewState": "AgIAABAAAAAAAAAAAAAAAEwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-07T02:11:30.658Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:11:30.658Z"
             },
             {
               "$type": "Document",
@@ -354,8 +339,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\SkillHurt_Action_Player.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-07T02:11:16.606Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:11:16.606Z"
             },
             {
               "$type": "Document",
@@ -367,8 +351,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Die_Action_Player.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-07T02:11:00.061Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:11:00.061Z"
             },
             {
               "$type": "Document",
@@ -380,8 +363,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\ComboHurt_Action_Player.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:10:59.026Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:10:59.026Z"
             },
             {
               "$type": "Document",
@@ -393,8 +375,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\ComboHurt_Action_Player.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-07T02:10:56.163Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:10:56.163Z"
             },
             {
               "$type": "Document",
@@ -406,8 +387,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\AttackCombo_Action_Player.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:10:53.305Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:10:53.305Z"
             },
             {
               "$type": "Document",
@@ -419,8 +399,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Skill_Action_Player.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-06T08:52:48.238Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-06T08:52:48.238Z"
             },
             {
               "$type": "Document",
@@ -432,8 +411,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\AttackCombo_Action_Player.cpp",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-07T02:10:41.086Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:10:41.086Z"
             },
             {
               "$type": "Document",
@@ -445,8 +423,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Attack_Action_Player.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:10:37.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:10:37.203Z"
             },
             {
               "$type": "Document",
@@ -458,8 +435,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Attack_Action_Player.cpp",
               "ViewState": "AgIAABUAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-07T02:09:57.876Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:09:57.876Z"
             },
             {
               "$type": "Document",
@@ -471,8 +447,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Player.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:09:44.99Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:09:44.99Z"
             },
             {
               "$type": "Document",
@@ -484,8 +459,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Character.cpp",
               "ViewState": "AgIAAD8AAAAAAAAAAAAAAAIAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-07T02:07:57.636Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:07:57.636Z"
             },
             {
               "$type": "Document",
@@ -497,8 +471,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Animator.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:07:53.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:07:53.631Z"
             },
             {
               "$type": "Document",
@@ -510,8 +483,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\Animator.cpp",
               "ViewState": "AgIAADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-07T02:07:28.883Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:07:28.883Z"
             },
             {
               "$type": "Document",
@@ -523,8 +495,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\AnimationClip.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-07T02:07:23.613Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:07:23.613Z"
             },
             {
               "$type": "Document",
@@ -536,8 +507,7 @@
               "RelativeToolTip": "Naruto_Fight_Game\\AnimationClip.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-07T02:07:21.99Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-07T02:07:21.99Z"
             }
           ]
         }

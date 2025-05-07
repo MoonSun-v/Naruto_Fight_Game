@@ -34,7 +34,7 @@ void Map1Scene::Enter()
 
 	player2 = CreateObject<Player>(
 		L"../Resources/Sasuke.png",
-		L"../Resources/Animation/New_Sasuke.txt"
+		L"../Resources/Animation/Sasuke.txt"
 	);
 	player2->SetPosition(1000.0f, 390.0f);
 	player2->SetKeySet({ VK_LEFT, VK_RIGHT, VK_UP, 'O', 'P', VK_RETURN });
