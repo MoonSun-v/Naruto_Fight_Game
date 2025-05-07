@@ -12,7 +12,7 @@ void Skill_Action_Player::Enter(Player* player)
     if (player->CanUseSkill())
     {
         player->PlayAnimation(L"Skill", false);
-        player->ConsumeMP(60.0f);
+        player->ConsumeMP(50.0f);
         SetInputLockForAllPlayers(true); // 입력 잠금
     }
     else player->ChangeActionState(new Idle_Action_Player());

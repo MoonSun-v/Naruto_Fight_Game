@@ -8,7 +8,7 @@
 class Weapon : public Object
 {
 public:
-    Weapon() = default;  // 기본 생성자만 필요
+    Weapon() = default;  
     virtual ~Weapon();
 
     void Init(const std::wstring& atlasPath, const std::wstring& txtPath,
@@ -38,6 +38,6 @@ private:
     Animator animator;
 
     Gdiplus::Color transparentColor;          // 색상 키
-    Vector2 scale = { 1.5f, 1.5f };
+    Vector2 scale = { 1.7f, 1.7f };
 };
 

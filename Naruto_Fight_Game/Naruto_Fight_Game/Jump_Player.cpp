@@ -23,7 +23,7 @@ void Jump_Player::Update(Player* player, float deltaTime)
 
     jumpTime += deltaTime;
 
-    // 간단한 점프 곡선 (sin 파라볼라)
+    // 점프 곡선 (sin 파라볼라)
     float t = jumpTime / duration;
     if (t >= 1.0f) {
         player->position.y = startY;

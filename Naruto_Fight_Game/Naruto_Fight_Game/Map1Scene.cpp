@@ -40,8 +40,8 @@ void Map1Scene::Enter()
 	player2->SetKeySet({ VK_LEFT, VK_RIGHT, VK_UP, 'O', 'P', VK_RETURN });
     player2->transparentColor = Gdiplus::Color(141, 183, 230);
 
-    player1->SetScale({ 1.3f, 1.3f });
-    player2->SetScale({ 1.3f, 1.3f }); 
+    player1->SetScale({ 1.4f, 1.4f });
+    player2->SetScale({ 1.4f, 1.4f }); 
     player2->flipX = true;
 
     player1->SetStats(100, 100); 
@@ -118,6 +118,8 @@ void Map1Scene::Update()
         }
     }
 
+    // [ 스킬 깜짝 UI ]
+
     if (player1->IsSkill() && player1->m_AttackStartedThisFrame && m_SkillEffectImage == nullptr)
     {
         m_SkillEffectImage = new Gdiplus::Bitmap(L"../Resources/Naruto_Skill.png");
@@ -150,6 +152,7 @@ void Map1Scene::Update()
             player2->ChangeActionState(new Die_Action_Player());
             player1->ChangeActionState(new Win_Action_Player());
             OutputDebugString(L"플레이어 1 승리\n");
+            m_WinnerImage = new Gdiplus::Bitmap(L"../Resources/Naruto_Win.png");
             m_GameOver = true;
             m_WaitingForSceneChange = true;
             m_EndSceneTimer = 0.0f; // 타이머 시작
@@ -158,6 +161,7 @@ void Map1Scene::Update()
         {
             player1->ChangeActionState(new Die_Action_Player());
             player2->ChangeActionState(new Win_Action_Player());
+            m_WinnerImage = new Gdiplus::Bitmap(L"../Resources/Sasuke_Win.png");
             OutputDebugString(L"플레이어 2 승리\n");
             m_GameOver = true;
             m_WaitingForSceneChange = true;
@@ -179,6 +183,12 @@ void Map1Scene::Update()
 void Map1Scene::Render()
 {
 	__super::Render();
+
+    // [ GameEnd ]
+    if (m_GameOver)
+    {
+        RenderManager::Get().DrawImage(m_WinnerImage, 300.0f, 100.0f);
+    }
 
     if (m_SkillEffectImage)
     {
@@ -226,12 +236,15 @@ void Map1Scene::Render()
     float mpBarWidth2 = mpBarWidth * mpRatio2;
     RenderManager::Get().DrawFilledRect(screenWidth - 310 + (mpBarWidth - mpBarWidth2), 65, mpBarWidth2, 15, Gdiplus::Color::Blue);
 
-
-    // [ 조작키 ]
-    RenderManager::Get().DrawText_w(L"A D                 [이동]                 <- ->", 500, 10, 15, Gdiplus::Color::Black);
-    RenderManager::Get().DrawText_w(L"W                   [점프]                     UP", 500, 40, 15, Gdiplus::Color::Black);
-    RenderManager::Get().DrawText_w(L"1                   [때리기]                   O", 500, 70, 15, Gdiplus::Color::Black);
-    RenderManager::Get().DrawText_w(L"        [연속 때리기는 꾹누르기]", 500, 100, 15, Gdiplus::Color::Black);
-    RenderManager::Get().DrawText_w(L"2         [표창 던지기(MP-5)]        P", 500, 130, 15, Gdiplus::Color::Black);
-    RenderManager::Get().DrawText_w(L"LCtrl        [스킬(MP-60)]        Enter   ", 500, 160, 15, Gdiplus::Color::Black);
+    if (!m_GameOver)
+    {
+        // [ 조작키 ]
+        RenderManager::Get().DrawText_w(L"A D      [걷기/달리기(두번연속)]      <- ->", 490, 10, 15, Gdiplus::Color::Black);
+        RenderManager::Get().DrawText_w(L"W                   [점프]                     UP", 500, 40, 15, Gdiplus::Color::Black);
+        RenderManager::Get().DrawText_w(L"1                   [때리기]                   O", 500, 70, 15, Gdiplus::Color::Black);
+        RenderManager::Get().DrawText_w(L"        [연속 때리기는 꾹누르기]", 500, 100, 15, Gdiplus::Color::Black);
+        RenderManager::Get().DrawText_w(L"2         [표창 던지기(MP-5)]        P", 500, 130, 15, Gdiplus::Color::Black);
+        RenderManager::Get().DrawText_w(L"LCtrl        [나선환/치도리(MP-50)]        Enter   ", 480, 160, 15, Gdiplus::Color::Black);
+    }
+    
 }

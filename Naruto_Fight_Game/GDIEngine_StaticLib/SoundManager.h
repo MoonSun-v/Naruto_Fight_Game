@@ -16,6 +16,8 @@ private:
 	Channel* bgm_channel = nullptr;
 	Channel* sfx_channel = nullptr;
 
+	std::string currentBGMPath; // 현재 재생 중인 BGM 파일 경로
+
 public:
 	SoundManager() = default;
 	~SoundManager() = default;

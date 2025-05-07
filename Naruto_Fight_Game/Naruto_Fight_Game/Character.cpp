@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Character.h"
-#include "RenderManager.h" // 이렇게 해도 되는거구나..?!
+#include "RenderManager.h" 
 #include "TimeManager.h"
 
 #include <fstream>
@@ -107,9 +107,7 @@ void Character::Render()
 void Character::UpdateCollider()
 {
     const Gdiplus::Rect& rect = animator.GetCurrentFrameSourceRect();
-    // collider.m_Center = position + Vector2(rect.Width / 2.0f, rect.Height / 2.0f);
     collider.m_Center = position; // 이미지 중심 기준
-    // collider.m_Extent = Vector2(rect.Width / 2.0f, rect.Height / 2.0f);
     collider.m_Extent = Vector2(rect.Width * scale.x / 2.0f, rect.Height * scale.y / 2.0f);
 }
 

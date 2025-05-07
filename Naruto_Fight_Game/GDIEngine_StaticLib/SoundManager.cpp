@@ -21,6 +21,14 @@ void SoundManager::StartUp()
 
 void SoundManager::PlayBGM(const char* filePath)
 {
+    // 이미 같은 BGM이 재생 중이면 무시
+    if (currentBGMPath == filePath && bgm_channel != nullptr)
+    {
+        bool isPlaying = false;
+        bgm_channel->isPlaying(&isPlaying);
+        if (isPlaying) return; 
+    }
+
     if (bgm_sound) 
     {
         bgm_sound->release();
@@ -38,6 +46,9 @@ void SoundManager::PlayBGM(const char* filePath)
 
     // 재생
     system->playSound(bgm_sound, nullptr, false, &bgm_channel);
+
+    // 현재 경로 저장
+    currentBGMPath = filePath;
 }
 
 void SoundManager::StopBGM()

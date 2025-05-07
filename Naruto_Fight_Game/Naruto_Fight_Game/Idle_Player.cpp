@@ -14,7 +14,7 @@ void Idle_Player::Enter(Player* player)
 
 void Idle_Player::Update(Player* player, float deltaTime)
 {
-    const auto& keys = player->GetKeySet();  // <- keySet을 안전하게 가져오기
+    const auto& keys = player->GetKeySet();  
 
     if (InputManager::Get().IsKeyDown(keys.keyLeft) || InputManager::Get().IsKeyDown(keys.keyRight))
     {

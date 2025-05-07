@@ -44,5 +44,5 @@ void Run_Player::Update(Player* player, float deltaTime)
 
 void Run_Player::Exit(Player* player)
 {
-    // 특별한 정리 작업은 없음
+    
 }

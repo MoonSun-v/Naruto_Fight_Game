@@ -18,6 +18,4 @@ void SkillHurt_Action_Player::Exit(Player* player)
 {
     player->TakeDamage(20.0f);
     player->IncreaseMP(5.0f);
-
-   // if (player->IsDead()) player->ChangeActionState(new Die_Action_Player());
 }

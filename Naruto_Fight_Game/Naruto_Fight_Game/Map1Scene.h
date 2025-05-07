@@ -28,4 +28,6 @@ public:
 	Gdiplus::Bitmap* m_SkillEffectImage = nullptr;
 	float m_SkillEffectTimer = 0.0f;
 	const float m_SkillEffectDuration = 5.0f;
+
+	Gdiplus::Bitmap* m_WinnerImage = nullptr;
 };

@@ -23,7 +23,7 @@ void Attack_Action_Player::Update(Player* player, float deltaTime)
     elapsedTime += deltaTime;
     comboInputTime += deltaTime;
 
-    // 키 꾹 누르기 판단
+    // [ 콤보 공격 판단 ] : 키 꾹 누르기
     if (InputManager::Get().IsKeyDown(keys.keyAttack)) comboInputTime += deltaTime;
     else                                    comboInputTime = 0.0f; // 손 뗐으면 초기화
 
